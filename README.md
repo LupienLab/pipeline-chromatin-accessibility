@@ -119,4 +119,4 @@ See [this blog post](http://varianceexplained.org/statistics/interpreting-pvalue
 
 [2] Felix Krueger, Trim Galore. 2012. https://github.com/FelixKrueger/TrimGalore
 
-[3] Tao Liu, MACS2. https://gituhh.com/taoliu/MACS
+[3] Tao Liu, MACS2. https://github.com/taoliu/MACS
