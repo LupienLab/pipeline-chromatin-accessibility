@@ -106,6 +106,7 @@ If you have a well-designed experiment with replicates, you need to measure the 
 Doing this prior to further analytical steps can avoid false results later.
 A tool to do this is the Irreproducible Discovery Rate (IDR) [4].
 
+It produces "conservative" and "optimal" sets of peaks, similar in nature to the "intersection" and "union" of all peaks.
 If your data has good QC metrics, you're ready to proceed to your analysis.
 
 # Analysis
