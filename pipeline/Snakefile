@@ -119,3 +119,44 @@ rule align:
         "-x {BWT2_IDX}"
     shell:
         "bowtie2 {params} -1 {input[0]} -2 {input[1]} 2> {output.report} | samtools view -bS - > {output.bam}"
+
+rule callpeaks:
+    input:
+        path.join(ALIGN_DIR, '{sample}.tagAlign.gz')
+    output:
+        path.join(PEAKS_DIR, '{sample}_control_lambda.bdg'),
+        temp(path.join(PEAKS_DIR, '{sample}_peaks.narrowPeak')),
+        path.join(PEAKS_DIR, '{sample}_peaks.xls'),
+        path.join(PEAKS_DIR, '{sample}_summits.bed'),
+        path.join(PEAKS_DIR, '{sample}_treat_pileup.bdg')
+    params:
+        lambda wildcards:
+            ' '.join([
+                '-f BED',                           # output format
+                '-g 2.7e9',                         # genome size
+                '--keep-dup all',                   # keep duplicates
+                '--outdir {}'.format(PEAKS_DIR),
+                '-n {}'.format(wildcards.sample),
+                '-B',                               # store fragment pileup in bedGraph
+                '--nomodel',                        # bypass building shifting model
+                '--shift -75',                      # enriching for cutting sites, see example on GitHub MACS
+                '--extsize 150',
+                '-q 0.01',                          # q-value filter
+                '--call-summits'                    # identify the summit of each peak
+            ])
+    shell:
+        'macs2 callpeak -t {input} {params}'
+
+# ==============================================================================
+# Tools
+# ==============================================================================
+rule sort:
+    input:
+        "{bam}.bam"
+    output:
+        "{bam}.sorted.bam",
+        "{bam}.sorted.bam.bai"
+    params:
+        "--tmpdir . -p"
+    shell:
+        "sambamba sort {params} {input} -o {output}"
