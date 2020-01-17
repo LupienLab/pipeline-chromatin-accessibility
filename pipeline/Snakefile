@@ -22,20 +22,26 @@ READS = [1, 2]
 rule all:
     input:
         # FastQC reports
-        expand(path.join(FASTQ_DIR, "{sample}_R{read}_fastqc.{ext}"),
-               sample=SAMPLES, read=READS, ext=["html", "zip"]),
+        expand(
+            path.join(FASTQ_DIR, "{sample}_R{read}_fastqc.{ext}"),
+            sample=SAMPLES, read=READS, ext=["html", "zip"]
+        ),
         # Trimming reports
-        expand(path.join(
-            REPORT_DIR, "{sample}_R{read}.trimming_report.txt"), sample=SAMPLES, read=READS),
-        expand(path.join(
-            TRIM_DIR, "{sample}_R{read}.trimmed.fastq.gz"), sample=SAMPLES, read=READS),
+        expand(
+            path.join(REPORT_DIR, "{sample}_R{read}.trimming_report.txt"),
+            sample=SAMPLES, read=READS
+        ),
+        expand(
+            path.join(TRIM_DIR, "{sample}_R{read}.trimmed.fastq.gz"),
+            sample=SAMPLES, read=READS
+        ),
         # Bowtie2 alignment output files
         expand(path.join(ALIGN_DIR, "{sample}.sorted.bam"), sample=SAMPLES),
-        expand(
-            path.join(ALIGN_DIR, "{sample}.sorted.bam.bai"), sample=SAMPLES),
+        expand(path.join(ALIGN_DIR, "{sample}.sorted.bam.bai"), sample=SAMPLES),
         # Peaks called by MACS2
         expand(
             path.join(PEAK_DIR, "{sample}_peaks.narrowPeak.gz"),
             sample=SAMPLES
         ),
+
 
