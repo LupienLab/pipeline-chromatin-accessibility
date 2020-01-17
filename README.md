@@ -115,9 +115,9 @@ If your data has good QC metrics, you're ready to proceed to your analysis.
 
 `DiffBind` [5] is an R package developed to call differentially accessible regions (DARs) between 2 conditions (typically a treatment and control).
 
-## QC metrics for DMRs
+## QC metrics for differentially accessible regions
 
-Plot a histogram of the p-values from the DMR calls, to ensure they don't have odd behaviour.
+Plot a histogram of the p-values to ensure they don't have odd behaviour.
 See [this blog post](http://varianceexplained.org/statistics/interpreting-pvalue-histogram/) for an explanation of what its shape can tell you.
 
 # References
