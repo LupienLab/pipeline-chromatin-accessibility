@@ -58,7 +58,7 @@ Next, we'll cover what the bioinformatic pipeline for pre-processing your data e
 
 The overall pipeline looks like this:
 
-![Pre-processing pipeline]()
+![Pre-processing pipeline](pipeline/pipeling.png)
 
 A brief description of each step is below.
 
@@ -119,4 +119,6 @@ See [this blog post](http://varianceexplained.org/statistics/interpreting-pvalue
 
 [2] Felix Krueger, Trim Galore. 2012. https://github.com/FelixKrueger/TrimGalore
 
-[3] Tao Liu, MACS2. https://github.com/taoliu/MACS
+[3] Y. Zhang, T. Liu, C. A. Meyer, J. Eeckhoute, D. S. Johnson, B. E. Bernstein, C. Nussbaum, R. M. Meyers, M. Brown, W. Li. Model-based analysis of ChIP-seq (MACS). _Genome Biology_ (2008). https://github.com/taoliu/MACS
+
+[4] Stark R, Brown G (2011). DiffBind: differential binding analysis of ChIP-Seq peak data. https://www.bioconductor.org/packages/release/bioc/html/DiffBind.html.
