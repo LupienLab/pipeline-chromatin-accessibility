@@ -56,7 +56,7 @@ Next, we'll cover what the bioinformatic pipeline for pre-processing your data e
 
 # Pre-processing Pipeline
 
-The overall pipeline looks like this:
+The overall pipeline comes from the ENCODE Project's [chromatin accessibility pipeline](https://www.encodeproject.org/pipelines/ENCPL792NWO/) and looks like this:
 
 ![Pre-processing pipeline](pipeline/pipeling.png)
 
@@ -100,13 +100,19 @@ The most important one for this application is `callpeaks`.
 
 A more detailed description of what to look out for can be found in [the detailed docs](docs/macs2/README.md).
 
+## IDR
+
+If you have a well-designed experiment with replicates, you need to measure the consistency between your replicates.
+Doing this prior to further analytical steps can avoid false results later.
+A tool to do this is the Irreproducible Discovery Rate (IDR) [4].
+
 If your data has good QC metrics, you're ready to proceed to your analysis.
 
 # Analysis
 
 ## DiffBind
 
-`DiffBind` [4] is an R package developed to call differentially accessible regions (DARs) between 2 conditions (typically a treatment and control).
+`DiffBind` [5] is an R package developed to call differentially accessible regions (DARs) between 2 conditions (typically a treatment and control).
 
 ## QC metrics for DMRs
 
@@ -115,10 +121,12 @@ See [this blog post](http://varianceexplained.org/statistics/interpreting-pvalue
 
 # References
 
-[1] Simon Andrews, FastQC: a quality control tool for high throughput sequence data. 2010. https://github.com/s-andrews/FastQC
+[1] S. Andrews, FastQC: a quality control tool for high throughput sequence data. 2010. https://github.com/s-andrews/FastQC.
 
-[2] Felix Krueger, Trim Galore. 2012. https://github.com/FelixKrueger/TrimGalore
+[2] F. Krueger, Trim Galore. 2012. https://github.com/FelixKrueger/TrimGalore.
 
-[3] Y. Zhang, T. Liu, C. A. Meyer, J. Eeckhoute, D. S. Johnson, B. E. Bernstein, C. Nussbaum, R. M. Meyers, M. Brown, W. Li. Model-based analysis of ChIP-seq (MACS). _Genome Biology_ (2008). https://github.com/taoliu/MACS
+[3] Y. Zhang, T. Liu, C. A. Meyer, J. Eeckhoute, D. S. Johnson, B. E. Bernstein, C. Nussbaum, R. M. Meyers, M. Brown, W. Li. "Model-based analysis of ChIP-seq (MACS)". _Genome Biology_ (2008). https://github.com/taoliu/MACS.
 
-[4] Stark R, Brown G (2011). DiffBind: differential binding analysis of ChIP-Seq peak data. https://www.bioconductor.org/packages/release/bioc/html/DiffBind.html.
+[4] Q. Li, J. B. Brown, H. Huang, and P. Bickel. "Measuring reproducibility of high-throughput experiments" (2011), Annals of Applied Statistics (2011). doi: [https://doi.org/10.1214/11-AOAS466]. https://github.com/nboley/idr.
+
+[5] R. Stark and G. Brown. "DiffBind: differential binding analysis of ChIP-Seq peak data". Bioconductor (2011). https://www.bioconductor.org/packages/release/bioc/html/DiffBind.html.
