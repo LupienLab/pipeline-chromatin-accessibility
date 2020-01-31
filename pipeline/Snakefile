@@ -52,8 +52,8 @@ rule fastqc:
     input:
         path.join(FASTQ_DIR, "{fastq}.fastq.gz")
     output:
-        path.join({REPORT_DIR}, "{fastq}_fastqc.html"),
-        path.join({REPORT_DIR}, "{fastq}_fastqc.zip")
+        path.join(REPORT_DIR, "{fastq}_fastqc.html"),
+        path.join(REPORT_DIR, "{fastq}_fastqc.zip")
     shell:
         "fastqc {input} -o {REPORT_DIR}"
 
