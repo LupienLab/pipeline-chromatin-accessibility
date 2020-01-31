@@ -132,17 +132,18 @@ rule callpeaks:
     params:
         lambda wildcards:
             ' '.join([
-                '-f BED',                           # output format
-                '-g 2.7e9',                         # genome size
-                '--keep-dup all',                   # keep duplicates
                 '--outdir {}'.format(PEAKS_DIR),
                 '-n {}'.format(wildcards.sample),
                 '-B',                               # store fragment pileup in bedGraph
-                '--nomodel',                        # bypass building shifting model
+                '-f BED',                           # output format
+                '-g 2.7e9',                         # genome size
+                '--keep-dup all',                   # keep duplicates
+                '--nomodel',  # bypass building shifting model
+                '--nolambda',
                 '--shift -75',                      # enriching for cutting sites, see example on GitHub MACS
                 '--extsize 150',
+                '--call-summits',                    # identify the summit of each peak
                 '-q 0.01',                          # q-value filter
-                '--call-summits'                    # identify the summit of each peak
             ])
     shell:
         'macs2 callpeak -t {input} {params}'
