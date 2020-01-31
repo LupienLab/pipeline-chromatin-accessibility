@@ -266,6 +266,7 @@ dependencies:
   - tbb=2019.8
   - tk=8.6.9
   - tktable=2.10
+  - trim-galore=0.6.5
   - urllib3=1.25.6
   - wheel=0.33.6
   - wrapt=1.11.2
