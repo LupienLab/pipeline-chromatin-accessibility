@@ -124,15 +124,15 @@ rule callpeaks:
     input:
         path.join(ALIGN_DIR, '{sample}.filtered.dedup.sorted.bam')
     output:
-        path.join(PEAKS_DIR, '{sample}_control_lambda.bdg'),
-        temp(path.join(PEAKS_DIR, '{sample}_peaks.narrowPeak')),
-        path.join(PEAKS_DIR, '{sample}_peaks.xls'),
-        path.join(PEAKS_DIR, '{sample}_summits.bed'),
-        path.join(PEAKS_DIR, '{sample}_treat_pileup.bdg')
+        path.join(PEAK_DIR, '{sample}_control_lambda.bdg'),
+        temp(path.join(PEAK_DIR, '{sample}_peaks.narrowPeak')),
+        path.join(PEAK_DIR, '{sample}_peaks.xls'),
+        path.join(PEAK_DIR, '{sample}_summits.bed'),
+        path.join(PEAK_DIR, '{sample}_treat_pileup.bdg')
     params:
         lambda wildcards:
             ' '.join([
-                '--outdir {}'.format(PEAKS_DIR),
+                '--outdir {}'.format(PEAK_DIR),
                 '-n {}'.format(wildcards.sample),
                 '-B',                               # store fragment pileup in bedGraph
                 '-f BED',                           # output format
