@@ -92,7 +92,7 @@ Reads from ATAC-seq protocols should be abundant around accessible chromatin fro
 To find where these regions of accessible chromatin are ("peaks"), we use a peak-calling tool, MACS2 [4].
 
 Originally designed for ChIP-seq experiments, MACS2 contains a variety of subcommands.
-The most important one for this application is `callpeaks`.
+The most important one for this application is `callpeak`.
 
 A more detailed description of what to look out for can be found in [the detailed docs](docs/macs2/README.md).
 
