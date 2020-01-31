@@ -36,8 +36,8 @@ rule all:
             sample=SAMPLES, read=READS
         ),
         # Bowtie2 alignment output files
-        expand(path.join(ALIGN_DIR, "{sample}.sorted.bam"), sample=SAMPLES),
-        expand(path.join(ALIGN_DIR, "{sample}.sorted.bam.bai"), sample=SAMPLES),
+        expand(path.join(ALIGN_DIR, "{sample}.filtered.dedup.sorted.bam"), sample=SAMPLES),
+        expand(path.join(ALIGN_DIR, "{sample}.filtered.dedup.sorted.bam.bai"), sample=SAMPLES),
         # Peaks called by MACS2
         expand(
             path.join(PEAK_DIR, "{sample}_peaks.narrowPeak.gz"),
@@ -122,7 +122,7 @@ rule align:
 
 rule callpeaks:
     input:
-        path.join(ALIGN_DIR, '{sample}.tagAlign.gz')
+        path.join(ALIGN_DIR, '{sample}.filtered.dedup.sorted.bam')
     output:
         path.join(PEAKS_DIR, '{sample}_control_lambda.bdg'),
         temp(path.join(PEAKS_DIR, '{sample}_peaks.narrowPeak')),
