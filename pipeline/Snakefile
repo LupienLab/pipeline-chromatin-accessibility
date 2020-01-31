@@ -152,11 +152,39 @@ rule callpeaks:
 # ==============================================================================
 rule sort:
     input:
-        "{bam}.bam"
+        "{file}.bam"
     output:
-        "{bam}.sorted.bam",
-        "{bam}.sorted.bam.bai"
+        "{file}.sorted.bam",
+        "{file}.sorted.bam.bai"
     params:
         "--tmpdir . -p"
     shell:
         "sambamba sort {params} {input} -o {output}"
+
+rule dedup:
+    input:
+        "{file}.bam"
+    output:
+        "{file}.dedup.bam"
+    params:
+        "-r -p --tmpdir ."
+    shell:
+        "sambamba markdup {params} {input} {output}"
+
+rule keep_quality_alignments:
+    input:
+        "{file}.bam"
+    output:
+        "{file}.filtered.bam"
+    params:
+        filter = " and ".join([
+            "not (unmapped or mate_is_unmapped)"
+            "proper_pair",
+            "mapping_quality >= 10"
+        ]),
+        other = " ".join([
+            "-f bam",
+            "-p"
+        ])
+    shell:
+        "sambamba view -F '{params.filter}' {params.other} -o {output} {input}"

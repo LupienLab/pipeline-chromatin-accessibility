@@ -84,11 +84,7 @@ If the sequencing data is of good quality, you can skip this step.
 
 Bowtie2 [3] performs the alignment.
 It requires a pre-indexed genome to perform the alignment against (these files will have the `.bwt2` extension in the same file as your reference genome FASTA file).
-Alignment will produce a BAM file.
-
-Because ATAC-seq, like ChIP-seq, produces piles of reads in similar loci, it's very likely that reads will feature the same start and end positions.
-While duplication rates shouldn't be large (> 50%), removing them likely removes real reads originating from the same locus, not just PCR duplicates.
-For this reason we tend to not remove duplicates from this aligned BAM file.
+Alignment will produce a BAM file, which is then filtered to only retain uniquely-mapped, high quality, non-duplicate reads (or read-pairs, if paired-end sequencing).
 
 ## MACS2
 
