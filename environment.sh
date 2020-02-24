@@ -18,6 +18,3 @@ conda install macs2>=2.2.4
 
 # bioconductor
 conda install bioconductor-edger bioconductor-diffbind bioconductor-deseq2
-
-#test
-
