@@ -4,23 +4,26 @@ import os.path as path
 # ==============================================================================
 # Configuration
 # ==============================================================================
-CONFIG = pd.read_csv('config.tsv', index_col=False, sep='\t')
+CONFIG = pd.read_csv("config.tsv", index_col=False, sep="\t")
 
-REPORT_DIR = 'Reports'
-FASTQ_DIR = 'FASTQs'
-TRIM_DIR = 'Trimmed'
-ALIGN_DIR = 'Aligned'
-PEAK_DIR = 'Peaks'
+REPORT_DIR = "Reports"
+FASTQ_DIR = "FASTQs"
+TRIM_DIR = "Trimmed"
+ALIGN_DIR = "Aligned"
+PEAK_DIR = "Peaks"
 
 SAMPLES = CONFIG["Sample"].tolist()
 BWT2_IDX = "/mnt/work1/data/iGenomes/human/hg38/Sequences/WholeGenomeFasta/genome.fa"
 READS = [1, 2]
+CHR_REGEX = "^chr[0-9]{0,3}[XYM]?\\t"
 
 # ==============================================================================
 # Meta Rules
 # ==============================================================================
 rule all:
     input:
+        # GENCODE annotations
+        path.join(ANNO_DIR, "gencode.v{GENCODE_VERSION}.annotation.gff3.gz"),
         # FastQC reports
         expand(
             path.join(REPORT_DIR, "{sample}_R{read}_fastqc.{ext}"),
@@ -40,7 +43,7 @@ rule all:
         expand(path.join(ALIGN_DIR, "{sample}.filtered.dedup.sorted.bam.bai"), sample=SAMPLES),
         # Peaks called by MACS2
         expand(
-            path.join(PEAK_DIR, "{sample}_peaks.narrowPeak"),
+            path.join(PEAK_DIR, "{sample}_peaks.filtered.narrowPeak"),
             sample=SAMPLES
         ),
 
@@ -122,31 +125,41 @@ rule align:
 
 rule callpeaks:
     input:
-        path.join(ALIGN_DIR, '{sample}.filtered.dedup.sorted.bam')
+        path.join(ALIGN_DIR, "{sample}.filtered.dedup.sorted.bam")
     output:
-        path.join(PEAK_DIR, '{sample}_control_lambda.bdg'),
-        temp(path.join(PEAK_DIR, '{sample}_peaks.narrowPeak')),
-        path.join(PEAK_DIR, '{sample}_peaks.xls'),
-        path.join(PEAK_DIR, '{sample}_summits.bed'),
-        path.join(PEAK_DIR, '{sample}_treat_pileup.bdg')
+        path.join(PEAK_DIR, "{sample}_control_lambda.bdg"),
+        temp(path.join(PEAK_DIR, "{sample}_peaks.narrowPeak")),
+        path.join(PEAK_DIR, "{sample}_peaks.xls"),
+        path.join(PEAK_DIR, "{sample}_summits.bed"),
+        path.join(PEAK_DIR, "{sample}_treat_pileup.bdg")
     params:
         lambda wildcards:
-            ' '.join([
-                '--outdir {}'.format(PEAK_DIR),
-                '-n {}'.format(wildcards.sample),
-                '-B',                               # store fragment pileup in bedGraph
-                '-f BED',                           # output format
-                '-g 2.7e9',                         # genome size
-                '--keep-dup all',                   # keep duplicates
-                '--nomodel',  # bypass building shifting model
-                '--nolambda',
-                '--shift -75',                      # enriching for cutting sites, see example on GitHub MACS
-                '--extsize 150',
-                '--call-summits',                    # identify the summit of each peak
-                '-q 0.01',                          # q-value filter
+            " ".join([
+                "--outdir {}".format(PEAK_DIR),
+                "-n {}".format(wildcards.sample),
+                "-B",                               # store fragment pileup in bedGraph
+                "-f BAM",                           # input format
+                "-g 2.7e9",                         # genome size
+                "--keep-dup all",                   # keep duplicates
+                "--nomodel",  # bypass building shifting model
+                "--nolambda",
+                "--shift -75",                      # enriching for cutting sites, see example on GitHub MACS
+                "--extsize 150",
+                "--call-summits",                    # identify the summit of each peak
+                "-q 0.01",                          # q-value filter
             ])
     shell:
-        'macs2 callpeak -t {input} {params}'
+        "macs2 callpeak -t {input} {params}"
+
+rule filter_blacklist:
+    input:
+        blacklist = "hg38.blacklist.bed",
+        peaks = path.join(PEAK_DIR, "{sample}_peaks.narrowPeak"),
+    output:
+        path.join(PEAK_DIR, "{sample}_peaks.filtered.narrowPeak"),
+    shell:
+        # remove blacklist regions and only keep canonical chromosomes
+        "bedtools intersect -v -a {input.peaks} -b {input.blacklist} | awk '/{CHR_REGEX}/ {{print}}' | LC_COLLATE=C sort -k1,1 -k2,2n > {output}"
 
 # ==============================================================================
 # Tools
