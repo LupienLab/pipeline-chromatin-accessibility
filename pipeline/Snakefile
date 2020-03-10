@@ -46,6 +46,8 @@ rule all:
             path.join(PEAK_DIR, "{sample}_peaks.filtered.narrowPeak"),
             sample=SAMPLES
         ),
+        # FRiP calculations
+        expand(path.join(REPORT_DIR, "{sample}.frip.txt"), sample=SAMPLES),
 
 
 # ==============================================================================
@@ -160,6 +162,21 @@ rule filter_blacklist:
     shell:
         # remove blacklist regions and only keep canonical chromosomes
         "bedtools intersect -v -a {input.peaks} -b {input.blacklist} | awk '/{CHR_REGEX}/ {{print}}' | LC_COLLATE=C sort -k1,1 -k2,2n > {output}"
+
+rule frip:
+    input:
+        bam = path.join(ALIGN_DIR, "{sample}.filtered.dedup.sorted.bam")
+        peaks = path.join(PEAK_DIR, "{sample}_peaks.filtered.narrowPeak"),
+    output:
+        path.join(REPORT_DIR, "{sample}.frip.txt")
+    run:
+        commands = [
+            "NR1=$(sambamba view {input.bam} | wc -l)",
+            "RIP1_SELF=$(sambamba view -L {input.peaks} {input.bam} | wc -l)",
+            "echo -e \"Total: $NR1\n  Self: $RIP1_SELF\n\" > {output}"
+        ]
+        command_str = "; ".join(commands)
+        shell(command_str)
 
 # ==============================================================================
 # Tools
