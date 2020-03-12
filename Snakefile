@@ -50,7 +50,7 @@ rule all:
         # FRiP calculations
         expand(path.join(REPORT_DIR, "{sample}.frip.txt"), sample=SAMPLES),
         # Number of reads per region
-        path.join(REPORT_DIR, "no_of_reads_region.matrix"),
+        path.join(REPORT_DIR, "reads-in-control-regions.tsv"),
 
 
 # ==============================================================================
@@ -169,20 +169,16 @@ rule frip:
 
 rule no_of_reads_per_region:
     input:
-        bam = expand(path.join(ALIGN_DIR, "{sample}.filtered.dedup.sorted.bam"), sample=SAMPLES),
-        bed = "tmp.bed",
+        script = "noOfRegionReads.py",
+        qc_reg = "tmp.bed",
+        bams = expand(      # this `expand` command will make sure this rule waits for all BAMs to be available before running
+            path.join(ALIGN_DIR, "{sample}.filtered.dedup.sorted.bam"),
+            sample=SAMPLES
+        ),
     output:
-        matrix = path.join(REPORT_DIR, "no_of_reads_region.matrix")
-    params:
-        lambda wildcards:
-               "-s {}".format(SAMPLES)     
-    run:
-        # Add number of reads mapped to each region in a reference bed file
-        commands = [
-            "python noOfRegionReads.py -a {input.bed} -b {input.bam} {params} -o {output.matrix}",
-        ]
-        command_str = "; ".join(commands)
-        shell(command_str)
+        path.join(REPORT_DIR, "reads-in-control-regions.tsv"),
+    shell:
+        "python {input.script} -a {input.qc_reg} -b {input.bams} -o {output}"
  
 # ==============================================================================
 # Tools
