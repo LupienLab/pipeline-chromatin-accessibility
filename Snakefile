@@ -177,7 +177,7 @@ rule no_of_reads_per_region:
         lambda wildcards:
                "-s {}".format(SAMPLES)     
     run:
-        # Add number of reads mapped to each region in a reference filtered narrow peaks file
+        # Add number of reads mapped to each region in a reference bed file
         commands = [
             "python noOfRegionReads.py -a {input.bed} -b {input.bam} {params} -o {output.matrix}",
         ]
