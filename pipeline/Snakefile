@@ -11,6 +11,7 @@ FASTQ_DIR = "FASTQs"
 TRIM_DIR = "Trimmed"
 ALIGN_DIR = "Aligned"
 PEAK_DIR = "Peaks"
+ANNO_DIR = "Annotation"
 
 SAMPLES = CONFIG["Sample"].tolist()
 BWT2_IDX = "/mnt/work1/data/iGenomes/human/hg38/Sequences/WholeGenomeFasta/genome.fa"
@@ -23,7 +24,7 @@ CHR_REGEX = "^chr[0-9]{0,3}[XYM]?\\t"
 rule all:
     input:
         # GENCODE annotations
-        path.join(ANNO_DIR, "gencode.v{GENCODE_VERSION}.annotation.gff3.gz"),
+#        path.join(ANNO_DIR, "gencode.v{GENCODE_VERSION}.annotation.gff3.gz"),
         # FastQC reports
         expand(
             path.join(REPORT_DIR, "{sample}_R{read}_fastqc.{ext}"),
@@ -48,6 +49,8 @@ rule all:
         ),
         # FRiP calculations
         expand(path.join(REPORT_DIR, "{sample}.frip.txt"), sample=SAMPLES),
+        # Number of reads per region
+        path.join(REPORT_DIR, "reads-in-control-regions.tsv"),
 
 
 # ==============================================================================
@@ -71,10 +74,6 @@ rule trim_galore:
         path.join(TRIM_DIR, "{sample}_R2_val_2.fq.gz"),
         path.join(TRIM_DIR, "{sample}_R1.fastq.gz_trimming_report.txt"),
         path.join(TRIM_DIR, "{sample}_R2.fastq.gz_trimming_report.txt"),
-        path.join(TRIM_DIR, "{sample}_R1_val_1_fastqc.html"),
-        path.join(TRIM_DIR, "{sample}_R1_val_1_fastqc.zip"),
-        path.join(TRIM_DIR, "{sample}_R2_val_2_fastqc.html"),
-        path.join(TRIM_DIR, "{sample}_R2_val_2_fastqc.zip")
     params:
         "--gzip --paired -q 30"
     shell:
@@ -86,30 +85,20 @@ rule rename_trim_galore:
         fq2 = path.join(TRIM_DIR, "{sample}_R2_val_2.fq.gz"),
         rp1 = path.join(TRIM_DIR, "{sample}_R1.fastq.gz_trimming_report.txt"),
         rp2 = path.join(TRIM_DIR, "{sample}_R2.fastq.gz_trimming_report.txt"),
-        qc1 = path.join(TRIM_DIR, "{sample}_R1_val_1_fastqc.html"),
-        qz1 = path.join(TRIM_DIR, "{sample}_R1_val_1_fastqc.zip"),
-        qc2 = path.join(TRIM_DIR, "{sample}_R2_val_2_fastqc.html"),
-        qz2 = path.join(TRIM_DIR, "{sample}_R2_val_2_fastqc.zip")
     output:
         fq1 = path.join(TRIM_DIR, "{sample}_R1.trimmed.fastq.gz"),
         fq2 = path.join(TRIM_DIR, "{sample}_R2.trimmed.fastq.gz"),
         rp1 = path.join(REPORT_DIR, "{sample}_R1.trimming_report.txt"),
         rp2 = path.join(REPORT_DIR, "{sample}_R2.trimming_report.txt"),
-        qc1 = path.join(REPORT_DIR, "{sample}_R1.trimmed_fastqc.html"),
-        qc2 = path.join(REPORT_DIR, "{sample}_R2.trimmed_fastqc.html"),
-        qz1 = path.join(REPORT_DIR, "{sample}_R1.trimmed_fastqc.zip"),
-        qz2 = path.join(REPORT_DIR, "{sample}_R2.trimmed_fastqc.zip")
+    params:
+        "--latency-wait 30"
     run:
         commands = [
             "mv {input.fq1} {output.fq1}",
             "mv {input.fq2} {output.fq2}",
             "mv {input.rp1} {output.rp1}",
             "mv {input.rp2} {output.rp2}",
-            "mv {input.qc1} {output.qc1}",
-            "mv {input.qc2} {output.qc2}",
-            "mv {input.qz1} {output.qz1}",
-            "mv {input.qz2} {output.qz2}"
-        ]
+       ]
         command_string = "; ".join(commands)
         shell(command_string)
 
@@ -165,7 +154,7 @@ rule filter_blacklist:
 
 rule frip:
     input:
-        bam = path.join(ALIGN_DIR, "{sample}.filtered.dedup.sorted.bam")
+        bam = path.join(ALIGN_DIR, "{sample}.filtered.dedup.sorted.bam"),
         peaks = path.join(PEAK_DIR, "{sample}_peaks.filtered.narrowPeak"),
     output:
         path.join(REPORT_DIR, "{sample}.frip.txt")
@@ -178,6 +167,19 @@ rule frip:
         command_str = "; ".join(commands)
         shell(command_str)
 
+rule no_of_reads_per_region:
+    input:
+        script = "noOfRegionReads.py",
+        qc_reg = "gencode.v33.promoters.bed",
+        bams = expand(      # this `expand` command will make sure this rule waits for all BAMs to be available before running
+            path.join(ALIGN_DIR, "{sample}.filtered.dedup.sorted.bam"),
+            sample=SAMPLES
+        ),
+    output:
+        path.join(REPORT_DIR, "reads-in-control-regions.tsv"),
+    shell:
+        "python {input.script} -a {input.qc_reg} -b {input.bams} -o {output}"
+ 
 # ==============================================================================
 # Tools
 # ==============================================================================
