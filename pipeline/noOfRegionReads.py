@@ -34,14 +34,7 @@ def get_arguments():
                         help = "bam file" ,
                         dest = "bam",
                         required = True ,
-                        type = str)
-    
-    parser.add_argument("-s" ,
-                        metavar = 'sample name' ,
-                        help = "sample name" ,
-                        dest = "sample",
-                        required = True ,
-                        type = str)
+                        nargs='+')
     
     parser.add_argument("-o" ,
                         metavar = 'output file' ,
@@ -59,28 +52,32 @@ def len1(iterable):
     return len(tuple(iterable))
 
 
-def calculate_no_of_reads(bed,bam,sample,output):
-    no_of_reads=[]
+def calculate_no_of_reads(bed,bamList,output):
+    
+    bedFileList=[]
     with open(bed) as BEDFH:
-        samfile = pysam.AlignmentFile(bam, "rb")
-         
         for line in BEDFH:
             line=line.rstrip("\n")
-            val=line.split("\t")
-            total_reads=samfile.fetch(val[0], int(val[1]), int(val[2]))
+            val=line.split("\t")[0:3]
+            bedFileList.append(val)
+            
+            
+    no_of_reads=[]
+    df = pd.DataFrame.from_records(bedFileList)
+    df.columns = ['chr','start','end']
+    
+    for bam in bamList:
+        sample_name=(bam.split("/")[-1]).split(".filtered")[0]       
+        samfile = pysam.AlignmentFile(bam, "rb")
+        
+        for region in bedFileList:
+            total_reads=samfile.fetch(region[0], int(region[1]), int(region[2]))
             reads=(len1(total_reads))
             no_of_reads.append(reads)
             
+        df[sample_name] = no_of_reads   
         samfile.close()
     
-    
-    if not os.path.isfile(output):
-        df=pd.DataFrame()
-        df.to_csv(output,index=False, quoting=csv.QUOTE_NONE)
-    else:
-        df = pd.read_csv(output,sep='\t')
-        print(df)    
-    df[sample] = no_of_reads
     df.to_csv(output, sep='\t', index=False, quoting=csv.QUOTE_NONE)
    
 
@@ -90,10 +87,9 @@ def calculate_no_of_reads(bed,bam,sample,output):
 def main():
     arguments = get_arguments()
     bed = os.path.abspath(arguments.bed)
-    bam = os.path.abspath(arguments.bam)
-    sample = arguments.sample
+    bamList = [os.path.abspath(x) for x in arguments.bam]
     output = os.path.abspath(arguments.output)
-    calculate_no_of_reads(bed,bam,sample,output)
+    calculate_no_of_reads(bed,bamList,output)
     
 
 #####################################################################
