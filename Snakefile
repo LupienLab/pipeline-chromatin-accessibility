@@ -170,7 +170,7 @@ rule frip:
 rule no_of_reads_per_region:
     input:
         script = "noOfRegionReads.py",
-        qc_reg = "tmp.bed",
+        qc_reg = "gencode.v33.promoters.bed",
         bams = expand(      # this `expand` command will make sure this rule waits for all BAMs to be available before running
             path.join(ALIGN_DIR, "{sample}.filtered.dedup.sorted.bam"),
             sample=SAMPLES
