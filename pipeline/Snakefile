@@ -14,7 +14,7 @@ PEAK_DIR = "Peaks"
 ANNO_DIR = "Annotation"
 
 SAMPLES = CONFIG["Sample"].tolist()
-BWT2_IDX = "/mnt/work1/data/iGenomes/human/hg38/Sequences/WholeGenomeFasta/genome.fa"
+BWT2_IDX = "/mnt/work1/data/genomes/human/hg38/iGenomes/Sequence/Bowtie2Index/genome"
 READS = [1, 2]
 CHR_REGEX = "^chr[0-9]{0,3}[XYM]?\\t"
 
@@ -90,8 +90,6 @@ rule rename_trim_galore:
         fq2 = path.join(TRIM_DIR, "{sample}_R2.trimmed.fastq.gz"),
         rp1 = path.join(REPORT_DIR, "{sample}_R1.trimming_report.txt"),
         rp2 = path.join(REPORT_DIR, "{sample}_R2.trimming_report.txt"),
-    params:
-        "--latency-wait 30"
     run:
         commands = [
             "mv {input.fq1} {output.fq1}",
@@ -170,7 +168,7 @@ rule frip:
 rule no_of_reads_per_region:
     input:
         script = "noOfRegionReads.py",
-        qc_reg = "gencode.v33.promoters.bed",
+        qc_reg = "tmp.bed",
         bams = expand(      # this `expand` command will make sure this rule waits for all BAMs to be available before running
             path.join(ALIGN_DIR, "{sample}.filtered.dedup.sorted.bam"),
             sample=SAMPLES
