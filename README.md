@@ -31,7 +31,7 @@ See [detailed notes](docs/directory-structure/README.md) for more information.
 ## Copy `Snakefile` to your data directory
 
 ```shell
-cp pipeline/Snakefile your/data/directory/
+cp pipeline/Snakefile pipeline/hg38.blacklist.bed pipeline/noOfRegionReads.py your/data/directory/
 cd your/data/directory/
 ```
 
