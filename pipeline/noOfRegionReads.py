@@ -62,11 +62,12 @@ def calculate_no_of_reads(bed,bamList,output):
             bedFileList.append(val)
             
             
-    no_of_reads=[]
+    
     df = pd.DataFrame.from_records(bedFileList)
     df.columns = ['chr','start','end']
     
     for bam in bamList:
+        no_of_reads=[]
         sample_name=(bam.split("/")[-1]).split(".filtered")[0]       
         samfile = pysam.AlignmentFile(bam, "rb")
         
@@ -74,7 +75,6 @@ def calculate_no_of_reads(bed,bamList,output):
             total_reads=samfile.fetch(region[0], int(region[1]), int(region[2]))
             reads=(len1(total_reads))
             no_of_reads.append(reads)
-            
         df[sample_name] = no_of_reads   
         samfile.close()
     
