@@ -1,4 +1,24 @@
+####################################################
 rm(list=ls())
+####User Input######################################
+library(optparse)
+library(reticulate)
+
+option_list = list(
+  make_option(c("-f", "--file"), type="character", default=NULL, 
+              help="dataset file name", metavar="character"),
+  make_option(c("-o", "--out"), type="character", default="sample.pdf", 
+              help="output file name [default= %default]", metavar="character")
+); 
+
+opt_parser = OptionParser(option_list=option_list);
+opt = parse_args(opt_parser);
+
+if (is.null(opt$file)){
+  print_help(opt_parser)
+  stop("At least one argument must be supplied (input file).n", call.=FALSE)
+}
+
 #####################################################
 ############ Human chromosome information ###########
 #####################################################
@@ -85,8 +105,9 @@ bed_stat_plot <- function(bed_stat_frame, chrsize_vec, chr_names, output_path){
 
 
 ######################################################
-input_file <- '~/OneDrive - University of Toronto/CREAM/TCGA_ATAC/COREs/TCGA-2G-AAKG-05A_SigCut1.65_.bed'
-bedfile <- read.table(input_file,stringsAsFactors = F, check.names = )
+source_python("../checkBedfileQuality.py")
+checkBedFile(opt$file)
+bedfile <- read.table(opt$file, stringsAsFactors = F, check.names = F )
 bedfile <- bedfile[,c(1:3)]
 colnames(bedfile) <- c('chr', 'start', 'end')
 
@@ -95,6 +116,4 @@ stat_frame = bed_stat(bed_frame = bedfile, chr_names = chr_names)
 bed_stat_plot(bed_stat_frame = stat_frame,
               chrsize_vec = chrsize_list$hg38,
               chr_names = chr_names,
-              output_path='sample.pdf')
-
-
+              output_path = opt$out)

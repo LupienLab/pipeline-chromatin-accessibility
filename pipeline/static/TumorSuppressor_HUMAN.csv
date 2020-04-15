@@ -1,0 +1,435 @@
+"Gene.names","Protein.names","Organism","Length"
+"TSC2 TSC4","Tuberin (Tuberous sclerosis 2 protein)","Homo sapiens (Human)",1807
+"CHEK2 CDS1 CHK2 RAD53","Serine/threonine-protein kinase Chk2 (EC 2.7.11.1) (CHK2 checkpoint homolog) (Cds1 homolog) (Hucds1) (hCds1) (Checkpoint kinase 2)","Homo sapiens (Human)",543
+"APC DP2.5","Adenomatous polyposis coli protein (Protein APC) (Deleted in polyposis 2.5)","Homo sapiens (Human)",2843
+"C10orf90 FATS","(E2-independent) E3 ubiquitin-conjugating enzyme FATS (EC 2.3.2.-) (Centrosomal protein C10orf90) (E2/E3 hybrid ubiquitin-protein ligase FATS) (Fragile-site associated tumor suppressor homolog) (FATS)","Homo sapiens (Human)",699
+"BAX BCL2L4","Apoptosis regulator BAX (Bcl-2-like protein 4) (Bcl2-L-4)","Homo sapiens (Human)",192
+"BRCA2 FACD FANCD1","Breast cancer type 2 susceptibility protein (Fanconi anemia group D1 protein)","Homo sapiens (Human)",3418
+"ATM","Serine-protein kinase ATM (EC 2.7.11.1) (Ataxia telangiectasia mutated) (A-T mutated)","Homo sapiens (Human)",3056
+"CAVIN3 PRKCDBP SRBC","Caveolae-associated protein 3 (Cavin-3) (Protein kinase C delta-binding protein) (Serum deprivation response factor-related gene product that binds to C-kinase) (hSRBC)","Homo sapiens (Human)",261
+"ARID3B BDP DRIL2","AT-rich interactive domain-containing protein 3B (ARID domain-containing protein 3B) (Bright and dead ringer protein) (Bright-like protein)","Homo sapiens (Human)",561
+"DLEC1 DLC1","Deleted in lung and esophageal cancer protein 1 (Deleted in lung cancer protein 1) (DLC-1)","Homo sapiens (Human)",1755
+"BANP BEND1 SMAR1","Protein BANP (BEN domain-containing protein 1) (Btg3-associated nuclear protein) (Scaffold/matrix-associated region-1-binding protein)","Homo sapiens (Human)",519
+"BRCA1 RNF53","Breast cancer type 1 susceptibility protein (EC 2.3.2.27) (RING finger protein 53) (RING-type E3 ubiquitin transferase BRCA1)","Homo sapiens (Human)",1863
+"SIK1 SIK SNF1LK","Serine/threonine-protein kinase SIK1 (EC 2.7.11.1) (Salt-inducible kinase 1) (SIK-1) (Serine/threonine-protein kinase SNF1-like kinase 1) (Serine/threonine-protein kinase SNF1LK)","Homo sapiens (Human)",783
+"CDKN2D","Cyclin-dependent kinase 4 inhibitor D (p19-INK4d)","Homo sapiens (Human)",166
+"CDKN2B MTS2","Cyclin-dependent kinase 4 inhibitor B (Multiple tumor suppressor 2) (MTS-2) (p14-INK4b) (p15-INK4b) (p15INK4B)","Homo sapiens (Human)",138
+"FRK PTK5 RAK","Tyrosine-protein kinase FRK (EC 2.7.10.2) (FYN-related kinase) (Nuclear tyrosine protein kinase RAK) (Protein-tyrosine kinase 5)","Homo sapiens (Human)",505
+"CREBL2","cAMP-responsive element-binding protein-like 2","Homo sapiens (Human)",120
+"CADM4 IGSF4C NECL4 TSLL2","Cell adhesion molecule 4 (Immunoglobulin superfamily member 4C) (IgSF4C) (Nectin-like protein 4) (NECL-4) (TSLC1-like protein 2)","Homo sapiens (Human)",388
+"DPH1 DPH2L DPH2L1 OVCA1","2-(3-amino-3-carboxypropyl)histidine synthase subunit 1 (EC 2.5.1.108) (Diphthamide biosynthesis protein 1) (Diphtheria toxin resistance protein 1) (Ovarian cancer-associated gene 1 protein) (S-adenosyl-L-methionine:L-histidine 3-amino-3-carboxypropyltransferase 1)","Homo sapiens (Human)",443
+"MCC","Colorectal mutant cancer protein (Protein MCC)","Homo sapiens (Human)",829
+"DAB2IP AF9Q34 AIP1 KIAA1743","Disabled homolog 2-interacting protein (DAB2 interaction protein) (DAB2-interacting protein) (ASK-interacting protein 1) (AIP-1) (DOC-2/DAB-2 interactive protein)","Homo sapiens (Human)",1189
+"CDKN1B KIP1","Cyclin-dependent kinase inhibitor 1B (Cyclin-dependent kinase inhibitor p27) (p27Kip1)","Homo sapiens (Human)",198
+"FLCN BHD","Folliculin (BHD skin lesion fibrofolliculoma protein) (Birt-Hogg-Dube syndrome protein)","Homo sapiens (Human)",579
+"PRKCI DXS1179E","Protein kinase C iota type (EC 2.7.11.13) (Atypical protein kinase C-lambda/iota) (PRKC-lambda/iota) (aPKC-lambda/iota) (nPKC-iota)","Homo sapiens (Human)",596
+"MAPKAPK5 PRAK","MAP kinase-activated protein kinase 5 (MAPK-activated protein kinase 5) (MAPKAP kinase 5) (MAPKAP-K5) (MAPKAPK-5) (MK-5) (MK5) (EC 2.7.11.1) (p38-regulated/activated protein kinase) (PRAK)","Homo sapiens (Human)",473
+"NF2 SCH","Merlin (Moesin-ezrin-radixin-like protein) (Neurofibromin-2) (Schwannomerlin) (Schwannomin)","Homo sapiens (Human)",595
+"MAFB KRML","Transcription factor MafB (Maf-B) (V-maf musculoaponeurotic fibrosarcoma oncogene homolog B)","Homo sapiens (Human)",323
+"PRKCD","Protein kinase C delta type (EC 2.7.11.13) (Tyrosine-protein kinase PRKCD) (EC 2.7.10.2) (nPKC-delta) [Cleaved into: Protein kinase C delta type regulatory subunit; Protein kinase C delta type catalytic subunit (Sphingosine-dependent protein kinase-1) (SDK1)]","Homo sapiens (Human)",676
+"FAM120A C9orf10 KIAA0183 OSSA","Constitutive coactivator of PPAR-gamma-like protein 1 (Oxidative stress-associated Src activator) (Protein FAM120A)","Homo sapiens (Human)",1118
+"DMBT1 GP340","Deleted in malignant brain tumors 1 protein (Glycoprotein 340) (Gp-340) (Hensin) (Salivary agglutinin) (SAG) (Surfactant pulmonary-associated D-binding protein)","Homo sapiens (Human)",2413
+"KLK10 NES1 PRSSL1","Kallikrein-10 (EC 3.4.21.-) (Normal epithelial cell-specific 1) (Protease serine-like 1)","Homo sapiens (Human)",276
+"CCAR2 DBC1 KIAA1967","Cell cycle and apoptosis regulator protein 2 (Cell division cycle and apoptosis regulator protein 2) (DBIRD complex subunit KIAA1967) (Deleted in breast cancer gene 1 protein) (DBC-1) (DBC.1) (NET35) (p30 DBC)","Homo sapiens (Human)",923
+"BRMS1","Breast cancer metastasis-suppressor 1","Homo sapiens (Human)",246
+"LIN9 BARA TGS","Protein lin-9 homolog (HuLin-9) (hLin-9) (Beta subunit-associated regulator of apoptosis) (TUDOR gene similar protein) (Type I interferon receptor beta chain-associated protein) (pRB-associated protein)","Homo sapiens (Human)",542
+"FAM210B C20orf108 PSEC0265","Protein FAM210B, mitochondrial","Homo sapiens (Human)",192
+"CDC73 C1orf28 HRPT2","Parafibromin (Cell division cycle protein 73 homolog) (Hyperparathyroidism 2 protein)","Homo sapiens (Human)",531
+"CHD5 KIAA0444","Chromodomain-helicase-DNA-binding protein 5 (CHD-5) (EC 3.6.4.12) (ATP-dependent helicase CHD5)","Homo sapiens (Human)",1954
+"ERRFI1 MIG6","ERBB receptor feedback inhibitor 1 (Mitogen-inducible gene 6 protein) (MIG-6)","Homo sapiens (Human)",462
+"DAPK3 ZIPK","Death-associated protein kinase 3 (DAP kinase 3) (EC 2.7.11.1) (DAP-like kinase) (Dlk) (MYPT1 kinase) (Zipper-interacting protein kinase) (ZIP-kinase)","Homo sapiens (Human)",454
+"DCC IGDCC1","Netrin receptor DCC (Colorectal cancer suppressor) (Immunoglobulin superfamily DCC subclass member 1) (Tumor suppressor protein DCC)","Homo sapiens (Human)",1447
+"FH","Fumarate hydratase, mitochondrial (Fumarase) (HsFH) (EC 4.2.1.2)","Homo sapiens (Human)",510
+"CTCF","Transcriptional repressor CTCF (11-zinc finger protein) (CCCTC-binding factor) (CTCFL paralog)","Homo sapiens (Human)",727
+"AXIN1 AXIN","Axin-1 (Axis inhibition protein 1) (hAxin)","Homo sapiens (Human)",862
+"CADM1 IGSF4 IGSF4A NECL2 SYNCAM TSLC1","Cell adhesion molecule 1 (Immunoglobulin superfamily member 4) (IgSF4) (Nectin-like protein 2) (NECL-2) (Spermatogenic immunoglobulin superfamily) (SgIgSF) (Synaptic cell adhesion molecule) (SynCAM) (Tumor suppressor in lung cancer 1) (TSLC-1)","Homo sapiens (Human)",442
+"EPB41L3 DAL1 KIAA0987","Band 4.1-like protein 3 (4.1B) (Differentially expressed in adenocarcinoma of the lung protein 1) (DAL-1) [Cleaved into: Band 4.1-like protein 3, N-terminally processed]","Homo sapiens (Human)",1087
+"EXT2","Exostosin-2 (EC 2.4.1.224) (EC 2.4.1.225) (Glucuronosyl-N-acetylglucosaminyl-proteoglycan/N-acetylglucosaminyl-proteoglycan 4-alpha-N-acetylglucosaminyltransferase) (Multiple exostoses protein 2) (Putative tumor suppressor protein EXT2)","Homo sapiens (Human)",718
+"AIM2","Interferon-inducible protein AIM2 (Absent in melanoma 2)","Homo sapiens (Human)",343
+"CDKN1C KIP2","Cyclin-dependent kinase inhibitor 1C (Cyclin-dependent kinase inhibitor p57) (p57Kip2)","Homo sapiens (Human)",316
+"GPS2","G protein pathway suppressor 2 (GPS-2)","Homo sapiens (Human)",327
+"","Bis(5-adenosyl)-triphosphatase (EC 3.6.1.29) (AP3A hydrolase) (AP3Aase) (Diadenosine 5,5'-P1,P3-triphosphate hydrolase) (Dinucleosidetriphosphatase) (Fragile histidine triad protein)	FHIT	Homo sapiens (Human)	147
+Q9QZ59	DMRT1_MOUSE	reviewed	Doublesex- and mab-3-related transcription factor 1	Dmrt1	Mus musculus (Mouse)	374
+Q9WUM7	HIPK2_MESAU	reviewed	Homeodomain-interacting protein kinase 2 (EC 2.7.11.1) (Mx-interacting protein kinase) (PKM)	Hipk2	Mesocricetus auratus (Golden hamster)	1168
+O36006	P53_MARMO	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	TP53	Marmota monax (Woodchuck)	391
+Q9W679	P53_TETMU	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	tp53 p53	Tetraodon miurus (Congo puffer)	367
+Q5PU49	KPCD_CANLF	reviewed	Protein kinase C delta type (EC 2.7.11.13) (Tyrosine-protein kinase PRKCD) (EC 2.7.10.2) (nPKC-delta) [Cleaved into: Protein kinase C delta type regulatory subunit; Protein kinase C delta type catalytic subunit (Sphingosine-dependent protein kinase-1) (SDK1)]	PRKCD	Canis lupus familiaris (Dog) (Canis familiaris)	674
+Q63648	MERL_RAT	reviewed	Merlin (Moesin-ezrin-radixin-like protein) (Neurofibromin-2) (Schwannomin) (Fragment)	Nf2	Rattus norvegicus (Rat)	586
+Q15349	KS6A2_HUMAN	reviewed	Ribosomal protein S6 kinase alpha-2 (S6K-alpha-2) (EC 2.7.11.1) (90 kDa ribosomal protein S6 kinase 2) (p90-RSK 2) (p90RSK2) (MAP kinase-activated protein kinase 1c) (MAPK-activated protein kinase 1c) (MAPKAP kinase 1c) (MAPKAPK-1c) (Ribosomal S6 kinase 3) (RSK-3) (pp90RSK3)	RPS6KA2 MAPKAPK1C RSK3	Homo sapiens (Human)	733
+Q8C735	LIN9_MOUSE	reviewed	Protein lin-9 homolog (mLin-9) (TUDOR gene similar 1 protein) (Type I interferon receptor beta chain-associated protein)	Lin9 Bara Tgs1	Mus musculus (Mouse)	542
+Q0VBL6	HIF3A_MOUSE	reviewed	Hypoxia-inducible factor 3-alpha (HIF-3-alpha) (HIF3-alpha) (Basic-helix-loop-helix-PAS protein MOP7) (HIF3-alpha-1) (Inhibitory PAS domain protein) (IPAS) (Member of PAS protein 7) (Neonatal and embryonic PAS protein)	Hif3a Mop7 Nepas	Mus musculus (Mouse)	662
+Q9ULC4	MCTS1_HUMAN	reviewed	Malignant T-cell-amplified sequence 1 (MCT-1) (Multiple copies T-cell malignancies)	MCTS1 MCT1	Homo sapiens (Human)	181
+Q7TSJ6	LATS2_MOUSE	reviewed	Serine/threonine-protein kinase LATS2 (EC 2.7.11.1) (Kinase phosphorylated during mitosis protein) (Large tumor suppressor homolog 2) (Serine/threonine-protein kinase kpm)	Lats2	Mus musculus (Mouse)	1042
+D3YWE6	MN1_MOUSE	reviewed	Transcriptional activator MN1	Mn1	Mus musculus (Mouse)	1297
+P28867	KPCD_MOUSE	reviewed	Protein kinase C delta type (EC 2.7.11.13) (Tyrosine-protein kinase PRKCD) (EC 2.7.10.2) (nPKC-delta) [Cleaved into: Protein kinase C delta type regulatory subunit; Protein kinase C delta type catalytic subunit (Sphingosine-dependent protein kinase-1) (SDK1)]	Prkcd Pkcd	Mus musculus (Mouse)	674
+P59750	MERL_PAPAN	reviewed	Merlin (Moesin-ezrin-radixin-like protein) (Neurofibromin-2) (Schwannomin)	NF2	Papio anubis (Olive baboon)	595
+Q9HBX8	LGR6_HUMAN	reviewed	Leucine-rich repeat-containing G-protein coupled receptor 6	LGR6 UNQ6427/PRO21331 VTS20631	Homo sapiens (Human)	967
+Q9WUT3	KS6A2_MOUSE	reviewed	Ribosomal protein S6 kinase alpha-2 (S6K-alpha-2) (EC 2.7.11.1) (90 kDa ribosomal protein S6 kinase 2) (p90-RSK 2) (p90RSK2) (MAP kinase-activated protein kinase 1c) (MAPK-activated protein kinase 1c) (MAPKAP kinase 1c) (MAPKAPK-1c) (Protein-tyrosine kinase Mpk-9) (Ribosomal S6 kinase 3) (RSK-3) (pp90RSK3)	Rps6ka2 Mapkapk1c Rsk3	Mus musculus (Mouse)	733
+Q9Y4C4	MFHA1_HUMAN	reviewed	Malignant fibrous histiocytoma-amplified sequence 1 (Malignant fibrous histiocytoma-amplified sequence with leucine-rich tandem repeats 1)	MFHAS1 MASL1	Homo sapiens (Human)	1052
+O75444	MAF_HUMAN	reviewed	Transcription factor Maf (Proto-oncogene c-Maf) (V-maf musculoaponeurotic fibrosarcoma oncogene homolog)	MAF	Homo sapiens (Human)	373
+Q8JZM7	CDC73_MOUSE	reviewed	Parafibromin (Cell division cycle protein 73 homolog) (Hyperparathyroidism 2 protein homolog)	Cdc73	Mus musculus (Mouse)	531
+Q9TT01	DMRT1_PIG	reviewed	Doublesex- and mab-3-related transcription factor 1	DMRT1	Sus scrofa (Pig)	373
+O88665	BRD7_MOUSE	reviewed	Bromodomain-containing protein 7 (75 kDa bromodomain protein)	Brd7 Bp75	Mus musculus (Mouse)	651
+P48754	BRCA1_MOUSE	reviewed	Breast cancer type 1 susceptibility protein homolog (EC 2.3.2.27) (RING-type E3 ubiquitin transferase BRCA1)	Brca1	Mus musculus (Mouse)	1812
+Q9Z1H9	CAVN3_RAT	reviewed	Caveolae-associated protein 3 (Cavin-3) (D3T-inducible gene 2 protein) (DIG-2) (Dithiolethione-inducible gene 2 protein) (Protein kinase C delta-binding protein) (Serum deprivation response factor-related gene product that binds to C-kinase)	Cavin3 Dig2 Prkcdbp Srbc	Rattus norvegicus (Rat)	263
+O35625	AXIN1_MOUSE	reviewed	Axin-1 (Axis inhibition protein 1) (Protein Fused)	Axin1 Axin Fu	Mus musculus (Mouse)	863
+P29323	EPHB2_HUMAN	reviewed	Ephrin type-B receptor 2 (EC 2.7.10.1) (Developmentally-regulated Eph-related tyrosine kinase) (ELK-related tyrosine kinase) (EPH tyrosine kinase 3) (EPH-like kinase 5) (EK5) (hEK5) (Renal carcinoma antigen NY-REN-47) (Tyrosine-protein kinase TYRO5) (Tyrosine-protein kinase receptor EPH-3) [Cleaved into: EphB2/CTF1; EphB2/CTF2]	EPHB2 DRT EPHT3 EPTH3 ERK HEK5 TYRO5	Homo sapiens (Human)	1055
+P16879	FES_MOUSE	reviewed	Tyrosine-protein kinase Fes/Fps (EC 2.7.10.2) (Proto-oncogene c-Fes)	Fes Fps	Mus musculus (Mouse)	822
+Q8IYB7	DI3L2_HUMAN	reviewed	DIS3-like exonuclease 2 (hDIS3L2) (EC 3.1.13.-)	DIS3L2 FAM6A	Homo sapiens (Human)	885
+Q9NQC7	CYLD_HUMAN	reviewed	Ubiquitin carboxyl-terminal hydrolase CYLD (EC 3.4.19.12) (Deubiquitinating enzyme CYLD) (Ubiquitin thioesterase CYLD) (Ubiquitin-specific-processing protease CYLD)	CYLD CYLD1 KIAA0849 HSPC057	Homo sapiens (Human)	956
+C0LZJ1	DMRT1_BOVIN	reviewed	Doublesex and mab-3 related transcription factor 1	DMRT1	Bos taurus (Bovine)	357
+Q9QXD8	LIMD1_MOUSE	reviewed	LIM domain-containing protein 1	Limd1	Mus musculus (Mouse)	668
+O77617	CDN2A_MONDO	reviewed	Cyclin-dependent kinase inhibitor 2A (Cyclin-dependent kinase 4 inhibitor A) (CDK4I) (Tumor suppressor CDKN2A) (p16-INK4a) (p16-INK4)	CDKN2A	Monodelphis domestica (Gray short-tailed opossum)	171
+O95999	BCL10_HUMAN	reviewed	B-cell lymphoma/leukemia 10 (B-cell CLL/lymphoma 10) (Bcl-10) (CARD-containing molecule enhancing NF-kappa-B) (CARD-like apoptotic protein) (hCLAP) (CED-3/ICH-1 prodomain homologous E10-like regulator) (CIPER) (Cellular homolog of vCARMEN) (cCARMEN) (Cellular-E10) (c-E10) (Mammalian CARD-containing adapter molecule E10) (mE10)	BCL10 CIPER CLAP	Homo sapiens (Human)	233
+Q9P2X7	DEC1_HUMAN	reviewed	Deleted in esophageal cancer 1 (Candidate tumor suppressor CTS9)	DELEC1 CTS9 DEC1	Homo sapiens (Human)	70
+G5E5X0	LIMD1_BOVIN	reviewed	LIM domain-containing protein 1	LIMD1	Bos taurus (Bovine)	674
+Q4G009	MCTS1_RAT	reviewed	Malignant T-cell-amplified sequence 1 (MCT-1)	Mcts1	Rattus norvegicus (Rat)	182
+A4FV37	CAVN3_BOVIN	reviewed	Caveolae-associated protein 3 (Cavin-3) (Protein kinase C delta-binding protein)	CAVIN3 PRKCDBP	Bos taurus (Bovine)	260
+Q9R0Z3	CDN2A_RAT	reviewed	Cyclin-dependent kinase inhibitor 2A (Cyclin-dependent kinase 4 inhibitor A) (CDK4I) (p16-INK4a) (p16) (p16-INK4)	Cdkn2a P16ink4a	Rattus norvegicus (Rat)	159
+Q5R8B0	BRD7_PONAB	reviewed	Bromodomain-containing protein 7	BRD7	Pongo abelii (Sumatran orangutan) (Pongo pygmaeus abelii)	651
+Q99N20	BRMS1_MOUSE	reviewed	Breast cancer metastasis-suppressor 1 homolog	Brms1	Mus musculus (Mouse)	246
+Q8UW59	PARK7_CHICK	reviewed	Protein/nucleic acid deglycase DJ-1 (EC 3.1.2.-) (EC 3.5.1.-) (EC 3.5.1.124) (Maillard deglycase) (Parkinson disease protein 7 homolog) (Parkinsonism-associated deglycase) (Protein DJ-1) (DJ-1)	PARK7	Gallus gallus (Chicken)	189
+Q8N7H5	PAF1_HUMAN	reviewed	RNA polymerase II-associated factor 1 homolog (hPAF1) (Pancreatic differentiation protein 2)	PAF1 PD2	Homo sapiens (Human)	531
+Q91VJ2	CAVN3_MOUSE	reviewed	Caveolae-associated protein 3 (Cavin-3) (Protein kinase C delta-binding protein) (Serum deprivation response factor-related gene product that binds to C-kinase)	Cavin3 Prkcdbp Srbc	Mus musculus (Mouse)	260
+Q10571	MN1_HUMAN	reviewed	Transcriptional activator MN1 (Probable tumor suppressor protein MN1)	MN1	Homo sapiens (Human)	1320
+P13481	P53_CHLAE	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	TP53	Chlorocebus aethiops (Green monkey) (Cercopithecus aethiops)	393
+P79892	P53_HORSE	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53) (Fragment)	TP53 P53	Equus caballus (Horse)	280
+Q9WUR6	P53_CAVPO	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	TP53	Cavia porcellus (Guinea pig)	391
+P04637	P53_HUMAN	reviewed	Cellular tumor antigen p53 (Antigen NY-CO-13) (Phosphoprotein p53) (Tumor suppressor p53)	TP53 P53	Homo sapiens (Human)	393
+Q66HG1	DMTF1_RAT	reviewed	Cyclin-D-binding Myb-like transcription factor 1	Dmtf1	Rattus norvegicus (Rat)	760
+Q9Y222	DMTF1_HUMAN	reviewed	Cyclin-D-binding Myb-like transcription factor 1 (hDMTF1) (Cyclin-D-interacting Myb-like protein 1) (hDMP1)	DMTF1 DMP1	Homo sapiens (Human)	760
+Q2KIE4	MCTS1_BOVIN	reviewed	Malignant T-cell-amplified sequence 1 (MCT-1)	MCTS1	Bos taurus (Bovine)	181
+Q8BYR2	LATS1_MOUSE	reviewed	Serine/threonine-protein kinase LATS1 (EC 2.7.11.1) (Large tumor suppressor homolog 1) (WARTS protein kinase)	Lats1 Warts	Mus musculus (Mouse)	1129
+Q812A5	PRR5_MOUSE	reviewed	Proline-rich protein 5 (Protein observed with Rictor-1) (Protor-1)	Prr5 Protor1	Mus musculus (Mouse)	387
+O09185	P53_CRIGR	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	TP53 P53	Cricetulus griseus (Chinese hamster) (Cricetulus barabensis griseus)	393
+Q8AW35	PHLA3_DANRE	reviewed	Pleckstrin homology-like domain family A member 3 (TDAG51/Ipl homolog 1)	phlda3 tih1 si:dZ182N13.5 zgc:92333	Danio rerio (Zebrafish) (Brachydanio rerio)	127
+Q8BXA7	PHLP2_MOUSE	reviewed	PH domain leucine-rich repeat-containing protein phosphatase 2 (EC 3.1.3.16) (PH domain leucine-rich repeat-containing protein phosphatase-like) (PHLPP-like)	Phlpp2 Phlppl	Mus musculus (Mouse)	1320
+O73753	NBL1_XENLA	reviewed	Neuroblastoma suppressor of tumorigenicity 1	nbl1	Xenopus laevis (African clawed frog)	175
+Q61164	CTCF_MOUSE	reviewed	Transcriptional repressor CTCF (11-zinc finger protein) (CCCTC-binding factor) (CTCFL paralog)	Ctcf	Mus musculus (Mouse)	736
+Q9TTA1	P53_TUPBE	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	TP53 P53	Tupaia belangeri (Common tree shrew) (Tupaia glis belangeri)	393
+O76050	NEUL1_HUMAN	reviewed	E3 ubiquitin-protein ligase NEURL1 (EC 2.3.2.27) (Neuralized-like protein 1A) (h-neu) (h-neuralized 1) (RING finger protein 67) (RING-type E3 ubiquitin transferase NEURL1)	NEURL1 NEURL NEURL1A RNF67	Homo sapiens (Human)	574
+Q923S6	NEUL1_MOUSE	reviewed	E3 ubiquitin-protein ligase NEURL1 (EC 2.3.2.27) (Neuralized-like protein 1A) (m-neu1) (m-neuralized 1) (Neuralized1) (RING-type E3 ubiquitin transferase NEURL1)	Neurl1 Neurl Neurl1a	Mus musculus (Mouse)	574
+O15350	P73_HUMAN	reviewed	Tumor protein p73 (p53-like transcription factor) (p53-related protein)	TP73 P73	Homo sapiens (Human)	636
+Q4G0X4	KCD21_HUMAN	reviewed	BTB/POZ domain-containing protein KCTD21 (KCASH2 protein) (Potassium channel tetramerization domain-containing protein 21)	KCTD21	Homo sapiens (Human)	260
+Q86U86	PB1_HUMAN	reviewed	Protein polybromo-1 (hPB1) (BRG1-associated factor 180) (BAF180) (Polybromo-1D)	PBRM1 BAF180 PB1	Homo sapiens (Human)	1689
+P83111	LACTB_HUMAN	reviewed	Serine beta-lactamase-like protein LACTB, mitochondrial (EC 3.4.-.-)	LACTB MRPL56 UNQ843/PRO1781	Homo sapiens (Human)	547
+Q53EL6	PDCD4_HUMAN	reviewed	Programmed cell death protein 4 (Neoplastic transformation inhibitor protein) (Nuclear antigen H731-like) (Protein 197/15a)	PDCD4 H731	Homo sapiens (Human)	469
+Q5E946	PARK7_BOVIN	reviewed	Protein/nucleic acid deglycase DJ-1 (EC 3.1.2.-) (EC 3.5.1.-) (EC 3.5.1.124) (Maillard deglycase) (Parkinson disease protein 7 homolog) (Parkinsonism-associated deglycase) (Protein DJ-1) (DJ-1)	PARK7	Bos taurus (Bovine)	189
+Q5RBN6	NDRG2_PONAB	reviewed	Protein NDRG2 (N-myc downstream-regulated gene 2 protein)	NDRG2	Pongo abelii (Sumatran orangutan) (Pongo pygmaeus abelii)	371
+Q9GKK8	BRCA1_PANTR	reviewed	Breast cancer type 1 susceptibility protein homolog (EC 2.3.2.27) (RING-type E3 ubiquitin transferase BRCA1)	BRCA1	Pan troglodytes (Chimpanzee)	1863
+Q3ZC64	EFNA1_BOVIN	reviewed	Ephrin-A1 [Cleaved into: Ephrin-A1, secreted form]	EFNA1	Bos taurus (Bovine)	205
+A0FIN4	IRF1_PIG	reviewed	Interferon regulatory factor 1 (IRF-1)	IRF1	Sus scrofa (Pig)	322
+P41271	NBL1_HUMAN	reviewed	Neuroblastoma suppressor of tumorigenicity 1 (DAN domain family member 1) (Protein N03) (Zinc finger protein DAN)	NBL1 DAN DAND1	Homo sapiens (Human)	181
+Q6P730	DAB2P_RAT	reviewed	Disabled homolog 2-interacting protein (DAB2-interacting protein) (ASK-interacting protein 1) (AIP-1) (DIP1/2) (DOC-2/DAB2 interactive protein)	Dab2ip	Rattus norvegicus (Rat)	996
+Q9Y250	LZTS1_HUMAN	reviewed	Leucine zipper putative tumor suppressor 1 (F37/esophageal cancer-related gene-coding leucine-zipper motif) (Fez1)	LZTS1 FEZ1	Homo sapiens (Human)	596
+B5DEH0	LIMD1_RAT	reviewed	LIM domain-containing protein 1	Limd1	Rattus norvegicus (Rat)	663
+Q4R8N2	LIN9_MACFA	reviewed	Protein lin-9 homolog	LIN9 QtsA-12009	Macaca fascicularis (Crab-eating macaque) (Cynomolgus monkey)	542
+O60566	BUB1B_HUMAN	reviewed	Mitotic checkpoint serine/threonine-protein kinase BUB1 beta (EC 2.7.11.1) (MAD3/BUB1-related protein kinase) (hBUBR1) (Mitotic checkpoint kinase MAD3L) (Protein SSK1)	BUB1B BUBR1 MAD3L SSK1	Homo sapiens (Human)	1050
+P07332	FES_HUMAN	reviewed	Tyrosine-protein kinase Fes/Fps (EC 2.7.10.2) (Feline sarcoma/Fujinami avian sarcoma oncogene homolog) (Proto-oncogene c-Fes) (Proto-oncogene c-Fps) (p93c-fes)	FES FPS	Homo sapiens (Human)	822
+Q16394	EXT1_HUMAN	reviewed	Exostosin-1 (EC 2.4.1.224) (EC 2.4.1.225) (Glucuronosyl-N-acetylglucosaminyl-proteoglycan/N-acetylglucosaminyl-proteoglycan 4-alpha-N-acetylglucosaminyltransferase) (Multiple exostoses protein 1) (Putative tumor suppressor protein EXT1)	EXT1	Homo sapiens (Human)	746
+Q3SZP0	IRF1_BOVIN	reviewed	Interferon regulatory factor 1 (IRF-1)	IRF1	Bos taurus (Bovine)	322
+Q5FVG6	PRR5_RAT	reviewed	Proline-rich protein 5 (Protein observed with Rictor-1) (Protor-1)	Prr5 Protor1	Rattus norvegicus (Rat)	387
+O93379	P53_ICTPU	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	tp53 p53	Ictalurus punctatus (Channel catfish) (Silurus punctatus)	376
+Q64364	ARF_MOUSE	reviewed	Tumor suppressor ARF (Alternative reading frame) (ARF) (Cyclin-dependent kinase inhibitor 2A) (p19ARF)	Cdkn2a	Mus musculus (Mouse)	169
+O08692	NGP_MOUSE	reviewed	Neutrophilic granule protein (NGP) (Cystatin-like protein) (Myeloid bactenecin protein) (Myeloid secondary granule protein)	Ngp	Mus musculus (Mouse)	167
+Q7TQ35	PARK7_MESAU	reviewed	Protein/nucleic acid deglycase DJ-1 (EC 3.1.2.-) (EC 3.5.1.-) (EC 3.5.1.124) (Contraception-associated protein 1) (Maillard deglycase) (Parkinson disease protein 7 homolog) (Parkinsonism-associated deglycase) (Protein DJ-1) (DJ-1) [Cleaved into: Protein/nucleic acid deglycase DJ-1, N-terminally processed]	PARK7 CAP1	Mesocricetus auratus (Golden hamster)	189
+Q3ZBA8	NDRG2_BOVIN	reviewed	Protein NDRG2 (N-myc downstream-regulated gene 2 protein)	NDRG2	Bos taurus (Bovine)	357
+Q76JQ2	FLCN_RAT	reviewed	Folliculin (Birt-Hogg-Dube syndrome protein homolog)	Flcn Bhd	Rattus norvegicus (Rat)	579
+Q5R8S3	PDCD4_PONAB	reviewed	Programmed cell death protein 4	PDCD4	Pongo abelii (Sumatran orangutan) (Pongo pygmaeus abelii)	469
+P54842	MAFB_RAT	reviewed	Transcription factor MafB (Maf-B) (Transcription factor Maf-1) (V-maf musculoaponeurotic fibrosarcoma oncogene homolog B)	Mafb Maf1	Rattus norvegicus (Rat)	323
+P08111	L2GL_DROME	reviewed	Lethal(2) giant larvae protein	l(2)gl CG2671	Drosophila melanogaster (Fruit fly)	1161
+Q9DB27	MCTS1_MOUSE	reviewed	Malignant T-cell-amplified sequence 1 (MCT-1) (Multiple copies T-cell malignancies 1)	Mcts1	Mus musculus (Mouse)	181
+A2T7G9	HTAI2_PONPY	reviewed	Oxidoreductase HTATIP2 (EC 1.1.1.-)	HTATIP2	Pongo pygmaeus (Bornean orangutan)	242
+Q9UK53	ING1_HUMAN	reviewed	Inhibitor of growth protein 1	ING1	Homo sapiens (Human)	422
+Q8C0D7	ING4_MOUSE	reviewed	Inhibitor of growth protein 4 (p29ING4)	Ing4	Mus musculus (Mouse)	249
+Q9UNL4	ING4_HUMAN	reviewed	Inhibitor of growth protein 4 (p29ING4)	ING4 My036	Homo sapiens (Human)	249
+P97553	EFNA1_RAT	reviewed	Ephrin-A1 (EPH-related receptor tyrosine kinase ligand 1) (LERK-1) (Immediate early response protein B61) [Cleaved into: Ephrin-A1, secreted form]	Efna1 Epgl1 Lerk1	Rattus norvegicus (Rat)	205
+P20827	EFNA1_HUMAN	reviewed	Ephrin-A1 (EPH-related receptor tyrosine kinase ligand 1) (LERK-1) (Immediate early response protein B61) (Tumor necrosis factor alpha-induced protein 4) (TNF alpha-induced protein 4) [Cleaved into: Ephrin-A1, secreted form]	EFNA1 EPLG1 LERK1 TNFAIP4	Homo sapiens (Human)	205
+Q9R1D1	CTCF_RAT	reviewed	Transcriptional repressor CTCF (11-zinc finger protein) (CCCTC-binding factor) (CTCFL paralog)	Ctcf	Rattus norvegicus (Rat)	737
+Q61823	PDCD4_MOUSE	reviewed	Programmed cell death protein 4 (Protein MA-3) (Topoisomerase-inhibitor suppressed protein)	Pdcd4 Ma3 Tis	Mus musculus (Mouse)	469
+Q9UN36	NDRG2_HUMAN	reviewed	Protein NDRG2 (N-myc downstream-regulated gene 2 protein) (Protein Syld709613)	NDRG2 KIAA1248 SYLD	Homo sapiens (Human)	371
+Q9UGP4	LIMD1_HUMAN	reviewed	LIM domain-containing protein 1	LIMD1	Homo sapiens (Human)	676
+Q9Y2N7	HIF3A_HUMAN	reviewed	Hypoxia-inducible factor 3-alpha (HIF-3-alpha) (HIF3-alpha) (Basic-helix-loop-helix-PAS protein MOP7) (Class E basic helix-loop-helix protein 17) (bHLHe17) (HIF3-alpha-1) (Inhibitory PAS domain protein) (IPAS) (Member of PAS protein 7) (PAS domain-containing protein 7)	HIF3A BHLHE17 MOP7 PASD7	Homo sapiens (Human)	669
+Q9QZR5	HIPK2_MOUSE	reviewed	Homeodomain-interacting protein kinase 2 (EC 2.7.11.1) (Nuclear body-associated kinase 1) (Sialophorin tail-associated nuclear serine/threonine-protein kinase)	Hipk2 Nbak1 Stank	Mus musculus (Mouse)	1196
+P61260	P53_MACFU	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	TP53 P53	Macaca fuscata fuscata (Japanese macaque)	393
+P25035	P53_ONCMY	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	tp53 p53	Oncorhynchus mykiss (Rainbow trout) (Salmo gairdneri)	396
+Q92143	P53_XIPMA	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	tp53 p53	Xiphophorus maculatus (Southern platyfish) (Platypoecilus maculatus)	342
+P02340	P53_MOUSE	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	Tp53 P53 Trp53	Mus musculus (Mouse)	390
+O60443	GSDME_HUMAN	reviewed	Gasdermin-E (Inversely correlated with estrogen receptor expression 1) (ICERE-1) (Non-syndromic hearing impairment protein 5) [Cleaved into: Gasdermin-E, N-terminal (GSDME-NT); Gasdermin-E, C-terminal (GSDME-CT)]	GSDME DFNA5 ICERE1	Homo sapiens (Human)	496
+Q08495	DEMA_HUMAN	reviewed	Dematin (Dematin actin-binding protein) (Erythrocyte membrane protein band 4.9)	DMTN DMT EPB49	Homo sapiens (Human)	405
+Q9NRM7	LATS2_HUMAN	reviewed	Serine/threonine-protein kinase LATS2 (EC 2.7.11.1) (Kinase phosphorylated during mitosis protein) (Large tumor suppressor homolog 2) (Serine/threonine-protein kinase kpm) (Warts-like kinase)	LATS2 KPM	Homo sapiens (Human)	1088
+Q9R012	PLK2_RAT	reviewed	Serine/threonine-protein kinase PLK2 (EC 2.7.11.21) (Polo-like kinase 2) (PLK-2) (Serine/threonine-protein kinase SNK) (Serum-inducible kinase)	Plk2 Snk	Rattus norvegicus (Rat)	682
+Q53GL0	PKHO1_HUMAN	reviewed	Pleckstrin homology domain-containing family O member 1 (PH domain-containing family O member 1) (C-Jun-binding protein) (JBP) (Casein kinase 2-interacting protein 1) (CK2-interacting protein 1) (CKIP-1) (Osteoclast maturation-associated gene 120 protein)	PLEKHO1 CKIP1 OC120 HQ0024c	Homo sapiens (Human)	409
+Q15743	OGR1_HUMAN	reviewed	Ovarian cancer G-protein coupled receptor 1 (OGR-1) (G-protein coupled receptor 68) (GPR12A) (Sphingosylphosphorylcholine receptor)	GPR68 OGR1	Homo sapiens (Human)	365
+Q9JIY0	PKHO1_MOUSE	reviewed	Pleckstrin homology domain-containing family O member 1 (PH domain-containing family O member 1)	Plekho1	Mus musculus (Mouse)	408
+Q9UIF7	MUTYH_HUMAN	reviewed	Adenine DNA glycosylase (EC 3.2.2.31) (MutY homolog) (hMYH)	MUTYH MYH	Homo sapiens (Human)	546
+O46685	OGR1_BOVIN	reviewed	Ovarian cancer G-protein coupled receptor 1 (G protein-coupled receptor RGR1) (bRGR1) (G-protein coupled receptor 68)	GPR68	Bos taurus (Bovine)	361
+Q8BFQ3	OGR1_MOUSE	reviewed	Ovarian cancer G-protein coupled receptor 1 (G-protein coupled receptor 68) (Sphingosylphosphorylcholine receptor)	Gpr68 Ogr1	Mus musculus (Mouse)	365
+Q6KAU7	PKHG2_MOUSE	reviewed	Pleckstrin homology domain-containing family G member 2 (PH domain-containing family G member 2) (Common site lymphoma/leukemia guanine nucleotide exchange factor) (Common site lymphoma/leukemia GEF)	Plekhg2	Mus musculus (Mouse)	1340
+Q9H7P9	PKHG2_HUMAN	reviewed	Pleckstrin homology domain-containing family G member 2 (PH domain-containing family G member 2)	PLEKHG2	Homo sapiens (Human)	1386
+Q5BJM5	PKHO1_RAT	reviewed	Pleckstrin homology domain-containing family O member 1 (PH domain-containing family O member 1)	Plekho1	Rattus norvegicus (Rat)	408
+Q864U1	BRCA1_BOVIN	reviewed	Breast cancer type 1 susceptibility protein homolog (EC 2.3.2.27) (RING-type E3 ubiquitin transferase BRCA1)	BRCA1	Bos taurus (Bovine)	1849
+Q96BK5	PINX1_HUMAN	reviewed	PIN2/TERF1-interacting telomerase inhibitor 1 (Liver-related putative tumor suppressor) (Pin2-interacting protein X1) (Protein 67-11-3) (TRF1-interacting protein 1)	PINX1 LPTL LPTS	Homo sapiens (Human)	328
+Q60773	CDN2D_MOUSE	reviewed	Cyclin-dependent kinase 4 inhibitor D (p19-INK4d)	Cdkn2d	Mus musculus (Mouse)	166
+P55272	CDN2B_RAT	reviewed	Cyclin-dependent kinase 4 inhibitor B (p14-INK4b) (p15-INK4b)	Cdkn2b Ink4	Rattus norvegicus (Rat)	130
+Q9Z1S0	BUB1B_MOUSE	reviewed	Mitotic checkpoint serine/threonine-protein kinase BUB1 beta (EC 2.7.11.1) (MAD3/BUB1-related protein kinase) (BubR1) (Mitotic checkpoint kinase MAD3L)	Bub1b Mad3l	Mus musculus (Mouse)	1052
+P10360	P53_CHICK	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	TP53	Gallus gallus (Chicken)	367
+Q5PQT7	PHLA3_RAT	reviewed	Pleckstrin homology-like domain family A member 3 (TDAG51/Ipl homolog 1)	Phlda3 Tih1	Rattus norvegicus (Rat)	125
+Q93015	NAA80_HUMAN	reviewed	N-alpha-acetyltransferase 80 (HsNAAA80) (EC 2.3.1.-) (N-acetyltransferase 6) (Protein fusion-2) (Protein fus-2)	NAA80 FUS2 NAT6	Homo sapiens (Human)	286
+Q8VBU2	NDRG2_RAT	reviewed	Protein NDRG2 (Antidepressant-related protein ADRG123) (N-myc downstream-regulated gene 2 protein) (NDRG1-related protein)	Ndrg2	Rattus norvegicus (Rat)	371
+Q3T0C2	PGDH_BOVIN	reviewed	15-hydroxyprostaglandin dehydrogenase [NAD(+)] (15-PGDH) (EC 1.1.1.141) (Prostaglandin dehydrogenase 1)	HPGD PGDH1	Bos taurus (Bovine)	266
+P41685	P53_FELCA	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	TP53 TRP53	Felis catus (Cat) (Felis silvestris catus)	386
+Q9WTR8	PHLP1_RAT	reviewed	PH domain leucine-rich repeat protein phosphatase 1 (EC 3.1.3.16) (Pleckstrin homology domain-containing family E member 1) (PH domain-containing family E member 1) (Suprachiasmatic nucleus circadian oscillatory protein)	Phlpp1 Phlpp Plekhe1 Scop	Rattus norvegicus (Rat)	1696
+Q6ZVD8	PHLP2_HUMAN	reviewed	PH domain leucine-rich repeat-containing protein phosphatase 2 (EC 3.1.3.16) (PH domain leucine-rich repeat-containing protein phosphatase-like) (PHLPP-like)	PHLPP2 KIAA0931 PHLPPL	Homo sapiens (Human)	1323
+Q61477	NBL1_MOUSE	reviewed	Neuroblastoma suppressor of tumorigenicity 1 (N03) (Zinc finger protein DAN)	Nbl1 Dan Dana	Mus musculus (Mouse)	178
+Q9EP89	LACTB_MOUSE	reviewed	Serine beta-lactamase-like protein LACTB, mitochondrial (EC 3.4.-.-)	Lactb Lact1	Mus musculus (Mouse)	551
+Q8NC69	KCTD6_HUMAN	reviewed	BTB/POZ domain-containing protein KCTD6 (KCASH3 protein) (Potassium channel tetramerization domain-containing protein 6)	KCTD6	Homo sapiens (Human)	237
+Q99497	PARK7_HUMAN	reviewed	Protein/nucleic acid deglycase DJ-1 (EC 3.1.2.-) (EC 3.5.1.-) (EC 3.5.1.124) (Maillard deglycase) (Oncogene DJ1) (Parkinson disease protein 7) (Parkinsonism-associated deglycase) (Protein DJ-1) (DJ-1)	PARK7	Homo sapiens (Human)	189
+Q3URF8	KCD21_MOUSE	reviewed	BTB/POZ domain-containing protein KCTD21 (KCASH2 protein) (Potassium channel tetramerization domain-containing protein 21)	Kctd21	Mus musculus (Mouse)	260
+P62834	RAP1A_HUMAN	reviewed	Ras-related protein Rap-1A (C21KG) (G-22K) (GTP-binding protein smg p21A) (Ras-related protein Krev-1)	RAP1A KREV1	Homo sapiens (Human)	184
+Q5ZKY4	ING4_CHICK	reviewed	Inhibitor of growth protein 4 (p29ING4)	ING4 RCJMB04_8l5	Gallus gallus (Chicken)	249
+Q8NEB5	PLPP5_HUMAN	reviewed	Phospholipid phosphatase 5 (EC 3.1.3.4) (EC 3.1.3.81) (Phosphatidic acid phosphatase type 2 domain-containing protein 1B)	PLPP5 DPPL1 HTPAP PPAPDC1B	Homo sapiens (Human)	264
+A1YFX9	HTAI2_PANPA	reviewed	Oxidoreductase HTATIP2 (EC 1.1.1.-)	HTATIP2	Pan paniscus (Pygmy chimpanzee) (Bonobo)	242
+Q9P2F6	RHG20_HUMAN	reviewed	Rho GTPase-activating protein 20 (Rho-type GTPase-activating protein 20)	ARHGAP20 KIAA1391	Homo sapiens (Human)	1191
+Q6K0P9	IFIX_HUMAN	reviewed	Pyrin and HIN domain-containing protein 1 (Interferon-inducible protein X)	PYHIN1 IFIX	Homo sapiens (Human)	492
+P52793	EFNA1_MOUSE	reviewed	Ephrin-A1 (EPH-related receptor tyrosine kinase ligand 1) (LERK-1) (Immediate early response protein B61) [Cleaved into: Ephrin-A1, secreted form]	Efna1 Epgl1 Epl1 Lerk1	Mus musculus (Mouse)	205
+Q06AS9	EFNA1_PIG	reviewed	Ephrin-A1 [Cleaved into: Ephrin-A1, secreted form]	EFNA1	Sus scrofa (Pig)	205
+Q86YC2	PALB2_HUMAN	reviewed	Partner and localizer of BRCA2	PALB2 FANCN	Homo sapiens (Human)	1186
+O43312	MTSS1_HUMAN	reviewed	Protein MTSS 1 (Metastasis suppressor YGL-1) (Metastasis suppressor protein 1) (Missing in metastasis protein)	MTSS1 KIAA0429 MIM	Homo sapiens (Human)	755
+P54843	MAF_MOUSE	reviewed	Transcription factor Maf (Proto-oncogene c-Maf) (V-maf musculoaponeurotic fibrosarcoma oncogene homolog)	Maf Maf2	Mus musculus (Mouse)	370
+Q06880	NBL1_RAT	reviewed	Neuroblastoma suppressor of tumorigenicity 1 (N03) (Zinc finger protein DAN)	Nbl1 Dan	Rattus norvegicus (Rat)	178
+Q8BHL4	RAI3_MOUSE	reviewed	Retinoic acid-induced protein 3 (G-protein coupled receptor family C group 5 member A) (Retinoic acid-induced gene 1 protein) (RAIG-1)	Gprc5a Rai3 Raig1	Mus musculus (Mouse)	356
+Q8QZZ9	ARF_RAT	reviewed	Tumor suppressor ARF (Alternative reading frame) (ARF) (Cyclin-dependent kinase inhibitor 2A) (p19ARF)	Cdkn2a	Rattus norvegicus (Rat)	160
+A7Z017	MAF_BOVIN	reviewed	Transcription factor Maf (Proto-oncogene c-Maf) (V-maf musculoaponeurotic fibrosarcoma oncogene homolog)	MAF	Bos taurus (Bovine)	377
+Q8BSQ9	PB1_MOUSE	reviewed	Protein polybromo-1 (BRG1-associated factor 180) (BAF180)	Pbrm1 Baf180 Pb1	Mus musculus (Mouse)	1634
+Q9W678	P53_BARBU	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	tp53 p53	Barbus barbus (Barbel) (Cyprinus barbus)	369
+P67939	P53_BOVIN	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	TP53	Bos taurus (Bovine)	386
+Q29537	P53_CANLF	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	TP53 P53	Canis lupus familiaris (Dog) (Canis familiaris)	381
+P21359	NF1_HUMAN	reviewed	Neurofibromin (Neurofibromatosis-related protein NF-1) [Cleaved into: Neurofibromin truncated]	NF1	Homo sapiens (Human)	2839
+P79820	P53_ORYLA	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	tp53 p53	Oryzias latipes (Japanese rice fish) (Japanese killifish)	352
+Q95330	P53_RABIT	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	TP53	Oryctolagus cuniculus (Rabbit)	391
+Q14678	KANK1_HUMAN	reviewed	KN motif and ankyrin repeat domain-containing protein 1 (Ankyrin repeat domain-containing protein 15) (Kidney ankyrin repeat-containing protein)	KANK1 ANKRD15 KANK KIAA0172	Homo sapiens (Human)	1352
+Q3T095	ING4_BOVIN	reviewed	Inhibitor of growth protein 4 (p29ING4)	ING4	Bos taurus (Bovine)	248
+Q9JJP2	P73_MOUSE	reviewed	Tumor protein p73 (p53-like transcription factor) (p53-related protein)	Tp73 P73 Trp73	Mus musculus (Mouse)	631
+O88767	PARK7_RAT	reviewed	Protein/nucleic acid deglycase DJ-1 (EC 3.1.2.-) (EC 3.5.1.-) (EC 3.5.1.124) (Contraception-associated protein 1) (Protein CAP1) (Fertility protein SP22) (Maillard deglycase) (Parkinson disease protein 7 homolog) (Parkinsonism-associated deglycase) (Protein DJ-1) (DJ-1)	Park7 Cap1	Rattus norvegicus (Rat)	189
+O08699	PGDH_RAT	reviewed	15-hydroxyprostaglandin dehydrogenase [NAD(+)] (15-PGDH) (EC 1.1.1.141) (Prostaglandin dehydrogenase 1)	Hpgd Pgdh1	Rattus norvegicus (Rat)	266
+Q9QXV3	ING1_MOUSE	reviewed	Inhibitor of growth protein 1	Ing1	Mus musculus (Mouse)	279
+Q9Y5J5	PHLA3_HUMAN	reviewed	Pleckstrin homology-like domain family A member 3 (TDAG51/Ipl homolog 1)	PHLDA3 TIH1	Homo sapiens (Human)	127
+Q693B1	KCD11_HUMAN	reviewed	BTB/POZ domain-containing protein KCTD11 (KCASH1 protein) (Potassium channel tetramerization domain-containing protein 11) (RING-type E3 ubiquitin transferase subunit KCTD11)	KCTD11 C17orf36 REN	Homo sapiens (Human)	232
+P15428	PGDH_HUMAN	reviewed	15-hydroxyprostaglandin dehydrogenase [NAD(+)] (15-PGDH) (EC 1.1.1.141) (Prostaglandin dehydrogenase 1) (Short chain dehydrogenase/reductase family 36C member 1)	HPGD PGDH1 SDR36C1	Homo sapiens (Human)	266
+Q90YC9	NBL1_CHICK	reviewed	Neuroblastoma suppressor of tumorigenicity 1 (Cysteine knot secreted protein DAN) (cDAN)	NBL1 DAN	Gallus gallus (Chicken)	177
+Q60953	PML_MOUSE	reviewed	Protein PML	Pml	Mus musculus (Mouse)	885
+A2APF3	CTCFL_MOUSE	reviewed	Transcriptional repressor CTCFL (Brother of the regulator of imprinted sites) (CCCTC-binding factor) (CTCF paralog) (CTCF-like protein)	Ctcfl Boris	Mus musculus (Mouse)	636
+P54844	MAF_RAT	reviewed	Transcription factor Maf (Proto-oncogene c-Maf) (Transcription factor Maf-2) (V-maf musculoaponeurotic fibrosarcoma oncogene homolog)	Maf Maf2	Rattus norvegicus (Rat)	369
+Q5XJ36	PARK7_DANRE	reviewed	Protein/nucleic acid deglycase DJ-1 (EC 3.1.2.-) (EC 3.5.1.-) (EC 3.5.1.124) (Maillard deglycase) (Parkinson disease protein 7 homolog) (Parkinsonism-associated deglycase) (Protein DJ-1zDJ-1) (zDJ-1)	park7 dj1 zgc:103725	Danio rerio (Zebrafish) (Brachydanio rerio)	189
+Q99LX0	PARK7_MOUSE	reviewed	Protein/nucleic acid deglycase DJ-1 (EC 3.1.2.-) (EC 3.5.1.-) (EC 3.5.1.124) (Maillard deglycase) (Parkinson disease protein 7 homolog) (Parkinsonism-associated deglycase) (Protein DJ-1) (DJ-1)	Park7	Mus musculus (Mouse)	189
+P79734	P53_DANRE	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	tp53 drp53	Danio rerio (Zebrafish) (Brachydanio rerio)	373
+Q99801	NKX31_HUMAN	reviewed	Homeobox protein Nkx-3.1 (Homeobox protein NK-3 homolog A)	NKX3-1 NKX3.1 NKX3A	Homo sapiens (Human)	234
+Q58DF7	KCD11_BOVIN	reviewed	BTB/POZ domain-containing protein KCTD11 (KCASH1 protein) (Potassium channel tetramerization domain-containing protein 11) (RING-type E3 ubiquitin transferase subunit KCTD11)	KCTD11	Bos taurus (Bovine)	232
+A5A6K6	NDRG2_PANTR	reviewed	Protein NDRG2 (N-myc downstream-regulated gene 2 protein)	NDRG2	Pan troglodytes (Chimpanzee)	357
+Q8SPZ3	P53_DELLE	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	TP53 P53	Delphinapterus leucas (Beluga whale)	387
+A4IFK0	PKHO1_BOVIN	reviewed	Pleckstrin homology domain-containing family O member 1 (PH domain-containing family O member 1)	PLEKHO1	Bos taurus (Bovine)	409
+Q14526	HIC1_HUMAN	reviewed	Hypermethylated in cancer 1 protein (Hic-1) (Zinc finger and BTB domain-containing protein 29)	HIC1 ZBTB29	Homo sapiens (Human)	733
+Q9JID1	PDCD4_RAT	reviewed	Programmed cell death protein 4 (Death up-regulated gene protein)	Pdcd4 Dug	Rattus norvegicus (Rat)	469
+Q9WV95	PHLA3_MOUSE	reviewed	Pleckstrin homology-like domain family A member 3 (TDAG51/Ipl homolog 1)	Phlda3 Tih1	Mus musculus (Mouse)	125
+O60346	PHLP1_HUMAN	reviewed	PH domain leucine-rich repeat-containing protein phosphatase 1 (EC 3.1.3.16) (Pleckstrin homology domain-containing family E member 1) (PH domain-containing family E member 1) (Suprachiasmatic nucleus circadian oscillatory protein) (hSCOP)	PHLPP1 KIAA0606 PHLPP PLEKHE1 SCOP	Homo sapiens (Human)	1717
+Q6NZ13	NBL1_DANRE	reviewed	Neuroblastoma suppressor of tumorigenicity 1	nbl1 zgc:77251	Danio rerio (Zebrafish) (Brachydanio rerio)	183
+Q6DF53	NBL1_XENTR	reviewed	Neuroblastoma suppressor of tumorigenicity 1	nbl1	Xenopus tropicalis (Western clawed frog) (Silurana tropicalis)	176
+Q8BNL5	KCTD6_MOUSE	reviewed	BTB/POZ domain-containing protein KCTD6	Kctd6	Mus musculus (Mouse)	237
+Q5E9U9	NPRL2_BOVIN	reviewed	GATOR complex protein NPRL2 (Nitrogen permease regulator 2-like protein) (NPR2-like protein)	NPRL2	Bos taurus (Bovine)	380
+Q9ULZ3	ASC_HUMAN	reviewed	Apoptosis-associated speck-like protein containing a CARD (hASC) (Caspase recruitment domain-containing protein 5) (PYD and CARD domain-containing protein) (Target of methylation-induced silencing 1)	PYCARD ASC CARD5 TMS1	Homo sapiens (Human)	195
+P97436	NKX31_MOUSE	reviewed	Homeobox protein Nkx-3.1 (Homeobox protein NK-3 homolog A)	Nkx3-1 Nkx-3.1 Nkx3a	Mus musculus (Mouse)	237
+O43261	LEU1_HUMAN	reviewed	Leukemia-associated protein 1 (Deleted in lymphocytic leukemia 1) (HBV X-transactivated gene 6 protein) (HBV XAg-transactivated protein 6)	DLEU1 LEU1 XTP6	Homo sapiens (Human)	78
+Q4R4K0	NDRG2_MACFA	reviewed	Protein NDRG2 (N-myc downstream-regulated gene 2 protein)	NDRG2 QnpA-19932	Macaca fascicularis (Crab-eating macaque) (Cynomolgus monkey)	357
+Q60641	NR1H4_MOUSE	reviewed	Bile acid receptor (Farnesoid X-activated receptor) (Farnesol receptor HRR-1) (Nuclear receptor subfamily 1 group H member 4) (Retinoid X receptor-interacting protein 14) (RXR-interacting protein 14)	Nr1h4 Bar Fxr Rip14	Mus musculus (Mouse)	488
+P15941	MUC1_HUMAN	reviewed	Mucin-1 (MUC-1) (Breast carcinoma-associated antigen DF3) (Cancer antigen 15-3) (CA 15-3) (Carcinoma-associated mucin) (Episialin) (H23AG) (Krebs von den Lungen-6) (KL-6) (PEMT) (Peanut-reactive urinary mucin) (PUM) (Polymorphic epithelial mucin) (PEM) (Tumor-associated epithelial membrane antigen) (EMA) (Tumor-associated mucin) (CD antigen CD227) [Cleaved into: Mucin-1 subunit alpha (MUC1-NT) (MUC1-alpha); Mucin-1 subunit beta (MUC1-beta) (MUC1-CT)]	MUC1 PUM	Homo sapiens (Human)	1255
+P62835	RAP1A_MOUSE	reviewed	Ras-related protein Rap-1A (Ras-related protein Krev-1)	Rap1a Krev-1	Mus musculus (Mouse)	184
+P62836	RAP1A_RAT	reviewed	Ras-related protein Rap-1A (Ras-related protein Krev-1)	Rap1a Krev1	Rattus norvegicus (Rat)	184
+Q95LI9	PARK7_CHLAE	reviewed	Protein/nucleic acid deglycase DJ-1 (EC 3.1.2.-) (EC 3.5.1.-) (EC 3.5.1.124) (Maillard deglycase) (Parkinson disease protein 7 homolog) (Parkinsonism-associated deglycase) (Protein DJ-1) (DJ-1)	PARK7	Chlorocebus aethiops (Green monkey) (Cercopithecus aethiops)	189
+Q9QYG0	NDRG2_MOUSE	reviewed	Protein NDRG2 (N-myc downstream-regulated gene 2 protein) (Protein Ndr2)	Ndrg2 Kiaa1248 Ndr2	Mus musculus (Mouse)	371
+Q8MJY8	PGDH_MACFA	reviewed	15-hydroxyprostaglandin dehydrogenase [NAD(+)] (15-PGDH) (EC 1.1.1.141) (Prostaglandin dehydrogenase 1)	HPGD PGDH1	Macaca fascicularis (Crab-eating macaque) (Cynomolgus monkey)	266
+Q8WTW4	NPRL2_HUMAN	reviewed	GATOR complex protein NPRL2 (Gene 21 protein) (G21 protein) (Nitrogen permease regulator 2-like protein) (NPR2-like protein) (Tumor suppressor candidate 4)	NPRL2 TUSC4	Homo sapiens (Human)	380
+A4L691	PINX1_RAT	reviewed	PIN2/TERF1-interacting telomerase inhibitor 1 (Pin2-interacting protein X1)	Pinx1	Rattus norvegicus (Rat)	331
+B9VTT2	RHG07_CANLF	reviewed	Rho GTPase-activating protein 7 (Deleted in liver cancer 1 protein homolog) (DLC-1) (Rho-type GTPase-activating protein 7) (START domain-containing protein 12) (StARD12) (StAR-related lipid transfer protein 12)	DLC1 ARHGAP7 STARD12	Canis lupus familiaris (Dog) (Canis familiaris)	1091
+P33568	RB_RAT	reviewed	Retinoblastoma-associated protein (pRb) (Rb) (pp105)	Rb1 Rb-1	Rattus norvegicus (Rat)	920
+P13405	RB_MOUSE	reviewed	Retinoblastoma-associated protein (p110-RB1) (pRb) (Rb) (pp105)	Rb1 Rb-1	Mus musculus (Mouse)	921
+P51480	CDN2A_MOUSE	reviewed	Cyclin-dependent kinase inhibitor 2A (Cyclin-dependent kinase 4 inhibitor A) (CDK4I) (p16-INK4a) (p16-INK4)	Cdkn2a P16ink4a	Mus musculus (Mouse)	168
+O14519	CDKA1_HUMAN	reviewed	Cyclin-dependent kinase 2-associated protein 1 (CDK2-associated protein 1) (Deleted in oral cancer 1) (DOC-1) (Putative oral cancer suppressor)	CDK2AP1 CDKAP1 DOC1	Homo sapiens (Human)	115
+P42771	CDN2A_HUMAN	reviewed	Cyclin-dependent kinase inhibitor 2A (Cyclin-dependent kinase 4 inhibitor A) (CDK4I) (Multiple tumor suppressor 1) (MTS-1) (p16-INK4a) (p16-INK4) (p16INK4A)	CDKN2A CDKN2 MTS1	Homo sapiens (Human)	156
+P97929	BRCA2_MOUSE	reviewed	Breast cancer type 2 susceptibility protein homolog (Fanconi anemia group D1 protein homolog)	Brca2 Fancd1	Mus musculus (Mouse)	3329
+Q9NPI1	BRD7_HUMAN	reviewed	Bromodomain-containing protein 7 (75 kDa bromodomain protein) (Protein CELTIX-1)	BRD7 BP75 CELTIX1	Homo sapiens (Human)	651
+Q6J6I9	BRCA1_MACMU	reviewed	Breast cancer type 1 susceptibility protein homolog (EC 2.3.2.27) (RING-type E3 ubiquitin transferase BRCA1)	BRCA1	Macaca mulatta (Rhesus macaque)	1863
+P43246	MSH2_HUMAN	reviewed	DNA mismatch repair protein Msh2 (hMSH2) (MutS protein homolog 2)	MSH2	Homo sapiens (Human)	934
+Q9QXE4	T53I1_MOUSE	reviewed	Tumor protein p53-inducible nuclear protein 1 (Stress-induced protein) (Thymus-expressed acidic protein) (TEAP) (p53-dependent damage-inducible nuclear protein 1) (p53DINP1)	Trp53inp1 Sip	Mus musculus (Mouse)	239
+Q80YE2	T53I1_RAT	reviewed	Tumor protein p53-inducible nuclear protein 1 (Stress-induced protein) (Thymus-expressed acidic protein) (TEAP) (p53-dependent damage-inducible nuclear protein 1) (p53DINP1)	Trp53inp1 Sip	Rattus norvegicus (Rat)	239
+Q20646	CEP1_CAEEL	reviewed	Transcription factor cep-1 (C.elegans p53-like protein 1)	cep-1 F52B5.5	Caenorhabditis elegans	644
+Q8VCC1	PGDH_MOUSE	reviewed	15-hydroxyprostaglandin dehydrogenase [NAD(+)] (15-PGDH) (EC 1.1.1.141) (Prostaglandin dehydrogenase 1)	Hpgd Pgdh1	Mus musculus (Mouse)	269
+P70684	PGDH_CAVPO	reviewed	15-hydroxyprostaglandin dehydrogenase [NAD(+)] (15-PGDH) (EC 1.1.1.141) (Prostaglandin dehydrogenase 1)	HPGD PGDH1	Cavia porcellus (Guinea pig)	265
+P67938	P53_BOSIN	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	TP53	Bos indicus (Zebu)	386
+Q8N726	ARF_HUMAN	reviewed	Tumor suppressor ARF (Alternative reading frame) (ARF) (Cyclin-dependent kinase inhibitor 2A) (p14ARF)	CDKN2A CDKN2 MLM	Homo sapiens (Human)	132
+Q99490	AGAP2_HUMAN	reviewed	Arf-GAP with GTPase, ANK repeat and PH domain-containing protein 2 (AGAP-2) (Centaurin-gamma-1) (Cnt-g1) (GTP-binding and GTPase-activating protein 2) (GGAP2) (Phosphatidylinositol 3-kinase enhancer) (PIKE)	AGAP2 CENTG1 KIAA0167	Homo sapiens (Human)	1192
+Q9BYW2	SETD2_HUMAN	reviewed	Histone-lysine N-methyltransferase SETD2 (EC 2.1.1.359) (HIF-1) (Huntingtin yeast partner B) (Huntingtin-interacting protein 1) (HIP-1) (Huntingtin-interacting protein B) (Lysine N-methyltransferase 3A) (Protein-lysine N-methyltransferase SETD2) (EC 2.1.1.-) (SET domain-containing protein 2) (hSET2) (p231HBP)	SETD2 HIF1 HYPB KIAA1732 KMT3A SET2 HSPC069	Homo sapiens (Human)	2564
+A7E300	RHG07_BOVIN	reviewed	Rho GTPase-activating protein 7 (Deleted in liver cancer 1 protein homolog) (DLC-1) (Rho-type GTPase-activating protein 7) (START domain-containing protein 12) (StARD12) (StAR-related lipid transfer protein 12)	DLC1 ARHGAP7 STARD12	Bos taurus (Bovine)	1112
+Q5EBH1	RASF5_MOUSE	reviewed	Ras association domain-containing protein 5 (New ras effector 1) (Regulator for cell adhesion and polarization enriched in lymphoid tissues) (RAPL)	Rassf5 Nore1 Rapl	Mus musculus (Mouse)	413
+Q91YE8	SYNP2_MOUSE	reviewed	Synaptopodin-2 (Myopodin)	Synpo2	Mus musculus (Mouse)	1087
+Q5R4L1	PLK2_PONAB	reviewed	Serine/threonine-protein kinase PLK2 (EC 2.7.11.21) (Polo-like kinase 2) (PLK-2)	PLK2	Pongo abelii (Sumatran orangutan) (Pongo pygmaeus abelii)	685
+P62746	RHOB_MOUSE	reviewed	Rho-related GTP-binding protein RhoB	Rhob Arhb	Mus musculus (Mouse)	196
+Q8HXW3	SDHA_MACFA	reviewed	Succinate dehydrogenase [ubiquinone] flavoprotein subunit, mitochondrial (EC 1.3.5.1) (Flavoprotein subunit of complex II) (Fp)	SDHA QccE-14114	Macaca fascicularis (Crab-eating macaque) (Cynomolgus monkey)	664
+Q8IZH2	XRN1_HUMAN	reviewed	5-3 exoribonuclease 1 (EC 3.1.13.-) (Strand-exchange protein 1 homolog)	XRN1 SEP1	Homo sapiens (Human)	1706
+P53351	PLK2_MOUSE	reviewed	Serine/threonine-protein kinase PLK2 (EC 2.7.11.21) (Polo-like kinase 2) (PLK-2) (Serine/threonine-protein kinase SNK) (Serum-inducible kinase)	Plk2 Snk	Mus musculus (Mouse)	682
+O94885	SASH1_HUMAN	reviewed	SAM and SH3 domain-containing protein 1 (Proline-glutamate repeat-containing protein)	SASH1 KIAA0790 PEPE1	Homo sapiens (Human)	1247
+Q1JQC6	SIR4_BOVIN	reviewed	NAD-dependent protein lipoamidase sirtuin-4, mitochondrial (EC 2.3.1.-) (NAD-dependent ADP-ribosyltransferase sirtuin-4) (EC 2.4.2.-) (NAD-dependent protein deacetylase sirtuin-4) (EC 2.3.1.286) (Regulatory protein SIR2 homolog 4) (SIR2-like protein 4)	SIRT4	Bos taurus (Bovine)	315
+Q13635	PTC1_HUMAN	reviewed	Protein patched homolog 1 (PTC) (PTC1)	PTCH1 PTCH	Homo sapiens (Human)	1447
+Q60670	SIK1_MOUSE	reviewed	Serine/threonine-protein kinase SIK1 (EC 2.7.11.1) (HRT-20) (Myocardial SNF1-like kinase) (Salt-inducible kinase 1) (SIK-1) (Serine/threonine-protein kinase SNF1-like kinase 1) (Serine/threonine-protein kinase SNF1LK)	Sik1 Msk Sik Snf1lk	Mus musculus (Mouse)	779
+P54278	PMS2_HUMAN	reviewed	Mismatch repair endonuclease PMS2 (EC 3.1.-.-) (DNA mismatch repair protein PMS2) (PMS1 protein homolog 2)	PMS2 PMSL2	Homo sapiens (Human)	862
+Q8TDR4	TCP1L_HUMAN	reviewed	T-complex protein 10A homolog 1 (T-complex protein 10A-1) (TCP10A-1) (TCP10-like)	TCP10L PRED77	Homo sapiens (Human)	215
+I0J062	PANO1_HUMAN	reviewed	Proapoptotic nucleolar protein 1	PANO1 PANO	Homo sapiens (Human)	215
+P38159	RBMX_HUMAN	reviewed	RNA-binding motif protein, X chromosome (Glycoprotein p43) (Heterogeneous nuclear ribonucleoprotein G) (hnRNP G) [Cleaved into: RNA-binding motif protein, X chromosome, N-terminally processed]	RBMX HNRPG RBMXP1	Homo sapiens (Human)	391
+Q9Y3M8	STA13_HUMAN	reviewed	StAR-related lipid transfer protein 13 (46H23.2) (Deleted in liver cancer 2 protein) (DLC-2) (Rho GTPase-activating protein) (START domain-containing protein 13) (StARD13)	STARD13 DLC2 GT650	Homo sapiens (Human)	1113
+Q9BT92	TCHP_HUMAN	reviewed	Trichoplein keratin filament-binding protein (Protein TCHP) (Mitochondrial protein with oncostatic activity) (Mitostatin) (Tumor suppressor protein)	TCHP	Homo sapiens (Human)	498
+P62745	RHOB_HUMAN	reviewed	Rho-related GTP-binding protein RhoB (Rho cDNA clone 6) (h6)	RHOB ARH6 ARHB	Homo sapiens (Human)	196
+O88566	AXIN2_MOUSE	reviewed	Axin-2 (Axin-like protein) (Axil) (Axis inhibition protein 2) (Conductin)	Axin2	Mus musculus (Mouse)	840
+Q4V898	RBMX_RAT	reviewed	RNA-binding motif protein, X chromosome (Heterogeneous nuclear ribonucleoprotein G) (hnRNP G) (RNA-binding motif protein, X chromosome retrogene) (RNA-binding motif protein, X chromosome retrogene-like) [Cleaved into: RNA-binding motif protein, X chromosome, N-terminally processed]	Rbmx Rbmxrt	Rattus norvegicus (Rat)	390
+Q9Z0J1	RECK_MOUSE	reviewed	Reversion-inducing cysteine-rich protein with Kazal motifs (mRECK)	Reck	Mus musculus (Mouse)	971
+Q9UMX1	SUFU_HUMAN	reviewed	Suppressor of fused homolog (SUFUH)	SUFU UNQ650/PRO1280	Homo sapiens (Human)	484
+Q64701	RBL1_MOUSE	reviewed	Retinoblastoma-like protein 1 (107 kDa retinoblastoma-associated protein) (p107) (pRb1)	Rbl1	Mus musculus (Mouse)	1063
+Q8K5A4	RSLAA_MOUSE	reviewed	Ras-like protein family member 10A (Ras-like protein RRP22) (Ras-related protein on chromosome 22 homolog)	Rasl10a Rrp22	Mus musculus (Mouse)	203
+Q9WUE4	NPRL2_MOUSE	reviewed	GATOR complex protein NPRL2 (Gene 21 protein) (G21 protein) (Nitrogen permease regulator 2-like protein) (NPR2-like protein)	Nprl2	Mus musculus (Mouse)	380
+Q8TDY2	RBCC1_HUMAN	reviewed	RB1-inducible coiled-coil protein 1 (FAK family kinase-interacting protein of 200 kDa) (FIP200)	RB1CC1 KIAA0203 RBICC	Homo sapiens (Human)	1594
+P62747	RHOB_RAT	reviewed	Rho-related GTP-binding protein RhoB	Rhob Arhb	Rattus norvegicus (Rat)	196
+Q8BGE4	SUSD6_MOUSE	reviewed	Sushi domain-containing protein 6 (Drago)	Susd6 Kiaa0247	Mus musculus (Mouse)	302
+P06400	RB_HUMAN	reviewed	Retinoblastoma-associated protein (p105-Rb) (p110-RB1) (pRb) (Rb) (pp110)	RB1	Homo sapiens (Human)	928
+Q9NS23	RASF1_HUMAN	reviewed	Ras association domain-containing protein 1	RASSF1 RDA32	Homo sapiens (Human)	344
+Q9DBX3	SUSD2_MOUSE	reviewed	Sushi domain-containing protein 2	Susd2	Mus musculus (Mouse)	820
+O55081	RBL2_RAT	reviewed	Retinoblastoma-like protein 2 (130 kDa retinoblastoma-associated protein) (p130) (PPAR-alpha-interacting complex protein 128) (PRIC128) (Retinoblastoma-related protein 2) (RBR-2) (pRb2)	Rbl2	Rattus norvegicus (Rat)	1135
+Q92537	SUSD6_HUMAN	reviewed	Sushi domain-containing protein 6 (Drug-activated gene overexpressed protein)	SUSD6 DRAGO KIAA0247	Homo sapiens (Human)	303
+P07193	P53_XENLA	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	tp53	Xenopus laevis (African clawed frog)	363
+P56423	P53_MACFA	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	TP53 P53	Macaca fascicularis (Crab-eating macaque) (Cynomolgus monkey)	393
+P56424	P53_MACMU	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	TP53 P53	Macaca mulatta (Rhesus macaque)	393
+Q64662	P53_OTOBE	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53) (Fragment)	TP53	Otospermophilus beecheyi (California ground squirrel) (Spermophilus beecheyi)	314
+Q9XSK8	P73_CHLAE	reviewed	Tumor protein p73 (p53-like transcription factor) (p53-related protein)	TP73 P73	Chlorocebus aethiops (Green monkey) (Cercopithecus aethiops)	637
+Q8K485	KCD11_MOUSE	reviewed	BTB/POZ domain-containing protein KCTD11 (KCASH1 protein) (Potassium channel tetramerization domain-containing protein 11) (RING-type E3 ubiquitin transferase subunit KCTD11)	Kctd11 Ren	Mus musculus (Mouse)	232
+Q9CZX5	PINX1_MOUSE	reviewed	PIN2/TERF1-interacting telomerase inhibitor 1 (67-11-3 protein) (LPTS1) (Liver-related putative tumor suppressor) (Pin2-interacting protein X1) (TRF1-interacting protein 1)	Pinx1 Lpts	Mus musculus (Mouse)	332
+Q566C5	RASF4_RAT	reviewed	Ras association domain-containing protein 4	Rassf4	Rattus norvegicus (Rat)	322
+Q8NFJ5	RAI3_HUMAN	reviewed	Retinoic acid-induced protein 3 (G-protein coupled receptor family C group 5 member A) (Phorbol ester induced gene 1) (PEIG-1) (Retinoic acid-induced gene 1 protein) (RAIG-1)	GPRC5A GPCR5A RAI3 RAIG1	Homo sapiens (Human)	357
+Q64700	RBL2_MOUSE	reviewed	Retinoblastoma-like protein 2 (130 kDa retinoblastoma-associated protein) (p130) (Retinoblastoma-related protein 2) (RBR-2) (pRb2)	Rbl2	Mus musculus (Mouse)	1135
+Q96A56	T53I1_HUMAN	reviewed	Tumor protein p53-inducible nuclear protein 1 (Stress-induced protein) (p53-dependent damage-inducible nuclear protein 1) (p53DINP1)	TP53INP1 P53DINP1 SIP	Homo sapiens (Human)	240
+Q9UMS6	SYNP2_HUMAN	reviewed	Synaptopodin-2 (Genethonin-2) (Myopodin)	SYNPO2	Homo sapiens (Human)	1093
+Q3B7D5	RASF2_RAT	reviewed	Ras association domain-containing protein 2	Rassf2	Rattus norvegicus (Rat)	326
+Q9WV02	RBMX_MOUSE	reviewed	RNA-binding motif protein, X chromosome (Heterogeneous nuclear ribonucleoprotein G) (hnRNP G) [Cleaved into: RNA-binding motif protein, X chromosome, N-terminally processed]	Rbmx Hnrnpg Hnrpg Rbmxp1 Rbmxrt	Mus musculus (Mouse)	391
+Q9WTK7	STK11_MOUSE	reviewed	Serine/threonine-protein kinase STK11 (EC 2.7.11.1) (Liver kinase B1 homolog) (LKB1) (mLKB1)	Stk11 Lkb1	Mus musculus (Mouse)	436
+Q9NZC7	WWOX_HUMAN	reviewed	WW domain-containing oxidoreductase (EC 1.1.1.-) (Fragile site FRA16D oxidoreductase) (Short chain dehydrogenase/reductase family 41C member 1)	WWOX FOR SDR41C1 WOX1	Homo sapiens (Human)	414
+P29590	PML_HUMAN	reviewed	Protein PML (Promyelocytic leukemia protein) (RING finger protein 71) (Tripartite motif-containing protein 19)	PML MYL PP8675 RNF71 TRIM19	Homo sapiens (Human)	882
+Q9R1U5	SIK1_RAT	reviewed	Serine/threonine-protein kinase SIK1 (EC 2.7.11.1) (Protein kinase KID2) (Salt-inducible kinase 1) (SIK-1) (Serine/threonine-protein kinase SNF1-like kinase 1) (Serine/threonine-protein kinase SNF1LK)	Sik1 Kid2 Sik Snf1lk	Rattus norvegicus (Rat)	776
+Q4R7F0	RBMX_MACFA	reviewed	RNA-binding motif protein, X chromosome (Heterogeneous nuclear ribonucleoprotein G) (hnRNP G) [Cleaved into: RNA-binding motif protein, X chromosome, N-terminally processed]	RBMX HNRPG RBMXP1 QtsA-15489	Macaca fascicularis (Crab-eating macaque) (Cynomolgus monkey)	391
+A5A6M3	RBMX_PANTR	reviewed	RNA-binding motif protein, X chromosome (Heterogeneous nuclear ribonucleoprotein G) (hnRNP G) [Cleaved into: RNA-binding motif protein, X chromosome, N-terminally processed]	RBMX	Pan troglodytes (Chimpanzee)	391
+O95980	RECK_HUMAN	reviewed	Reversion-inducing cysteine-rich protein with Kazal motifs (hRECK) (Suppressor of tumorigenicity 15 protein)	RECK ST15	Homo sapiens (Human)	971
+Q8JHJ1	RL35_DANRE	reviewed	60S ribosomal protein L35	rpl35	Danio rerio (Zebrafish) (Brachydanio rerio)	123
+O35141	RASF5_RAT	reviewed	Ras association domain-containing protein 5 (Maxp1) (New ras effector 1)	Rassf5 Nore1	Rattus norvegicus (Rat)	413
+O08586	PTEN_MOUSE	reviewed	Phosphatidylinositol 3,4,5-trisphosphate 3-phosphatase and dual-specificity protein phosphatase PTEN (EC 3.1.3.16) (EC 3.1.3.48) (EC 3.1.3.67) (Mutated in multiple advanced cancers 1) (Phosphatase and tensin homolog)	Pten Mmac1	Mus musculus (Mouse)	403
+Q9PUT6	PTEN_XENLA	reviewed	Phosphatidylinositol 3,4,5-trisphosphate 3-phosphatase and dual-specificity protein phosphatase PTEN (EC 3.1.3.16) (EC 3.1.3.48) (EC 3.1.3.67) (Mutated in multiple advanced cancers 1) (Phosphatase and tensin homolog)	pten	Xenopus laevis (African clawed frog)	402
+Q8CB96	RASF4_MOUSE	reviewed	Ras association domain-containing protein 4	Rassf4	Mus musculus (Mouse)	322
+Q9ESK9	RBCC1_MOUSE	reviewed	RB1-inducible coiled-coil protein 1 (Coiled-coil-forming protein 1) (FAK family kinase-interacting protein of 200 kDa) (FIP200) (LaXp180)	Rb1cc1 Cc1 Kiaa0203	Mus musculus (Mouse)	1588
+Q15831	STK11_HUMAN	reviewed	Serine/threonine-protein kinase STK11 (EC 2.7.11.1) (Liver kinase B1) (LKB1) (hLKB1) (Renal carcinoma antigen NY-REN-19)	STK11 LKB1 PJS	Homo sapiens (Human)	433
+D3ZS28	RBL1_RAT	reviewed	Retinoblastoma-like protein 1 (107 kDa retinoblastoma-associated protein) (p107) (pRb1)	Rbl1	Rattus norvegicus (Rat)	1049
+O75204	TM127_HUMAN	reviewed	Transmembrane protein 127	TMEM127	Homo sapiens (Human)	238
+Q3TVW5	TCHP_MOUSE	reviewed	Trichoplein keratin filament-binding protein (Protein TCHP) (Mitochondrial protein with oncostatic activity) (Mitostatin)	Tchp	Mus musculus (Mouse)	497
+A1YER2	HTAI2_GORGO	reviewed	Oxidoreductase HTATIP2 (EC 1.1.1.-)	HTATIP2	Gorilla gorilla gorilla (Western lowland gorilla)	242
+Q9R0Z9	RHG07_MOUSE	reviewed	Rho GTPase-activating protein 7 (Deleted in liver cancer 1 protein homolog) (DLC-1) (Rho-type GTPase-activating protein 7) (START domain-containing protein 12) (StARD12) (StAR-related lipid transfer protein 12)	Dlc1 Arhgap7 Stard12	Mus musculus (Mouse)	1092
+Q96QB1	RHG07_HUMAN	reviewed	Rho GTPase-activating protein 7 (Deleted in liver cancer 1 protein) (DLC-1) (HP protein) (Rho-type GTPase-activating protein 7) (START domain-containing protein 12) (StARD12) (StAR-related lipid transfer protein 12)	DLC1 ARHGAP7 KIAA1723 STARD12	Homo sapiens (Human)	1528
+Q91604	STK11_XENLA	reviewed	Serine/threonine-protein kinase stk11 (EC 2.7.11.1) (Liver kinase B1 homolog) (lkb1) (Serine/threonine-protein kinase XEEK1)	stk11 eek1	Xenopus laevis (African clawed frog)	432
+Q29480	P53_EQUAS	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53) (Fragment)	TP53	Equus asinus (Donkey) (Equus africanus asinus)	207
+Q3ZBW5	RHOB_BOVIN	reviewed	Rho-related GTP-binding protein RhoB	RHOB	Bos taurus (Bovine)	196
+O15164	TIF1A_HUMAN	reviewed	Transcription intermediary factor 1-alpha (TIF1-alpha) (EC 2.3.2.27) (E3 ubiquitin-protein ligase TRIM24) (RING finger protein 82) (RING-type E3 ubiquitin transferase TIF1-alpha) (Tripartite motif-containing protein 24)	TRIM24 RNF82 TIF1 TIF1A	Homo sapiens (Human)	1050
+P98082	DAB2_HUMAN	reviewed	Disabled homolog 2 (Adaptor molecule disabled-2) (Differentially expressed in ovarian carcinoma 2) (DOC-2) (Differentially-expressed protein 2)	DAB2 DOC2	Homo sapiens (Human)	770
+Q6UWK7	GP15L_HUMAN	reviewed	Protein GPR15L (Antimicrobial peptide with 57 amino acid residues) (AP-57) (Antimicrobial peptide-57) (Colon-derived SUSD2 binding factor) (CSBF) (Secreted protein C10orf99)	GPR15L C10orf99 UNQ1833/PRO3446	Homo sapiens (Human)	81
+P50749	RASF2_HUMAN	reviewed	Ras association domain-containing protein 2	RASSF2 CENP-34 KIAA0168	Homo sapiens (Human)	326
+Q5R616	SDHA_PONAB	reviewed	Succinate dehydrogenase [ubiquinone] flavoprotein subunit, mitochondrial (EC 1.3.5.1) (Flavoprotein subunit of complex II) (Fp)	SDHA	Pongo abelii (Sumatran orangutan) (Pongo pygmaeus abelii)	664
+Q5RE49	TCHP_PONAB	reviewed	Trichoplein keratin filament-binding protein (Protein TCHP) (Mitochondrial protein with oncostatic activity) (Mitostatin)	TCHP	Pongo abelii (Sumatran orangutan) (Pongo pygmaeus abelii)	498
+P62833	RAP1A_BOVIN	reviewed	Ras-related protein Rap-1A (GTP-binding protein smg p21A)	RAP1A	Bos taurus (Bovine)	184
+P60484	PTEN_HUMAN	reviewed	Phosphatidylinositol 3,4,5-trisphosphate 3-phosphatase and dual-specificity protein phosphatase PTEN (EC 3.1.3.16) (EC 3.1.3.48) (EC 3.1.3.67) (Mutated in multiple advanced cancers 1) (Phosphatase and tensin homolog)	PTEN MMAC1 TEP1	Homo sapiens (Human)	403
+Q9H2L5	RASF4_HUMAN	reviewed	Ras association domain-containing protein 4	RASSF4 AD037	Homo sapiens (Human)	321
+Q9R123	NAA80_MOUSE	reviewed	N-alpha-acetyltransferase 80 (EC 2.3.1.-) (N-acetyltransferase 6) (Protein fusion-2 homolog) (Protein fus-2)	Naa80 Fus2 Nat6	Mus musculus (Mouse)	314
+Q63744	RHG07_RAT	reviewed	Rho GTPase-activating protein 7 (Deleted in liver cancer 1 protein homolog) (DLC-1) (Rho-type GTPase-activating protein 7) (START domain-containing protein 12) (StARD12) (StAR-related lipid transfer protein 12) (p122-RhoGAP)	Dlc1 Arhgap7 Rhogap Stard12	Rattus norvegicus (Rat)	1091
+Q99MK9	RASF1_MOUSE	reviewed	Ras association domain-containing protein 1 (Protein 123F2)	Rassf1	Mus musculus (Mouse)	340
+Q9UGT4	SUSD2_HUMAN	reviewed	Sushi domain-containing protein 2	SUSD2	Homo sapiens (Human)	822
+Q08999	RBL2_HUMAN	reviewed	Retinoblastoma-like protein 2 (130 kDa retinoblastoma-associated protein) (p130) (Retinoblastoma-related protein 2) (RBR-2) (pRb2)	RBL2 RB2	Homo sapiens (Human)	1139
+P10914	IRF1_HUMAN	reviewed	Interferon regulatory factor 1 (IRF-1)	IRF1	Homo sapiens (Human)	325
+Q9BUP3	HTAI2_HUMAN	reviewed	Oxidoreductase HTATIP2 (EC 1.1.1.-) (30 kDa HIV-1 TAT-interacting protein) (HIV-1 TAT-interactive protein 2)	HTATIP2 CC3 TIP30	Homo sapiens (Human)	242
+P40692	MLH1_HUMAN	reviewed	DNA mismatch repair protein Mlh1 (MutL protein homolog 1)	MLH1 COCA2	Homo sapiens (Human)	756
+Q00366	P53_MESAU	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	TP53	Mesocricetus auratus (Golden hamster)	396
+Q9TUB2	P53_PIG	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	TP53 P53	Sus scrofa (Pig)	386
+O12946	P53_PLAFE	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	tp53 p53	Platichthys flesus (European flounder) (Pleuronectes flesus)	366
+P10361	P53_RAT	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	Tp53 P53	Rattus norvegicus (Rat)	391
+P51664	P53_SHEEP	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	TP53	Ovis aries (Sheep)	382
+O57538	P53_XIPHE	reviewed	Cellular tumor antigen p53 (Tumor suppressor p53)	tp53 p53	Xiphophorus helleri (Green swordtail)	342
+Q3U0P1	PALB2_MOUSE	reviewed	Partner and localizer of BRCA2	Palb2	Mus musculus (Mouse)	1104
+P60483	PTEN_CANLF	reviewed	Phosphatidylinositol 3,4,5-trisphosphate 3-phosphatase and dual-specificity protein phosphatase PTEN (EC 3.1.3.16) (EC 3.1.3.48) (EC 3.1.3.67) (Mutated in multiple advanced cancers 1) (Phosphatase and tensin homolog)	PTEN MMAC1	Canis lupus familiaris (Dog) (Canis familiaris)	403
+Q92737	RSLAA_HUMAN	reviewed	Ras-like protein family member 10A (Ras-like protein RRP22) (Ras-related protein on chromosome 22)	RASL10A RRP22	Homo sapiens (Human)	203
+Q5R811	TXNIP_PONAB	reviewed	Thioredoxin-interacting protein	TXNIP	Pongo abelii (Sumatran orangutan) (Pongo pygmaeus abelii)	391
+Q9H3M7	TXNIP_HUMAN	reviewed	Thioredoxin-interacting protein (Thioredoxin-binding protein 2) (Vitamin D3 up-regulated protein 1)	TXNIP VDUP1	Homo sapiens (Human)	391
+Q5M7W1	TXNIP_RAT	reviewed	Thioredoxin-interacting protein (Vitamin D3 up-regulated protein 1)	Txnip Vdup1	Rattus norvegicus (Rat)	394
+Q8BGP5	TM127_MOUSE	reviewed	Transmembrane protein 127	Tmem127	Mus musculus (Mouse)	238
+P20936	RASA1_HUMAN	reviewed	Ras GTPase-activating protein 1 (GAP) (GTPase-activating protein) (RasGAP) (Ras p21 protein activator) (p120GAP)	RASA1 GAP RASA	Homo sapiens (Human)	1047
+A1YPR0	ZBT7C_HUMAN	reviewed	Zinc finger and BTB domain-containing protein 7C (Affected by papillomavirus DNA integration in ME180 cells protein 1) (APM-1) (Zinc finger and BTB domain-containing protein 36) (Zinc finger protein 857C)	ZBTB7C APM1 ZBTB36 ZNF857C	Homo sapiens (Human)	619
+Q90600	RB_CHICK	reviewed	Retinoblastoma-associated protein (p104) (pRb) (Rb)	RB1	Gallus gallus (Chicken)	921
+P28749	RBL1_HUMAN	reviewed	Retinoblastoma-like protein 1 (107 kDa retinoblastoma-associated protein) (p107) (pRb1)	RBL1	Homo sapiens (Human)	1068
+Q29RT0	RBMX_BOVIN	reviewed	RNA-binding motif protein, X chromosome (Heterogeneous nuclear ribonucleoprotein G) (hnRNP G) [Cleaved into: RNA-binding motif protein, X chromosome, N-terminally processed]	RBMX HNRPG	Bos taurus (Bovine)	396
+Q8R216	SIR4_MOUSE	reviewed	NAD-dependent protein lipoamidase sirtuin-4, mitochondrial (EC 2.3.1.-) (NAD-dependent ADP-ribosyltransferase sirtuin-4) (EC 2.4.2.-) (NAD-dependent protein deacetylase sirtuin-4) (EC 2.3.1.286) (Regulatory protein SIR2 homolog 4) (SIR2-like protein 4)	Sirt4 Sir2l4	Mus musculus (Mouse)	333
+Q9Y6E7	SIR4_HUMAN	reviewed	NAD-dependent protein lipoamidase sirtuin-4, mitochondrial (EC 2.3.1.-) (NAD-dependent ADP-ribosyltransferase sirtuin-4) (EC 2.4.2.-) (NAD-dependent protein deacetylase sirtuin-4) (EC 2.3.1.286) (Regulatory protein SIR2 homolog 4) (SIR2-like protein 4)	SIRT4 SIR2L4	Homo sapiens (Human)	314
+Q80TN5	ZDH17_MOUSE	reviewed	Palmitoyltransferase ZDHHC17 (EC 2.3.1.225) (Huntingtin-interacting protein 14) (Zinc finger DHHC domain-containing protein 17) (DHHC-17)	Zdhhc17 Hip14 Kiaa0946	Mus musculus (Mouse)	632
+O00534	VMA5A_HUMAN	reviewed	von Willebrand factor A domain-containing protein 5A (Breast cancer suppressor candidate 1) (BCSC-1) (Loss of heterozygosity 11 chromosomal region 2 gene A protein)	VWA5A BCSC1 LOH11CR2A	Homo sapiens (Human)	786
+Q9VA38	WARTS_DROME	reviewed	Serine/threonine-protein kinase Warts (EC 2.7.11.1)	wts CG12072	Drosophila melanogaster (Fruit fly)	1105
+Q99KC8	VMA5A_MOUSE	reviewed	von Willebrand factor A domain-containing protein 5A (Loss of heterozygosity 11 chromosomal region 2 gene A protein homolog)	Vwa5a Loh11cr2a	Mus musculus (Mouse)	793
+Q0QF17	SDHA_MESAU	reviewed	Succinate dehydrogenase [ubiquinone] flavoprotein subunit, mitochondrial (EC 1.3.5.1) (Flavoprotein subunit of complex II) (Fp) (Fragment)	SDHA	Mesocricetus auratus (Golden hamster)	551
+Q9Z136	TSC1_RAT	reviewed	Hamartin (Tuberous sclerosis 1 protein homolog)	Tsc1	Rattus norvegicus (Rat)	1163
+Q9EP53	TSC1_MOUSE	reviewed	Hamartin (Tuberous sclerosis 1 protein homolog)	Tsc1 Kiaa0243	Mus musculus (Mouse)	1161
+B5DE03	WT1_XENTR	reviewed	Wilms tumor protein homolog	wt1	Xenopus tropicalis (Western clawed frog) (Silurana tropicalis)	413
+Q0QF01	SDHA_PIG	reviewed	Succinate dehydrogenase [ubiquinone] flavoprotein subunit, mitochondrial (EC 1.3.5.1) (Flavoprotein subunit of complex II) (Fp)	SDHA	Sus scrofa (Pig)	664
+Q8BYF6	SC5A8_MOUSE	reviewed	Sodium-coupled monocarboxylate transporter 1 (Electrogenic sodium monocarboxylate cotransporter) (Solute carrier family 5 member 8)	Slc5a8 Smct Smct1	Mus musculus (Mouse)	611
+O75896	TUSC2_HUMAN	reviewed	Tumor suppressor candidate 2 (Fusion 1 protein) (Fus-1 protein) (PDGFA-associated protein 2)	TUSC2 C3orf11 FUS1 LGCC PDAP2	Homo sapiens (Human)	110
+Q3YBR2	TBRG1_HUMAN	reviewed	Transforming growth factor beta regulator 1 (Nuclear interactor of ARF and Mdm2)	TBRG1 NIAM	Homo sapiens (Human)	411
+O62651	WT1_PIG	reviewed	Wilms tumor protein homolog	WT1	Sus scrofa (Pig)	449
+Q6GPH4	XAF1_HUMAN	reviewed	XIAP-associated factor 1 (BIRC4-binding protein)	XAF1 BIRC4BP XIAPAF1	Homo sapiens (Human)	301
+Q8IUH5	ZDH17_HUMAN	reviewed	Palmitoyltransferase ZDHHC17 (EC 2.3.1.225) (Huntingtin yeast partner H) (Huntingtin-interacting protein 14) (HIP-14) (Huntingtin-interacting protein 3) (HIP-3) (Huntingtin-interacting protein H) (Putative MAPK-activating protein PM11) (Putative NF-kappa-B-activating protein 205) (Zinc finger DHHC domain-containing protein 17) (DHHC-17)	ZDHHC17 HIP14 HIP3 HYPH KIAA0946 HSPC294	Homo sapiens (Human)	632
+P14238	FES_FELCA	reviewed	Tyrosine-protein kinase Fes/Fps (EC 2.7.10.2) (Proto-oncogene c-Fes)	FES FPS	Felis catus (Cat) (Felis silvestris catus)	820
+Q9HBF5	ST20_HUMAN	reviewed	Suppressor of tumorigenicity 20 protein (Human cervical cancer suppressor gene 1 protein) (HCCS-1)	ST20 HCCS1	Homo sapiens (Human)	79
+Q64127	TIF1A_MOUSE	reviewed	Transcription intermediary factor 1-alpha (TIF1-alpha) (EC 2.3.2.27) (E3 ubiquitin-protein ligase Trim24) (RING-type E3 ubiquitin transferase TIF1-alpha) (Tripartite motif-containing protein 24)	Trim24 Tif1 Tif1a	Mus musculus (Mouse)	1051
+Q64259	VHL_RAT	reviewed	von Hippel-Lindau disease tumor suppressor (pVHL)	Vhl	Rattus norvegicus (Rat)	185
+Q0GGW5	STK11_CHICK	reviewed	Serine/threonine-protein kinase STK11 (EC 2.7.11.1) (Liver kinase B1 homolog) (LKB1)	STK11	Gallus gallus (Chicken)	440
+D4AE59	STK11_RAT	reviewed	Serine/threonine-protein kinase STK11 (EC 2.7.11.1) (Liver kinase B1 homolog) (LKB1)	Stk11 Lkb1	Rattus norvegicus (Rat)	438
+P85299	PRR5_HUMAN	reviewed	Proline-rich protein 5 (Protein observed with Rictor-1) (Protor-1)	PRR5 PROTOR1 PP610	Homo sapiens (Human)	388
+Q9NYY3	PLK2_HUMAN	reviewed	Serine/threonine-protein kinase PLK2 (EC 2.7.11.21) (Polo-like kinase 2) (PLK-2) (hPlk2) (Serine/threonine-protein kinase SNK) (hSNK) (Serum-inducible kinase)	PLK2 SNK	Homo sapiens (Human)	685
+Q9ULD2	MTUS1_HUMAN	reviewed	Microtubule-associated tumor suppressor 1 (AT2 receptor-binding protein) (Angiotensin-II type 2 receptor-interacting protein) (Mitochondrial tumor suppressor 1)	MTUS1 ATBP ATIP GK1 KIAA1288 MTSG1	Homo sapiens (Human)	1270
+P31039	SDHA_BOVIN	reviewed	Succinate dehydrogenase [ubiquinone] flavoprotein subunit, mitochondrial (EC 1.3.5.1) (Flavoprotein subunit of complex II) (Fp)	SDHA SDH2 SDHFP1	Bos taurus (Bovine)	665
+Q12824	SNF5_HUMAN	reviewed	SWI/SNF-related matrix-associated actin-dependent regulator of chromatin subfamily B member 1 (BRG1-associated factor 47) (BAF47) (Integrase interactor 1 protein) (SNF5 homolog) (hSNF5)	SMARCB1 BAF47 INI1 SNF5L1	Homo sapiens (Human)	385
+Q8BG60	TXNIP_MOUSE	reviewed	Thioredoxin-interacting protein (Vitamin D3 up-regulated protein 1)	Txnip Vdup1	Mus musculus (Mouse)	397
+Q2HY40	TXNIP_PIG	reviewed	Thioredoxin-interacting protein	TXNIP	Sus scrofa (Pig)	391
+P59808	SASH1_MOUSE	reviewed	SAM and SH3 domain-containing protein 1	Sash1	Mus musculus (Mouse)	1230
+Q92574	TSC1_HUMAN	reviewed	Hamartin (Tuberous sclerosis 1 protein)	TSC1 KIAA0243 TSC	Homo sapiens (Human)	1164
+P49816	TSC2_RAT	reviewed	Tuberin (Tuberous sclerosis 2 protein homolog)	Tsc2	Rattus norvegicus (Rat)	1809
+P19544	WT1_HUMAN	reviewed	Wilms tumor protein (WT33)	WT1	Homo sapiens (Human)	449
+B7ZSG3	WT1A_XENLA	reviewed	Wilms tumor protein homolog A (XWT1a) (xWT1)	wt1-a wt1	Xenopus laevis (African clawed frog)	414
+Q9Z0H3	SNF5_MOUSE	reviewed	SWI/SNF-related matrix-associated actin-dependent regulator of chromatin subfamily B member 1 (BRG1-associated factor 47) (BAF47) (Integrase interactor 1 protein) (SNF5 homolog) (mSNF5)	Smarcb1 Baf47 Ini1 Snf5l1	Mus musculus (Mouse)	385
+Q3UB74	TBRG1_MOUSE	reviewed	Transforming growth factor beta regulator 1 (Nuclear interactor of ARF and Mdm2)	Tbrg1 Niam	Mus musculus (Mouse)	406
+Q8WWW0	RASF5_HUMAN	reviewed	Ras association domain-containing protein 5 (New ras effector 1) (Regulator for cell adhesion and polarization enriched in lymphoid tissues) (RAPL)	RASSF5 NORE1 RAPL	Homo sapiens (Human)	418
+P31040	SDHA_HUMAN	reviewed	Succinate dehydrogenase [ubiquinone] flavoprotein subunit, mitochondrial (EC 1.3.5.1) (Flavoprotein subunit of complex II) (Fp)	SDHA SDH2 SDHF	Homo sapiens (Human)	664
+P54277	PMS1_HUMAN	reviewed	PMS1 protein homolog 1 (DNA mismatch repair protein PMS1)	PMS1 PMSL1	Homo sapiens (Human)	932
+Q5PQK8	TBRG1_RAT	reviewed	Transforming growth factor beta regulator 1	Tbrg1	Rattus norvegicus (Rat)	406
+Q15326	ZMY11_HUMAN	reviewed	Zinc finger MYND domain-containing protein 11 (Adenovirus 5 E1A-binding protein) (Bone morphogenetic protein receptor-associated molecule 1) (Protein BS69)	ZMYND11 BRAM1 BS69	Homo sapiens (Human)	602
+P49953	WT1_SMIMA	reviewed	Wilms tumor protein homolog (Fragment)	WT1	Sminthopsis macroura (Stripe-faced dunnart)	239
+Q91WL8	WWOX_MOUSE	reviewed	WW domain-containing oxidoreductase (EC 1.1.1.-)	Wwox Wox1	Mus musculus (Mouse)	414
+Q9Z2G9	HTAI2_MOUSE	reviewed	Oxidoreductase HTATIP2 (EC 1.1.1.-)	Htatip2 Cc3 Tip30	Mus musculus (Mouse)	242
+Q9H307	PININ_HUMAN	reviewed	Pinin (140 kDa nuclear and cell adhesion-related phosphoprotein) (Desmosome-associated protein) (Domain-rich serine protein) (DRS protein) (DRSP) (Melanoma metastasis clone A protein) (Nuclear protein SDK3) (SR-like protein)	PNN DRS MEMA	Homo sapiens (Human)	717
+Q8BMS9	RASF2_MOUSE	reviewed	Ras association domain-containing protein 2	Rassf2 Kiaa0168	Mus musculus (Mouse)	326
+O95835	LATS1_HUMAN	reviewed	Serine/threonine-protein kinase LATS1 (EC 2.7.11.1) (Large tumor suppressor homolog 1) (WARTS protein kinase) (h-warts)	LATS1 WARTS	Homo sapiens (Human)	1130
+Q8K2B3	SDHA_MOUSE	reviewed	Succinate dehydrogenase [ubiquinone] flavoprotein subunit, mitochondrial (EC 1.3.5.1) (Flavoprotein subunit of complex II) (Fp)	Sdha	Mus musculus (Mouse)	664
+Q920L2	SDHA_RAT	reviewed	Succinate dehydrogenase [ubiquinone] flavoprotein subunit, mitochondrial (EC 1.3.5.1) (Flavoprotein subunit of complex II) (Fp)	Sdha	Rattus norvegicus (Rat)	656
+Q61037	TSC2_MOUSE	reviewed	Tuberin (Tuberous sclerosis 2 protein homolog)	Tsc2	Mus musculus (Mouse)	1814
+P40338	VHL_MOUSE	reviewed	von Hippel-Lindau disease tumor suppressor (pVHL)	Vhl Vhlh	Mus musculus (Mouse)	181
+Q8VCZ7	ZBT7C_MOUSE	reviewed	Zinc finger and BTB domain-containing protein 7C (Zinc finger and BTB domain-containing protein 36)	Zbtb7c Zbtb36	Mus musculus (Mouse)	619
+Q6N021	TET2_HUMAN	reviewed	Methylcytosine dioxygenase TET2 (EC 1.14.11.n2)	TET2 KIAA1546 Nbla00191	Homo sapiens (Human)	2002
+Q8N695	SC5A8_HUMAN	reviewed	Sodium-coupled monocarboxylate transporter 1 (Apical iodide transporter) (Electrogenic sodium monocarboxylate cotransporter) (Sodium iodide-related cotransporter) (Solute carrier family 5 member 8)	SLC5A8 AIT SMCT SMCT1	Homo sapiens (Human)	610
+P40337	VHL_HUMAN	reviewed	von Hippel-Lindau disease tumor suppressor (Protein G7) (pVHL)	VHL	Homo sapiens (Human)	213
+Q5ZLM0	CDC73_CHICK	reviewed	Parafibromin (Cell division cycle protein 73 homolog)	CDC73 RCJMB04_5j4	Gallus gallus (Chicken)	531
+","",NA
