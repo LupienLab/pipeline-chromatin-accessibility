@@ -95,7 +95,7 @@ Target_Tissues <- c("GBM")
 TargetTissue_Ind <- which(PhenoMat[,"tissue"] %in% Target_Tissues)
 PhenoMat <- PhenoMat[TargetTissue_Ind,]
 PhenoMat[,"similarity"] <- as.numeric(PhenoMat[,"similarity"])/max(as.numeric(PhenoMat[,"similarity"]))
-Top_SamNum <- 5#floor(length(TargetTissue_Ind)/2)
+#Top_SamNum <- 5#floor(length(TargetTissue_Ind)/2)
 Top_SamNum <- min(Top_SamNum, length(TargetTissue_Ind))
 
 ##########################################
