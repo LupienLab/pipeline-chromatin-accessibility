@@ -83,9 +83,11 @@ for(SamIter in names(Sorted_Sim)){
 
 colnames(PhenoMat) <- c("sample", "tissue", "survival status", "time (day)", "similarity")
 
-write.csv(PhenoMat[1:Top_SamNum,], "")
+write.csv(PhenoMat[1:Top_SamNum,], paste("phenotypic_info_Top", Top_SamNum, "samples.csv", sep= ""))
 
-write.csv(names(table(PhenoMat[1:Top_SamNum,"tissue"])[which(table(PhenoMat[1:Top_SamNum,"tissue"]) == max(table(PhenoMat[1:Top_SamNum,"tissue"])))])), "")
+write.csv(names(table(PhenoMat[1:Top_SamNum,"tissue"])[
+  which(table(PhenoMat[1:Top_SamNum,"tissue"]) ==
+        max(table(PhenoMat[1:Top_SamNum,"tissue"])))])), paste("mostsimilar_tissue_Top", Top_SamNum, "samples.csv", sep= ""))
 ##########################################
 # plotting similarity and survival
 ##########################################
