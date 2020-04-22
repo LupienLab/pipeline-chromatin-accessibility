@@ -56,8 +56,8 @@ rule all:
 		# bedfile statistics
 		path.join(R_DIR, "bedfile_statistics.pdf"),
 		# GeneMatching_All_OncoSuppressor
-		path.join(R_DIR, "Matching_genes_proximity_oncogene.txt")
-        path.join(R_DIR, "Matching_genes_tumor_suppressor.txt")
+		path.join(R_DIR, "Matching_genes_proximity_oncogene.txt"),
+        path.join(R_DIR, "Matching_genes_tumor_suppressor.txt"),
 
 # ==============================================================================
 # Rules
