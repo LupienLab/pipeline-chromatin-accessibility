@@ -6,9 +6,11 @@ library(reticulate)
 
 option_list = list(
   make_option(c("-f", "--file"), type="character", default=NULL, 
-              help="dataset file name", metavar="character"),
-  make_option(c("-o", "--out"), type="character", default="sample.pdf", 
-              help="output file name [default= %default]", metavar="character")
+              help="dataset bed file", metavar="character"),
+  make_option(c("-o", "--out"), type="character", default="bedfile_statistics.pdf", 
+              help="output file name [default= %default]", metavar="character"),
+  make_option(c("-d", "--dir"), type="character", default="R_analysis",
+              help="output directory [default= %default]", metavar="character")
 ); 
 
 opt_parser = OptionParser(option_list=option_list);
@@ -105,7 +107,7 @@ bed_stat_plot <- function(bed_stat_frame, chrsize_vec, chr_names, output_path){
 
 
 ######################################################
-source_python("../checkBedfileQuality.py")
+source_python("../python/checkBedfileQuality.py")
 checkBedFile(opt$file)
 bedfile <- read.table(opt$file, stringsAsFactors = F, check.names = F )
 bedfile <- bedfile[,c(1:3)]
@@ -116,4 +118,4 @@ stat_frame = bed_stat(bed_frame = bedfile, chr_names = chr_names)
 bed_stat_plot(bed_stat_frame = stat_frame,
               chrsize_vec = chrsize_list$hg38,
               chr_names = chr_names,
-              output_path = opt$out)
+              output_path = paste(opt$dir,"/",opt$out,sep=""))

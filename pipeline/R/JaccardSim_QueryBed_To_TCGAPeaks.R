@@ -1,9 +1,34 @@
 rm(list = ls())
+####Library######################################
+library(optparse)
+library(reticulate)
 library(GenomicRanges)
 library(data.table)
 library(parallel)
 library(survcomp)
 library(survival)
+########################
+####User Input######################################
+option_list = list(
+  make_option(c("-f", "--file"), type="character", default=NULL,
+              help="dataset bed file", metavar="character"),
+  make_option(c("-t", "--top_SamNum"), type="integer", default=NULL,
+              help="Top SamNum", metavar="number"),
+  make_option(c("-s", "--sample"), type="character", default=NULL,
+              help="sample name", metavar="character"),
+  make_option(c("-d", "--dir"), type="character", default="R_analysis",
+               help="output directory [default= %default]", metavar="character")
+);
+
+opt_parser = OptionParser(option_list=option_list);
+opt = parse_args(opt_parser);
+
+if (is.null(opt$file)){
+  print_help(opt_parser)
+  stop("No arguments given.", call.=FALSE)
+}
+
+#####################################################
 ###################
 jaccard_sim <- function(gr1, gr2){
   #####
@@ -41,9 +66,10 @@ jaccard_simtoref <- function(query_file, reference_Granges, reference_names){
 }
 ############################
 ############################
-setwd("~/OneDrive - University of Toronto/CREAM/GBM_Calgary/pGBM_peakData_for_Ali/")
-query_file <- 'pat3_relapse.bed'
-reference_path <- "~/Desktop/Obel/Data/TCGA_SigCut1.65_AllPeaks_Granges.RDS"
+source_python("../python/checkBedfileQuality.py")
+checkBedFile(opt$file)
+query_file <- opt$file
+reference_path <- "../static/TCGA_SigCut1.65_AllPeaks_Granges.RDS"
 
 
 Grange_TCGA <- readRDS(reference_path)
@@ -55,12 +81,11 @@ jaccard_vec <- jaccard_simtoref(query_file=query_file,
 quantile(jaccard_vec)
 sort(jaccard_vec, decreasing = T)[1:5]
 ####################################
-setwd("~/OneDrive - University of Toronto/CREAM/TCGA_ATAC/")
-
-Sample_Name <- gsub(".bed", "", query_file)
-Figure_Dir <- "~/OneDrive - University of Toronto/CREAM/GBM_Calgary/pGBM_peakData_for_Ali/Figures/"
-PhenoVec <- readRDS("TCGA_ATACSamples_Phenotype.rds")
-Survival <- read.table("GDC-PANCAN.survival.tsv",
+#Sample_Name <- gsub(".bed", "", query_file)
+Sample_Name <-opt$sample
+Output_Dir <- opt$dir
+PhenoVec <- readRDS("../static/TCGA_ATACSamples_Phenotype.rds")
+Survival <- read.table("../static/GDC-PANCAN.survival.tsv",
                        stringsAsFactors = F, check.names = F, header = T)
 
 
@@ -81,13 +106,8 @@ for(SamIter in names(Sorted_Sim)){
   
 }
 
-colnames(PhenoMat) <- c("sample", "tissue", "survival status", "time (day)", "similarity")
+colnames(PhenoMat) <- c("sample","tissue","survival status","time (day)","similarity")
 
-write.csv(PhenoMat[1:Top_SamNum,], paste("phenotypic_info_Top", Top_SamNum, "samples.csv", sep= ""))
-
-write.csv(names(table(PhenoMat[1:Top_SamNum,"tissue"])[
-  which(table(PhenoMat[1:Top_SamNum,"tissue"]) ==
-        max(table(PhenoMat[1:Top_SamNum,"tissue"])))])), paste("mostsimilar_tissue_Top", Top_SamNum, "samples.csv", sep= ""))
 ##########################################
 # plotting similarity and survival
 ##########################################
@@ -95,11 +115,12 @@ Target_Tissues <- c("GBM")
 TargetTissue_Ind <- which(PhenoMat[,"tissue"] %in% Target_Tissues)
 PhenoMat <- PhenoMat[TargetTissue_Ind,]
 PhenoMat[,"similarity"] <- as.numeric(PhenoMat[,"similarity"])/max(as.numeric(PhenoMat[,"similarity"]))
-#Top_SamNum <- 5#floor(length(TargetTissue_Ind)/2)
+Top_SamNum <- opt$top_SamNum
 Top_SamNum <- min(Top_SamNum, length(TargetTissue_Ind))
+##########################################
 
 ##########################################
-setwd(Figure_Dir)
+setwd(Output_Dir)
 pdf(paste(Sample_Name, ".pdf",
           sep = "", collapse = ""), width=10,height=5)
 par(mar=c(5,10,2,3)+0.1,mgp=c(3,1,0))
@@ -122,6 +143,11 @@ Cox_Fit <- summary(coxph(Surv(time = TimeVec, event = EventVec) ~ Class))
 Hazard <- Cox_Fit$coefficients[1]
 pvalue <- min(Cox_Fit$coefficients[5], (1-Cox_Fit$coefficients[5]))
 #######
+write.csv(PhenoMat[1:Top_SamNum,], paste("Phenotypic_info_Top", Top_SamNum, "samples.csv", sep= ""))
+
+write.csv(names(table(PhenoMat[1:Top_SamNum,"tissue"])[which(table(PhenoMat[1:Top_SamNum,"tissue"]) ==
+                                                               max(table(PhenoMat[1:Top_SamNum,"tissue"])))]), paste("Mostsimilar_tissue_Top", Top_SamNum, "samples.csv", sep= ""))
+
 plot(surv.obj,col =c("blue", "darkred"),
      lty = 1,lwd = 3,  cex.lab = 1.5, cex.axis = 1.5,frame.plot=F,
      xlab = "Time (years)",xlim = c(0,0.1*floor(max(TimeVec)*10)),
