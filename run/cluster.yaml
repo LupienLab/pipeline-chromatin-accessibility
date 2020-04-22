@@ -1,0 +1,18 @@
+__default__:
+    params: "--export=ALL -p all -t 1-00:00:00 --mem=6G"
+
+align:
+    params: "--export=ALL -p all -t 2-00:00:00 --mem=20G  -c 4"
+
+callpeaks:
+    params: "--export=ALL -p all -t 5-00:00:00 --mem=16G"
+
+sort:
+    params: "--export=ALL -p all -t 5-00:00:00 --mem=20G"
+
+dedup:
+    params: "--export=ALL -p all -t 5-00:00:00 --mem=20G"
+
+keep_quality_alignments:
+    params: "--export=ALL -p all -t 5-00:00:00 --mem=20G"
+
