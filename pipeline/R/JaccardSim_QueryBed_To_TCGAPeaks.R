@@ -16,7 +16,7 @@ option_list = list(
               help="Top SamNum", metavar="number"),
   make_option(c("-s", "--sample"), type="character", default=NULL,
               help="sample name", metavar="character"),
-  make_option(c("-d", "--dir"), type="character", default=NULL,
+  make_option(c("-d", "--dir"), type="character", default="",
                help="output directory", metavar="character")
 );
 

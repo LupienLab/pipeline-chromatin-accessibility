@@ -9,7 +9,7 @@ option_list = list(
               help="dataset bed file", metavar="character"),
   make_option(c("-o", "--out"), type="character", default="bedfile_statistics.pdf", 
               help="output file name [default= %default]", metavar="character"),
-  make_option(c("-d", "--dir"), type="character", default="NULL",
+  make_option(c("-d", "--dir"), type="character", default="",
               help="output directory", metavar="character")
 ); 
 
