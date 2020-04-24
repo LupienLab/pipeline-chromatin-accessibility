@@ -152,7 +152,7 @@ rule callpeaks:
 
 rule filter_blacklist:
     input:
-        blacklist = "../static/hg38.blacklist.bed",
+        blacklist = "../pipeline/static/hg38.blacklist.bed",
         peaks = path.join(PEAK_DIR, "{sample}_peaks.narrowPeak"),
     output:
         path.join(PEAK_DIR, "{sample}_peaks.filtered.narrowPeak"),
