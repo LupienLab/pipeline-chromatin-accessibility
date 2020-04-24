@@ -53,11 +53,15 @@ rule all:
         path.join(REPORT_DIR, "quality_scores_frip.tsv"),
         # Number of reads per region
         path.join(REPORT_DIR, "reads-in-control-regions.tsv"),
-		# bedfile statistics
-		path.join(R_DIR, "bedfile_statistics.pdf"),
-		# GeneMatching_All_OncoSuppressor
-		path.join(R_DIR, "Matching_genes_proximity_oncogene.txt"),
+	# bedfile statistics
+	path.join(R_DIR, "bedfile_statistics.pdf"),
+	# GeneMatching_All_OncoSuppressor
+	path.join(R_DIR, "Matching_genes_proximity_oncogene.txt"),
         path.join(R_DIR, "Matching_genes_tumor_suppressor.txt"),
+        #JaccardSim_QueryBed_To_TCGAPeaks
+        path.join(R_DIR, "TCGA-2G-AAFM.pdf"),
+        path.join(R_DIR, "Mostsimilar_tissue_Top5samples.csv"),
+        path.join(R_DIR, "Phenotypic_info_Top5samples.csv"),
 
 # ==============================================================================
 # Rules
@@ -180,38 +184,40 @@ rule frip:
 
 ###bedfile statistics
 rule bed_stats:
-	input:
+    input:
     	script = "../pipeline/R/bedfile_statistics.R",
     	user_bed_file = "TCGA-2G-AAFM-01A_SigCut1.65_.bed"
     output:
         path.join(R_DIR, "bedfile_statistics.pdf")
     shell:
-        "bash {input.script} -f {input.user_bed_file} -o {output}"
+        "Rscript {input.script} -f {input.user_bed_file} -o {output}"
 
 ###GeneMatching_All_OncoSuppressor
 rule GeneMatching_All_OncoSuppressor:
-	input:
+    input:
     	script = "../pipeline/R/GeneMatching_All_OncoSuppressor.R",
-    	user_bed_file = "TCGA-2G-AAFM-01A_SigCut1.65_.bed"
-    	user_TSSDist = 100 
+    	user_bed_file = "TCGA-2G-AAFM-01A_SigCut1.65_.bed",
     output:
-        path.join(R_DIR, "Matching_genes_proximity_oncogene.txt")
+        path.join(R_DIR, "Matching_genes_proximity_oncogene.txt"),
         path.join(R_DIR, "Matching_genes_tumor_suppressor.txt")
+    params:
+        "-t 100"
     shell:
-        "bash {input.script} -f {input.user_bed_file} -t {input.user_TSSDist}"
+        "Rscript {input.script} -f {input.user_bed_file} {params}"
 
 ##JaccardSim_QueryBed_To_TCGAPeaks
-rule JaccardSim_QueryBed_To_TCGAPeaks
-	input:
+rule JaccardSim_QueryBed_To_TCGAPeaks:
+    input:
     	script = "../pipeline/R/JaccardSim_QueryBed_To_TCGAPeaks.R",
-    	user_bed_file = "TCGA-2G-AAFM-01A_SigCut1.65_.bed"
-    	user_top_SamNum = 5
-    	user_sample_name = "TCGA-2G-AAFM"
+    	user_bed_file = "TCGA-2G-AAFM-01A_SigCut1.65_.bed",
     output:
-        path.join(R_DIR, "Matching_genes_proximity_oncogene.txt")
-        path.join(R_DIR, "Matching_genes_tumor_suppressor.txt")
+        path.join(R_DIR, "TCGA-2G-AAFM.pdf"),
+        path.join(R_DIR, "Mostsimilar_tissue_Top5samples.csv"),
+        path.join(R_DIR, "Phenotypic_info_Top5samples.csv")
+    params:
+        "-t 5 -s 'TCGA-2G-AAFM' "
     shell:
-        "bash {input.script} -f {input.user_bed_file} -t {input.user_sample_name}"
+        "Rscript {input.script} -f {input.user_bed_file} {params}"
 
  
 # ==============================================================================
