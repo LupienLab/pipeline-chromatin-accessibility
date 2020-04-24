@@ -69,7 +69,7 @@ jaccard_simtoref <- function(query_file, reference_Granges, reference_names){
 source_python("../pipeline/python/checkBedfileQuality.py")
 checkBedFile(opt$file)
 query_file <- opt$file
-reference_path <- "../static/TCGA_SigCut1.65_AllPeaks_Granges.RDS"
+reference_path <- "../pipeline/static/TCGA_SigCut1.65_AllPeaks_Granges.RDS"
 
 
 Grange_TCGA <- readRDS(reference_path)
@@ -84,8 +84,8 @@ sort(jaccard_vec, decreasing = T)[1:5]
 #Sample_Name <- gsub(".bed", "", query_file)
 Sample_Name <-opt$sample
 Output_Dir <- opt$dir
-PhenoVec <- readRDS("../static/TCGA_ATACSamples_Phenotype.rds")
-Survival <- read.table("../static/GDC-PANCAN.survival.tsv",
+PhenoVec <- readRDS("../pipeline/static/TCGA_ATACSamples_Phenotype.rds")
+Survival <- read.table("../pipeline/static/GDC-PANCAN.survival.tsv",
                        stringsAsFactors = F, check.names = F, header = T)
 
 

@@ -61,20 +61,20 @@ GeneMatch <- function(file_path, RefTSS, TSS_distance = 1e3){
 source_python("../pipeline/python/checkBedfileQuality.py")
 checkBedFile(opt$file)
 TSS_Dist <- opt$TSSDist
-RefTSS <- read.table("../static/refGene_hg38_TSS.txt")
+RefTSS <- read.table("../pipeline/static/refGene_hg38_TSS.txt")
 input_path <- opt$file
 
 Genes_TargetFile <- GeneMatch(file_path = input_path,
                               RefTSS = RefTSS, TSS_distance = TSS_Dist)
 
 ########################
-oncogene_info <- read.csv("../static/Onco_HUMAN.csv")
+oncogene_info <- read.csv("../pipeline/static/Onco_HUMAN.csv")
 Oncogenes <- unique(unlist(lapply(oncogene_info$Gene.names,
                                   function(gene_names){
                                     strsplit(as.character(gene_names),
                                              " ")[[1]]})))
 
-suppresor_info <- read.csv("../static/TumorSuppressor_HUMAN.csv")
+suppresor_info <- read.csv("../pipeline/static/TumorSuppressor_HUMAN.csv")
 Suppresor_genes <- unique(unlist(lapply(suppresor_info$Gene.names,
                                         function(gene_names){
                                           strsplit(as.character(gene_names),
