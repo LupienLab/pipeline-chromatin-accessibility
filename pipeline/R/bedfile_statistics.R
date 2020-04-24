@@ -9,8 +9,8 @@ option_list = list(
               help="dataset bed file", metavar="character"),
   make_option(c("-o", "--out"), type="character", default="bedfile_statistics.pdf", 
               help="output file name [default= %default]", metavar="character"),
-  make_option(c("-d", "--dir"), type="character", default="R_analysis",
-              help="output directory [default= %default]", metavar="character")
+  make_option(c("-d", "--dir"), type="character", default="NULL",
+              help="output directory", metavar="character")
 ); 
 
 opt_parser = OptionParser(option_list=option_list);

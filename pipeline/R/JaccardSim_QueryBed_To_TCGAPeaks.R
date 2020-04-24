@@ -16,8 +16,8 @@ option_list = list(
               help="Top SamNum", metavar="number"),
   make_option(c("-s", "--sample"), type="character", default=NULL,
               help="sample name", metavar="character"),
-  make_option(c("-d", "--dir"), type="character", default="R_analysis",
-               help="output directory [default= %default]", metavar="character")
+  make_option(c("-d", "--dir"), type="character", default=NULL,
+               help="output directory", metavar="character")
 );
 
 opt_parser = OptionParser(option_list=option_list);

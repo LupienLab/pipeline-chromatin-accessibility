@@ -14,10 +14,10 @@ option_list = list(
               help="dataset bed file", metavar="character"),
   make_option(c("-t", "--TSSDist"), type="integer", default=NULL,
               help="TSS Dist", metavar="number"),
-  make_option(c("-o", "--out"), type="character",           default="Matching_genes_proximity",
+  make_option(c("-o", "--out"), type="character", default="Matching_genes_proximity",
               help="output file [default= %default]", metavar="character"),
-  make_option(c("-d", "--dir"), type="character", default="R_analysis",
-              help="output directory [default= %default]", metavar="character")
+  make_option(c("-d", "--dir"), type="character", default=NULL,
+              help="output directory", metavar="character")
 );
 
 opt_parser = OptionParser(option_list=option_list);
