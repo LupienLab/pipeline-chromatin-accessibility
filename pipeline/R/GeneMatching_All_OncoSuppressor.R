@@ -58,7 +58,7 @@ GeneMatch <- function(file_path, RefTSS, TSS_distance = 1e3){
 }
 
 ########################
-source_python("../python/checkBedfileQuality.py")
+source_python("../pipeline/python/checkBedfileQuality.py")
 checkBedFile(opt$file)
 TSS_Dist <- opt$TSSDist
 RefTSS <- read.table("../static/refGene_hg38_TSS.txt")

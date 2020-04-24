@@ -107,7 +107,7 @@ bed_stat_plot <- function(bed_stat_frame, chrsize_vec, chr_names, output_path){
 
 
 ######################################################
-source_python("../python/checkBedfileQuality.py")
+source_python("../pipeline/python/checkBedfileQuality.py")
 checkBedFile(opt$file)
 bedfile <- read.table(opt$file, stringsAsFactors = F, check.names = F )
 bedfile <- bedfile[,c(1:3)]

@@ -66,7 +66,7 @@ jaccard_simtoref <- function(query_file, reference_Granges, reference_names){
 }
 ############################
 ############################
-source_python("../python/checkBedfileQuality.py")
+source_python("../pipeline/python/checkBedfileQuality.py")
 checkBedFile(opt$file)
 query_file <- opt$file
 reference_path <- "../static/TCGA_SigCut1.65_AllPeaks_Granges.RDS"
