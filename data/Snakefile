@@ -190,7 +190,7 @@ rule bed_stats:
     output:
         path.join(R_DIR, "bedfile_statistics.pdf")
     shell:
-        "Rscript {input.script} -f {input.user_bed_file} -o {output}"
+        "Rscript {input.script} -f {input.user_bed_file} -o {output}"	
 
 ###GeneMatching_All_OncoSuppressor
 rule GeneMatching_All_OncoSuppressor:
@@ -203,7 +203,7 @@ rule GeneMatching_All_OncoSuppressor:
     params:
         "-t 100"
     shell:
-        "Rscript {input.script} -f {input.user_bed_file} {params}"
+        "Rscript {input.script} -f {input.user_bed_file} {params} -d {R_DIR}"
 
 ##JaccardSim_QueryBed_To_TCGAPeaks
 rule JaccardSim_QueryBed_To_TCGAPeaks:
@@ -217,7 +217,7 @@ rule JaccardSim_QueryBed_To_TCGAPeaks:
     params:
         "-t 5 -s 'TCGA-2G-AAFM' "
     shell:
-        "Rscript {input.script} -f {input.user_bed_file} {params}"
+        "Rscript {input.script} -f {input.user_bed_file} {params} -d {R_DIR}"
 
  
 # ==============================================================================
