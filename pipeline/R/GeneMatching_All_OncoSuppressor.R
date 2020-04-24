@@ -16,7 +16,7 @@ option_list = list(
               help="TSS Dist", metavar="number"),
   make_option(c("-o", "--out"), type="character", default="Matching_genes_proximity",
               help="output file [default= %default]", metavar="character"),
-  make_option(c("-d", "--dir"), type="character", default="",
+  make_option(c("-d", "--dir"), type="character", default=".",
               help="output directory", metavar="character")
 );
 
