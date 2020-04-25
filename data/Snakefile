@@ -199,7 +199,7 @@ rule GeneMatching_All_OncoSuppressor:
     	user_bed_file = "TCGA-2G-AAFM-01A_SigCut1.65_.bed",
     output:
         path.join(R_DIR, "Matching_genes_proximity_oncogene.txt"),
-        path.join(R_DIR, "Matching_genes_tumor_suppressor.txt")
+        path.join(R_DIR, "Matching_genes_proximity_tumor_suppressor.txt")
     params:
         "-t 100"
     shell:
