@@ -106,7 +106,7 @@ for(SamIter in names(Sorted_Sim)){
   
 }
 
-colnames(PhenoMat) <- c("sample","tissue","survival status","time (day)","similarity")
+colnames(PhenoMat) <- c("id","sample","tissue","survival status","time (day)","similarity")
 
 ##########################################
 # plotting similarity and survival
