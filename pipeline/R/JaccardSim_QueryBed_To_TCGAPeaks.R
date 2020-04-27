@@ -106,7 +106,7 @@ for(SamIter in names(Sorted_Sim)){
   
 }
 
-colnames(PhenoMat) <- c("id","sample","tissue","survival status","time (day)","similarity")
+colnames(PhenoMat) <- c("sample","tissue","survival status","time (day)","similarity")
 
 ##########################################
 # plotting similarity and survival
@@ -119,12 +119,12 @@ Top_SamNum <- opt$top_SamNum
 Top_SamNum <- min(Top_SamNum, length(TargetTissue_Ind))
 ##########################################
 outputpath=paste(opt$dir,"/",opt$out,sep="")
-write.csv(PhenoMat[1:Top_SamNum,], paste(outputpath,"Phenotypic_info_Top", Top_SamNum, "samples.csv", sep= ""),quote=FALSE)
+write.csv(PhenoMat[1:Top_SamNum,], paste(outputpath,"Phenotypic_info_Top", Top_SamNum, "samples.csv", sep= ""),quote=FALSE,row.names=FALSE)
 
 TopTissue_Vec <- unlist(PhenoMat[1:Top_SamNum,"tissue"])
 write.csv(names(table(TopTissue_Vec)[
   which(table(TopTissue_Vec) ==max(table(TopTissue_Vec)))]),
-  paste(outputpath,"Mostsimilar_tissue_Top", Top_SamNum, "samples.csv", sep= ""),quote=FALSE)
+  paste(outputpath,"Mostsimilar_tissue_Top", Top_SamNum, "samples.csv", sep= ""),quote=FALSE,row.names=FALSE)
 ##########################################
 setwd(Output_Dir)
 pdf(paste(Sample_Name, ".pdf",

@@ -93,5 +93,5 @@ matched_suppresorgenes_info <- suppresor_info[unlist(lapply(Suppresor_genes_math
 matched_genes_list <- list(matched_oncogenes_info, matched_suppresorgenes_info)
 
 outputpath=paste(opt$dir,"/",opt$out,sep="")
-write.csv(matched_oncogenes_info, paste(outputpath,"_oncogene.txt",sep = ""),quote=FALSE)
-write.csv(matched_suppresorgenes_info,paste(outputpath,"_tumor_suppressor.txt",sep = ""),quote=FALSE)
+write.csv(matched_oncogenes_info, paste(outputpath,"_oncogene.txt",sep = ""),quote=FALSE,row.names=FALSE)
+write.csv(matched_suppresorgenes_info,paste(outputpath,"_tumor_suppressor.txt",sep = ""),quote=FALSE,row.names=FALSE)
