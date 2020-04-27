@@ -118,7 +118,12 @@ PhenoMat[,"similarity"] <- as.numeric(PhenoMat[,"similarity"])/max(as.numeric(Ph
 Top_SamNum <- opt$top_SamNum
 Top_SamNum <- min(Top_SamNum, length(TargetTissue_Ind))
 ##########################################
+write.csv(PhenoMat[1:Top_SamNum,], paste("Phenotypic_info_Top", Top_SamNum, "samples.csv", sep= ""))
 
+TopTissue_Vec <- unlist(PhenoMat[1:Top_SamNum,"tissue"])
+write.csv(names(table(TopTissue_Vec)[
+  which(table(TopTissue_Vec) ==max(table(TopTissue_Vec)))]),
+  paste("Mostsimilar_tissue_Top", Top_SamNum, "samples.csv", sep= ""))
 ##########################################
 setwd(Output_Dir)
 pdf(paste(Sample_Name, ".pdf",
@@ -143,10 +148,6 @@ Cox_Fit <- summary(coxph(Surv(time = TimeVec, event = EventVec) ~ Class))
 Hazard <- Cox_Fit$coefficients[1]
 pvalue <- min(Cox_Fit$coefficients[5], (1-Cox_Fit$coefficients[5]))
 #######
-write.csv(PhenoMat[1:Top_SamNum,], paste("Phenotypic_info_Top", Top_SamNum, "samples.csv", sep= ""))
-
-write.csv(names(table(PhenoMat[1:Top_SamNum,"tissue"])[which(table(PhenoMat[1:Top_SamNum,"tissue"]) ==
-                                                               max(table(PhenoMat[1:Top_SamNum,"tissue"])))]), paste("Mostsimilar_tissue_Top", Top_SamNum, "samples.csv", sep= ""))
 
 plot(surv.obj,col =c("blue", "darkred"),
      lty = 1,lwd = 3,  cex.lab = 1.5, cex.axis = 1.5,frame.plot=F,
