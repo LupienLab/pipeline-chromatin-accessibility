@@ -109,15 +109,6 @@ for(SamIter in names(Sorted_Sim)){
 colnames(PhenoMat) <- c("sample","tissue","survival status","time (day)","similarity")
 
 ##########################################
-# plotting similarity and survival
-##########################################
-Target_Tissues <- c("GBM")
-TargetTissue_Ind <- which(PhenoMat[,"tissue"] %in% Target_Tissues)
-PhenoMat <- PhenoMat[TargetTissue_Ind,]
-PhenoMat[,"similarity"] <- as.numeric(PhenoMat[,"similarity"])/max(as.numeric(PhenoMat[,"similarity"]))
-Top_SamNum <- opt$top_SamNum
-Top_SamNum <- min(Top_SamNum, length(TargetTissue_Ind))
-##########################################
 setwd(Output_Dir)
 write.csv(PhenoMat[1:Top_SamNum,], paste("Phenotypic_info_Top", Top_SamNum, "samples.csv", sep= ""),quote=FALSE,row.names=FALSE)
 
@@ -125,6 +116,15 @@ TopTissue_Vec <- unlist(PhenoMat[1:Top_SamNum,"tissue"])
 write.csv(names(table(TopTissue_Vec)[
   which(table(TopTissue_Vec) ==max(table(TopTissue_Vec)))]),
   paste("Mostsimilar_tissue_Top", Top_SamNum, "samples.csv", sep= ""),quote=FALSE,row.names=FALSE)
+##########################################
+# plotting similarity and survival
+##########################################
+Target_Tissues <- opt$tissue
+TargetTissue_Ind <- which(PhenoMat[,"tissue"] %in% Target_Tissues)
+PhenoMat <- PhenoMat[TargetTissue_Ind,]
+PhenoMat[,"similarity"] <- as.numeric(PhenoMat[,"similarity"])/max(as.numeric(PhenoMat[,"similarity"]))
+Top_SamNum <- opt$top_SamNum
+Top_SamNum <- min(Top_SamNum, length(TargetTissue_Ind))
 ##########################################
 
 pdf(paste(Sample_Name, ".pdf",
