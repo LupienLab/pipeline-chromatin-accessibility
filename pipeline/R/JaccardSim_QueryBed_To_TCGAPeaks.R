@@ -118,15 +118,15 @@ PhenoMat[,"similarity"] <- as.numeric(PhenoMat[,"similarity"])/max(as.numeric(Ph
 Top_SamNum <- opt$top_SamNum
 Top_SamNum <- min(Top_SamNum, length(TargetTissue_Ind))
 ##########################################
-outputpath=paste(opt$dir,"/",opt$out,sep="")
-write.csv(PhenoMat[1:Top_SamNum,], paste(outputpath,"Phenotypic_info_Top", Top_SamNum, "samples.csv", sep= ""),quote=FALSE,row.names=FALSE)
+setwd(Output_Dir)
+write.csv(PhenoMat[1:Top_SamNum,], paste("Phenotypic_info_Top", Top_SamNum, "samples.csv", sep= ""),quote=FALSE,row.names=FALSE)
 
 TopTissue_Vec <- unlist(PhenoMat[1:Top_SamNum,"tissue"])
 write.csv(names(table(TopTissue_Vec)[
   which(table(TopTissue_Vec) ==max(table(TopTissue_Vec)))]),
-  paste(outputpath,"Mostsimilar_tissue_Top", Top_SamNum, "samples.csv", sep= ""),quote=FALSE,row.names=FALSE)
+  paste("Mostsimilar_tissue_Top", Top_SamNum, "samples.csv", sep= ""),quote=FALSE,row.names=FALSE)
 ##########################################
-setwd(Output_Dir)
+
 pdf(paste(Sample_Name, ".pdf",
           sep = "", collapse = ""), width=10,height=5)
 par(mar=c(5,10,2,3)+0.1,mgp=c(3,1,0))
