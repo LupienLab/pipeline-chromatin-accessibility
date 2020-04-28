@@ -215,7 +215,7 @@ rule JaccardSim_QueryBed_To_TCGAPeaks:
         path.join(R_DIR, "Mostsimilar_tissue_Top5samples.csv"),
         path.join(R_DIR, "Phenotypic_info_Top5samples.csv")
     params:
-        "-t 5 -s 'TCGA-2G-AAFM' "
+        "-t 5 -s 'TCGA-2G-AAFM' -c 'GBM'"
     shell:
         "Rscript {input.script} -f {input.user_bed_file} {params} -d {R_DIR}"
 

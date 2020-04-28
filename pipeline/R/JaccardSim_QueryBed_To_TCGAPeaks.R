@@ -16,6 +16,8 @@ option_list = list(
               help="Top SamNum", metavar="number"),
   make_option(c("-s", "--sample"), type="character", default=NULL,
               help="sample name", metavar="character"),
+  make_option(c("-c", "--tissue"), type="character", default=NULL,
+              help="tissue to match similarity", metavar="character"),
   make_option(c("-d", "--dir"), type="character", default=".",
                help="output directory", metavar="character")
 );
@@ -106,6 +108,8 @@ for(SamIter in names(Sorted_Sim)){
   
 }
 
+Top_SamNum <- opt$top_SamNum
+
 colnames(PhenoMat) <- c("sample","tissue","survival status","time (day)","similarity")
 
 ##########################################
@@ -123,7 +127,7 @@ Target_Tissues <- opt$tissue
 TargetTissue_Ind <- which(PhenoMat[,"tissue"] %in% Target_Tissues)
 PhenoMat <- PhenoMat[TargetTissue_Ind,]
 PhenoMat[,"similarity"] <- as.numeric(PhenoMat[,"similarity"])/max(as.numeric(PhenoMat[,"similarity"]))
-Top_SamNum <- opt$top_SamNum
+
 Top_SamNum <- min(Top_SamNum, length(TargetTissue_Ind))
 ##########################################
 
