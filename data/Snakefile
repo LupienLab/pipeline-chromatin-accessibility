@@ -1,10 +1,19 @@
 import pandas as pd
+from snakemake.utils import validate, min_version
 import os.path as path
 
 # ==============================================================================
 # Configuration
 # ==============================================================================
-CONFIG = pd.read_csv("config.tsv", index_col=False, sep="\t")
+configfile: "config.yaml"
+validate(config, schema="../schemas/config.schema.yaml")
+
+samples = pd.read_table(config["samples"]).set_index("sample", drop=False)
+validate(samples, schema="../schemas/samples.schema.yaml")
+
+user_bed_file = pd.read_table(config["user_bed_file"], dtype=str),index_col=False)
+validate(user_bed_file, schema="../schemas/user_bed_file.schema.yaml")
+
 
 REPORT_DIR = "Reports"
 FASTQ_DIR = "FASTQs"
@@ -14,9 +23,9 @@ PEAK_DIR = "Peaks"
 ANNO_DIR = "Annotation"
 R_DIR = "R_analysis"
 
-SAMPLES = CONFIG["Sample"].tolist()
-#SAMPLES_NAME = CONFIG["Sample"]
-BWT2_IDX = "/mnt/work1/data/genomes/human/hg38/iGenomes/Sequence/Bowtie2Index/genome"
+
+BWT2_IDX = config["BWT2_IDX"]
+
 READS = [1, 2]
 CHR_REGEX = "^chr[0-9]{0,3}[XYM]?\\t"
 
@@ -49,19 +58,29 @@ rule all:
             path.join(PEAK_DIR, "{sample}_peaks.filtered.narrowPeak"),
             sample=SAMPLES
         ),
-        # FRiP calculations
+        
+
+rule qc_check:
+	input:
+		# FRiP calculations
         path.join(REPORT_DIR, "quality_scores_frip.tsv"),
+        
+
+rule R_analysis:
+    input:
         # Number of reads per region
         path.join(REPORT_DIR, "reads-in-control-regions.tsv"),
-	# bedfile statistics
+       	# bedfile statistics
 	path.join(R_DIR, "bedfile_statistics.pdf"),
 	# GeneMatching_All_OncoSuppressor
 	path.join(R_DIR, "Matching_genes_proximity_oncogene.txt"),
         path.join(R_DIR, "Matching_genes_tumor_suppressor.txt"),
         #JaccardSim_QueryBed_To_TCGAPeaks
-        path.join(R_DIR, "TCGA-2G-AAFM.pdf"),
-        path.join(R_DIR, "Mostsimilar_tissue_Top5samples.csv"),
-        path.join(R_DIR, "Phenotypic_info_Top5samples.csv"),
+        path.join(R_DIR, config["JaccardSim"]["sample_name"]+".pdf"),
+        path.join(R_DIR, "Mostsimilar_tissue_Top"+config["JaccardSim"]["top_SamNum"]+"samples.csv"),
+        path.join(R_DIR, "Phenotypic_info_Top"+config["JaccardSim"]["top_SamNum"]+"samples.csv"),
+
+
 
 # ==============================================================================
 # Rules
@@ -163,7 +182,7 @@ rule filter_blacklist:
 rule no_of_reads_per_region:
     input:
         script = "../pipeline/python/noOfRegionReads.py",
-        user_bed_file = "tmp.bed",
+        user_bed_file = config["user_bed_file"],
         bams = expand(      # this `expand` command will make sure this rule waits for all BAMs to be available before running
             path.join(ALIGN_DIR, "{sample}.filtered.dedup.sorted.bam"),
             sample=SAMPLES
@@ -186,7 +205,7 @@ rule frip:
 rule bed_stats:
     input:
     	script = "../pipeline/R/bedfile_statistics.R",
-    	user_bed_file = "TCGA-2G-AAFM-01A_SigCut1.65_.bed"
+    	user_bed_file = config["user_bed_file"]
     output:
         path.join(R_DIR, "bedfile_statistics.pdf")
     shell:
@@ -196,12 +215,12 @@ rule bed_stats:
 rule GeneMatching_All_OncoSuppressor:
     input:
     	script = "../pipeline/R/GeneMatching_All_OncoSuppressor.R",
-    	user_bed_file = "TCGA-2G-AAFM-01A_SigCut1.65_.bed",
+    	user_bed_file = config["user_bed_file"]
     output:
         path.join(R_DIR, "Matching_genes_proximity_oncogene.txt"),
         path.join(R_DIR, "Matching_genes_proximity_tumor_suppressor.txt")
     params:
-        "-t 100"
+        "-t "+config["GeneMatching"]["TSSDist"]
     shell:
         "Rscript {input.script} -f {input.user_bed_file} {params} -d {R_DIR}"
 
@@ -211,11 +230,11 @@ rule JaccardSim_QueryBed_To_TCGAPeaks:
     	script = "../pipeline/R/JaccardSim_QueryBed_To_TCGAPeaks.R",
     	user_bed_file = "TCGA-2G-AAFM-01A_SigCut1.65_.bed",
     output:
-        path.join(R_DIR, "TCGA-2G-AAFM.pdf"),
-        path.join(R_DIR, "Mostsimilar_tissue_Top5samples.csv"),
-        path.join(R_DIR, "Phenotypic_info_Top5samples.csv")
+        path.join(R_DIR, config["JaccardSim"]["sample_name"]+".pdf"),
+        path.join(R_DIR, "Mostsimilar_tissue_Top"+config["JaccardSim"]["top_SamNum"]+"samples.csv"),
+        path.join(R_DIR, "Phenotypic_info_Top"+config["JaccardSim"]["top_SamNum"]+"samples.csv"),
     params:
-        "-t 5 -s 'TCGA-2G-AAFM' -c 'GBM'"
+        "-t "+config["JaccardSim"]["top_SamNum"]+" -s "+config["JaccardSim"]["sample_name"]+" -c "+config["JaccardSim"]["tissue_name"]
     shell:
         "Rscript {input.script} -f {input.user_bed_file} {params} -d {R_DIR}"
 

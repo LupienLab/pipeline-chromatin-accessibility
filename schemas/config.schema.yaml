@@ -1,0 +1,30 @@
+$schema: "http://json-schema.org/draft-06/schema#"
+
+description: snakemake configuration file
+
+type: object
+
+properties:
+  samples:
+    type: string
+  BWT2_IDX:
+    type: string
+  user_bed_file:
+    type: string
+  GeneMatching:
+    type: object
+    properties:
+      TSSDist: integer
+  JaccardSim:
+    type: object
+    properties:
+      top_SamNum: integer
+      sample_name: string
+      tissue_name: string
+
+required:
+  - samples
+  - BWT2_IDX
+  - user_bed_file
+  - GeneMatching
+  - JaccardSim

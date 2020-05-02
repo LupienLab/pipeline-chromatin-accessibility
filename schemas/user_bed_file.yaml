@@ -1,0 +1,5 @@
+$schema: "http://json-schema.org/draft-06/schema#"
+description: row of the units.tsv, representing a bed file unit, chr    start  end
+type: object
+
+required:
