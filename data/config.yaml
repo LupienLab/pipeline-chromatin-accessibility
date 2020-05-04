@@ -1,20 +1,18 @@
-samples:samples.tsv
-BWT2_IDX:"/mnt/work1/data/genomes/human/hg38/iGenomes/Sequence/Bowtie2Index/genome"
+samples: samples.tsv
+BWT2_IDX: /mnt/work1/data/genomes/human/hg38/iGenomes/Sequence/Bowtie2Index/genome
 
 ### Post processing parameters
 ###Bed file for no_of_reads_per_region and R_analysis
 ###
 
-
-user_bed_file:TCGA-2G-AAFM-01A_SigCut1.65_.bed
+user_bed_file: TCGA-2G-AAFM-01A_SigCut1.65_.bed
 
 ##GeneMatching_All_OncoSuppressor specific
 GeneMatching:
-    TSSDist:100 ##Any integer for TSSDist
-
+    TSSDist: 100 ##Any integer for TSSDist
+    
 ##JaccardSim_QueryBed_To_TCGAPeaks specific
 JaccardSim:
-    top_SamNum:5 ##Any integer for top sample number
-    sample_name:"TCGA-2G-AAFM" ##Any name to be given for sample
-    tissue_name:"GBM" ##Tissue to be matched
- 
+    top_SamNum: 5 ##Any integer for top sample number
+    sample_name: TCGA-2G-AAFM ##Any name to be given for sample
+    tissue_name: GBM ##Tissue to be matched
