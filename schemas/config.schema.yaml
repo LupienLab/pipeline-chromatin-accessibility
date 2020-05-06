@@ -14,18 +14,21 @@ properties:
   GeneMatching:
     type: object
     properties:
-      TSSDist: integer
+      TSSDist: 
+        type: integer
   JaccardSim:
     type: object
     properties:
-      top_SamNum: integer
-      sample_name: string
-      tissue_name: string
+      top_SamNum:
+        type: integer
+      sample_name:
+        type: string
+      tissue_name:
+        type: string
 
 required:
   - samples
   - BWT2_IDX
   - user_bed_file
   - GeneMatching
-  - JaccardSim
- 
+  - JaccardSim 
