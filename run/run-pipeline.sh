@@ -6,4 +6,4 @@
 #SBATCH -e log.err
 
  
-snakemake -j 10 -c "sbatch {cluster.params}" -u cluster.yaml --latency-wait 30
+snakemake -j 10 -c "sbatch {cluster.params}" -u ../run/cluster.yaml --latency-wait 30 --nolock
