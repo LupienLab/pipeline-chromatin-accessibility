@@ -13,8 +13,7 @@ validate(config, schema="../schemas/config.schema.yaml")
 
 SAMPLES = pd.read_table(config["samples"])["Sample"].tolist()
 
-user_bed_file = pd.read_table(config["user_bed_file"], dtype=str)
-
+user_bed_file = pd.read_table(config["user_bed_file"], dtype=str,header=None)
 
 REPORT_DIR = "Reports"
 FASTQ_DIR = "FASTQs"
@@ -72,7 +71,7 @@ rule R_analysis:
         path.join(R_DIR, "bedfile_statistics.pdf"),
         # GeneMatching_All_OncoSuppressor
         path.join(R_DIR, "Matching_genes_proximity_oncogene.txt"),
-        path.join(R_DIR, "Matching_genes_tumor_suppressor.txt"),
+        path.join(R_DIR, "Matching_genes_proximity_tumor_suppressor.txt"),
         #JaccardSim_QueryBed_To_TCGAPeaks
         path.join(R_DIR, config["JaccardSim"]["sample_name"]+".pdf"),
         path.join(R_DIR, "Mostsimilar_tissue_Top"+str(config["JaccardSim"]["top_SamNum"])+"samples.csv"),
@@ -224,7 +223,7 @@ rule GeneMatching_All_OncoSuppressor:
 rule JaccardSim_QueryBed_To_TCGAPeaks:
     input:
         script = "../pipeline/R/JaccardSim_QueryBed_To_TCGAPeaks.R",
-        user_bed_file = "TCGA-2G-AAFM-01A_SigCut1.65_.bed"
+        user_bed_file = config["user_bed_file"]
     output:
         path.join(R_DIR, config["JaccardSim"]["sample_name"]+".pdf"),
         path.join(R_DIR, "Mostsimilar_tissue_Top"+str(config["JaccardSim"]["top_SamNum"])+"samples.csv"),

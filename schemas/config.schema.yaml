@@ -29,6 +29,3 @@ properties:
 required:
   - samples
   - BWT2_IDX
-  - user_bed_file
-  - GeneMatching
-  - JaccardSim 
