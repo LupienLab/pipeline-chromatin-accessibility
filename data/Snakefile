@@ -27,7 +27,7 @@ R_DIR = "R_analysis"
 BWT2_IDX = config["BWT2_IDX"]
 
 READS = [1, 2]
-CHR_REGEX = "^chr[0-9]{0,3}[XYM]?\\t"
+CHR_REGEX = "^chr[0-9]{0,3}[XY]?\\t"
 
 # ==============================================================================
 # Meta Rules
@@ -155,11 +155,11 @@ rule callpeaks:
                 "-f BAM",                           # input format
                 "-g 2.7e9",                         # genome size
                 "--keep-dup all",                   # keep duplicates
-                "--nomodel",  # bypass building shifting model
+                "--nomodel",                        # bypass building shifting model
                 "--nolambda",
                 "--shift -75",                      # enriching for cutting sites, see example on GitHub MACS
                 "--extsize 150",
-                "--call-summits",                    # identify the summit of each peak
+                "--call-summits",                   # identify the summit of each peak
                 "-q 0.01",                          # q-value filter
             ])
     shell:
@@ -265,9 +265,11 @@ rule keep_quality_alignments:
         "{file}.filtered.bam"
     params:
         filter = " and ".join([
-            "not (unmapped or mate_is_unmapped)"
-            "proper_pair",
-            "mapping_quality >= 10"]),
+            "not (unmapped or mate_is_unmapped)"    # remove: pairs where either mate is unmapped
+            "proper_pair",                          # keep:   properly paired
+            "mapping_quality >= 10",                # keep:   good mapping quality
+            "ref_name != 'chrM'"                    # remove: mitochondrial reads
+        ]),
         other = " ".join([
             "-f bam",
             "-p"
