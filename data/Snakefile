@@ -336,11 +336,9 @@ rule keep_quality_alignments:
         
 rule gunzip:
     input:
-        "{file}.gz",
+        "gencode.v"+str(config["vGENCODE"])+".annotation.gff3.gz",
     output:
-        "{file}"
-    wildcard_constraints:
-        file = "((?!\\.gz).)*"
+        "gencode.v"+str(config["vGENCODE"])+".annotation.gff3"
     shell:
         "gunzip {input}"
 
