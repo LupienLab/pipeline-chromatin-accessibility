@@ -60,13 +60,13 @@ rule all:
 rule qc_check:
     input:
         # FRiP calculations
-        path.join(REPORT_DIR, "quality_scores_frip.tsv")
+        path.join(REPORT_DIR, "quality_scores_frip.tsv"),
         ##genes
-        path.join(REPORT_DIR, "gencode."+config["vGENCODE"]+".genes.all.bed")
+        path.join(REPORT_DIR, "gencode."+config["vGENCODE"]+".genes.all.bed"),
         ##promoters
-        path.join(PEAK_DIR, "gencode."+config["vGENCODE"]+".promoters.all.bed")
+        path.join(PEAK_DIR, "gencode."+config["vGENCODE"]+".promoters.all.bed"),
         ##Promoter peaks
-        path.join(PEAK_DIR, "promoter.gencode.v"+config["vGENCODE"]+".peaks.bed")
+        path.join(PEAK_DIR, "promoter.gencode.v"+config["vGENCODE"]+".peaks.bed"),
         ## non promoter peaks
         path.join(PEAK_DIR, "non_promoter.gencode.v"+config["vGENCODE"]+".peaks.bed")
 
