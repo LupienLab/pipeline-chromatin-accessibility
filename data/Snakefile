@@ -247,7 +247,7 @@ rule nonpromoter_peaks:
         peaks = expand(
             path.join(PEAK_DIR, "{sample}_peaks.narrowPeak"),
             sample=SAMPLES),
-        promoters = "gencode.v"+str(config["vGENCODE"])+".promoters.all.bed"
+        promoters = path.join(PEAK_DIR, "gencode.v"+str(config["vGENCODE"])+".promoters.all.bed")
     output:
         path.join(PEAK_DIR, "non_promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed")
     shell:
