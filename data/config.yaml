@@ -16,3 +16,5 @@ JaccardSim:
     top_SamNum: 5 ##Any integer for top sample number
     sample_name: TCGA-2G-AAFM ##Any name to be given for sample
     tissue_name: GBM ##Tissue to be matched
+
+vGENCODE: 34
