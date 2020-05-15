@@ -218,7 +218,7 @@ rule all_genes:
 ##promoters
 rule promoters:
     input:
-        "gencode.v"+str(config["vGENCODE"])+".genes.all.bed",
+        path.join(REPORT_DIR, "gencode.v"+str(config["vGENCODE"])+".genes.all.bed")
     output:
         path.join(PEAK_DIR, "gencode.v"+str(config["vGENCODE"])+".promoters.all.bed")
     params:
