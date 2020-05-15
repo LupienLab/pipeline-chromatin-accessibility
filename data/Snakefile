@@ -229,7 +229,7 @@ rule promoters:
 
 
 ##Promoter peaks 
-rule promoter_nonpromoter:
+rule promoter:
     input:
         peaks = path.join(PEAK_DIR, "{sample}_peaks.narrowPeak"),
         promoters = "gencode.v"+str(config["vGENCODE"])+".promoters.all.bed"
@@ -239,7 +239,7 @@ rule promoter_nonpromoter:
         "bedtools intersect -a {input.peaks} -b {input.promoters} -wa -sorted > {output}"
 
 ## non promoter peaks
-rule promoter_nonpromoter:
+rule nonpromoter:
     input:
         peaks = path.join(PEAK_DIR, "{sample}_peaks.narrowPeak"),
         promoters = "gencode.v"+str(config["vGENCODE"])+".promoters.all.bed"
