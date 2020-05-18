@@ -38,11 +38,11 @@ jaccard_simtoref <- function(query_file, reference_Granges, reference_names){
 ############################
 ############################
 top_samnum <- 5
-query_file <- "~/Desktop/Obel/Data/Roadmap_H3K27ac_peaks/E001-H3K27ac.imputed.narrowPeak.bed.nPk"
-reference_path <- "~/Desktop/Obel/Data/H3K27ac_Roadmap_AllPeaks_Granges.RDS"
-out_dir <- "~/Desktop/Obel/"
+query_file <- ".../E001-H3K27ac.imputed.narrowPeak.bed.nPk"
+reference_path <- ".../H3K27ac_Roadmap_AllPeaks_Granges.RDS"
+out_dir <- ".../outdir/"
 analysis_name <- "similarity_roadmap_H3K27ac"
-PhenoMat <- readRDS("~/Desktop/Obel/Data/Roadmap_SamplePhenotypes.RDS")
+PhenoMat <- readRDS(".../Roadmap_SamplePhenotypes.RDS")
 
 
 Grange_reference <- readRDS(reference_path)
