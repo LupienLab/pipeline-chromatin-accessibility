@@ -3,8 +3,8 @@ library(data.table)
 ###
 reference_name <- "H3K27ac_Roadmap"
 file_name_pattern <- "bed"
-reference_path <- '.../Roadmap_H3K27ac_peaks/'
-out_dir <- '.../outputdir/'
+reference_path <- '~/Desktop/Obel/Data/Roadmap_H3K27ac_peaks/'
+out_dir <- '~/Desktop/Obel/Data/'
 
 reference_files <- list.files(reference_path, pattern = file_name_pattern)
 ###
@@ -21,6 +21,7 @@ for(SamIter in 1:length(reference_files)){
   Grange_reference_set[[SamIter]] <- gr
 }
 
+names(Grange_reference_set) <- reference_files
 
 saveRDS(Grange_reference_set,
         file = paste(out_dir, reference_name,
