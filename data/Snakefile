@@ -69,7 +69,9 @@ rule qc_check:
         ##Promoter peaks
         path.join(PEAK_DIR, "promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed"),
         ## non promoter peaks
-        path.join(PEAK_DIR, "non_promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed")
+        expand(
+        path.join(PEAK_DIR, "{sample}_non_promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed"),
+        sample=SAMPLES)
 
 rule R_analysis:
     input:
@@ -242,10 +244,10 @@ rule promoter_peaks:
 ## non promoter peaks
 rule nonpromoter_peaks:
     input:
-        peaks = path.join(PEAK_DIR, "{}_peaks.narrowPeak".format(SAMPLES)),
+        peaks = path.join(PEAK_DIR, "{sample}_peaks.narrowPeak"),
         promoters = path.join(PEAK_DIR, "gencode.v"+str(config["vGENCODE"])+".promoters.all.bed")
     output:
-        path.join(PEAK_DIR, "non_promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed")
+        path.join(PEAK_DIR, "{sample}_non_promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed")
     shell:
         "bedtools intersect -a {input.peaks} -b {input.promoters} -wa -v -sorted > {output}"
 
