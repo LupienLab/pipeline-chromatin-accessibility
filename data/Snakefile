@@ -97,7 +97,7 @@ rule R_analysis:
         path.join(R_DIR, config["JaccardSim"]["sample_name"]+".pdf"),
         path.join(R_DIR, "Mostsimilar_tissue_Top"+str(config["JaccardSim"]["top_SamNum"])+"samples.csv"),
         path.join(R_DIR, "Phenotypic_info_Top"+str(config["JaccardSim"]["top_SamNum"])+"samples.csv")
-   conda:
+    conda:
         "../slurm_config/environment.yaml"   
 
 
