@@ -31,6 +31,12 @@ READS = [1, 2]
 CHR_REGEX = "^chr[0-9]{0,3}[XY]?\\t"
 
 # ==============================================================================
+# Conda image
+# ==============================================================================
+
+container: "docker://continuumio/miniconda3:4.4.10"
+
+# ==============================================================================
 # Meta Rules
 # ==============================================================================
 rule all:
@@ -57,7 +63,10 @@ rule all:
         expand(
             path.join(PEAK_DIR, "{sample}_peaks.filtered.narrowPeak"),
             sample=SAMPLES)
-        
+    conda:
+        "slurm_config/environment.yaml"
+    
+    
 rule qc_check:
     input:
         # FRiP calculations
@@ -72,6 +81,8 @@ rule qc_check:
         expand(
         path.join(PEAK_DIR, "{sample}_non_promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed"),
         sample=SAMPLES)
+    conda:
+        "slurm_config/environment.yaml"
 
 rule R_analysis:
     input:
@@ -86,7 +97,8 @@ rule R_analysis:
         path.join(R_DIR, config["JaccardSim"]["sample_name"]+".pdf"),
         path.join(R_DIR, "Mostsimilar_tissue_Top"+str(config["JaccardSim"]["top_SamNum"])+"samples.csv"),
         path.join(R_DIR, "Phenotypic_info_Top"+str(config["JaccardSim"]["top_SamNum"])+"samples.csv")
-
+   conda:
+        "slurm_config/environment.yaml"   
 
 
 # ==============================================================================

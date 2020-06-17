@@ -1,5 +1,6 @@
 rm(list = ls())
 library(data.table)
+library(GenomicRanges)
 ###
 reference_name <- "H3K27ac_Roadmap"
 file_name_pattern <- "bed"
