@@ -133,7 +133,7 @@ rule rename_trim_galore:
         fq2 = path.join(TRIM_DIR, "{sample}_R2_val_2.fq.gz"),
         rp1 = path.join(TRIM_DIR, "{sample}_R1.fastq.gz_trimming_report.txt"),
         rp2 = path.join(TRIM_DIR, "{sample}_R2.fastq.gz_trimming_report.txt")
-        command_string = ("; ".join(commands),commands = [
+        command_string = "; ".join([
             "mv {input.fq1} {output.fq1}",
             "mv {input.fq2} {output.fq2}",
             "mv {input.rp1} {output.rp1}",
