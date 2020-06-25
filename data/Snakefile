@@ -33,12 +33,6 @@ READS = [1, 2]
 CHR_REGEX = "^chr[0-9]{0,3}[XY]?\\t"
 
 # ==============================================================================
-# Conda image
-# ==============================================================================
-
-container: "docker://continuumio/miniconda3:4.4.10"
-
-# ==============================================================================
 # Meta Rules
 # ==============================================================================
 rule all:
@@ -65,8 +59,7 @@ rule all:
         expand(
             path.join(PEAK_DIR, "{sample}_peaks.filtered.narrowPeak"),
             sample=SAMPLES)
-    conda:
-        "../slurm_config/environment.yaml"
+    
     
     
 rule qc_check:
@@ -83,8 +76,7 @@ rule qc_check:
         expand(
         path.join(PEAK_DIR, "{sample}_non_promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed"),
         sample=SAMPLES)
-    conda:
-        "../slurm_config/environment.yaml"
+    
 
 rule R_analysis:
     input:
@@ -99,8 +91,7 @@ rule R_analysis:
         path.join(R_DIR, config["JaccardSim"]["sample_name"]+".pdf"),
         path.join(R_DIR, "Mostsimilar_tissue_Top"+str(config["JaccardSim"]["top_SamNum"])+"samples.csv"),
         path.join(R_DIR, "Phenotypic_info_Top"+str(config["JaccardSim"]["top_SamNum"])+"samples.csv")
-    conda:
-        "../slurm_config/environment.yaml"   
+    
 
 
 # ==============================================================================
@@ -158,8 +149,9 @@ rule align:
         report_txt = path.join(REPORT_DIR, "{sample}.alignment_report.txt")
     params:
         "-x {}".format(BWT2_IDX)
+    threads: 5
     shell:
-        "bowtie2 {params} -1 {input[0]} -2 {input[1]} 2> {output.report_txt} | samtools view -bS - > {output.bam}"
+        "bowtie2 {params} -p {threads} -1 {input[0]} -2 {input[1]} 2> {output.report_txt} | samtools view -bS - > {output.bam}"
 
 rule callpeaks:
     input:
@@ -343,8 +335,9 @@ rule keep_quality_alignments:
         other = " ".join([
             "-f bam"
             ])
+    threads: 3
     shell:
-        "sambamba view -F {params.filter} {params.other} -o {output} {input}"
+        "sambamba view -t {threads} -F {params.filter} {params.other} -o {output} {input}"
         
 rule gunzip:
     input:
