@@ -1,5 +1,4 @@
-conda create -n ATACseq 
-
+#!/bin/bash
 conda config --add channels r
 conda config --add channels bioconda
 conda config --add channels conda-forge
@@ -14,6 +13,7 @@ conda install pysam
 conda install bedtools pybedtools
 conda install r-dunn.test
 conda install macs2>=2.2.4
+conda install -c r r
 
 # bioconductor
 conda install bioconductor-edger bioconductor-diffbind bioconductor-deseq2

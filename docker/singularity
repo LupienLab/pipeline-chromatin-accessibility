@@ -1,5 +1,5 @@
 Bootstrap: docker
-From: continuumio/miniconda3:4.4.10
+From: continuumio/miniconda
 
 %labels
 AUTHOR ankita.nand@uhnresearch.ca
@@ -18,14 +18,14 @@ export PATH=/opt/conda/bin:$PATH
 conda config --add channels defaults
 conda config --add channels conda-forge
 conda config --add channels bioconda
-#conda install --yes bwa=0.7.15
-conda install --yes samtools=1.8
 
+conda install --yes python=3.6
+#conda install --yes bwa
+conda install -c bioconda snakemake
 conda install --yes sambamba samtools
 conda install --yes trim-galore fastqc
 conda install --yes bowtie2
-conda install --yes python>=3.6
-conda install --yes pandas scipy snakemake-minimal
+conda install --yes pandas scipy
 conda install --yes pysam
 conda install --yes bedtools pybedtools
 conda install --yes r-dunn.test
@@ -48,3 +48,6 @@ R -e "BiocManager::install('survcomp')"
 
 
 conda clean --index-cache --tarballs --packages --yes
+
+
+##/mnt/work1/software/centos7/singularity/3.5.2/bin/singularity build atac_pipeline.simg singularity --fakeroot

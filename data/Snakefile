@@ -1,3 +1,5 @@
+##snakemake --use-conda --use-singularity --profile ~/config/slurm --jobs 10
+
 import pandas as pd
 from snakemake.utils import validate, min_version
 import os.path as path
