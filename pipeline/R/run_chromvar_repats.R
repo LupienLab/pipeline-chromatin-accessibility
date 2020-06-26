@@ -25,6 +25,7 @@ run_chromvar=function(narrowPeak,
   
   print("read in count data")
   my_counts_matrix <- as.data.frame(readNarrowpeaks(narrowPeak))
+  head(my_counts_matrix)
   
   rownames(my_counts_matrix) <- paste(my_counts_matrix$seqname, my_counts_matrix$start, my_counts_matrix$end, sep="_")
   
