@@ -4,7 +4,7 @@ library(GenomicRanges)
 ###
 reference_name <- "TEonly_repeats_hg38"
 file_name_pattern <- "bed"
-reference_path <- '../pipeline/static/TEonly_repeats_hg38/'
+reference_path <- '../static/TEonly_repeats_hg38/'
 out_dir <- './'
 
 reference_files <- list.files(reference_path, pattern = file_name_pattern)
