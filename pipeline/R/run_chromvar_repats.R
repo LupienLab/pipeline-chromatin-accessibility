@@ -24,9 +24,7 @@ run_chromvar=function(narrowPeak,
   set.seed(2019)
   
   print("read in count data")
-  my_counts_matrix <- as.data.frame(readNarrowpeaks(narrowPeak))
-  head(my_counts_matrix)
-  
+  my_counts_matrix <- fread(narrowPeak, header = F)[,1:3]
   rownames(my_counts_matrix) <- paste(my_counts_matrix$seqname, my_counts_matrix$start, my_counts_matrix$end, sep="_")
   
   
@@ -34,7 +32,8 @@ run_chromvar=function(narrowPeak,
   
   toMatch <- c("random", "alt", "Un", "chrM", "EBV")
   my_counts_matrix <- subset(my_counts_matrix, !(grepl(paste(toMatch, collapse="|"), my_counts_matrix$seqname)))
-  
+  print("counts matrix")  
+  print(head(my_counts_matrix))
   fragment_counts <- makeSummarizedExperimentFromDataFrame(my_counts_matrix)
   assayNames(fragment_counts) <- "counts"
   
@@ -107,6 +106,6 @@ run_chromvar=function(narrowPeak,
 out_dir <- 'out_dir_repats'
 dir.create(out_dir)
 run_chromvar(narrowPeak="/mnt/work1/users/lupiengroup/People/ankita/pipeline-chromatin-accessibility/data/Peaks/test-FNA-Notch-06-PM-pos-12-Bulk_L002_peaks.filtered.narrowPeak",
-             repeatrds="TEonly_repeats_hg38_AllPeaks_Granges.RDS",
+             repeatrds="bm_for_repeatElements.rds",
              out_dir = out_dir)
 

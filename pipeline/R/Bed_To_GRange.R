@@ -10,7 +10,7 @@ option_list = list(
   make_option(c("-f", "--narrowfile"), type="character", default=NULL,
               help="Narrow peaks file", metavar="character"),
   make_option(c("-r", "--repeats"), type="character", default=NULL,
-              help="Repeats directory", metavar="character"),
+              help="Repeats directory", metavar="character")
   
 );
 opt_parser = OptionParser(option_list=option_list);
@@ -29,7 +29,7 @@ print(1)
 narrowPeaksFile <- opt$narrowfile
 rep_folder_dir <- opt$repeats
 
-peaks <- fread(narrowPeaksFile, header = F)
+peaks <- fread(narrowPeaksFile, header = F)[,1:3]
 colnames(peaks) <- c('seqnames', 'start', 'end')
 
 rep_paths <- list.files(rep_folder_dir, full.names = T)
@@ -50,10 +50,10 @@ for(this_rep_path in rep_paths){
   
   ovlps <- as.data.table(findOverlaps(query = query_ranges, subject = this_rep_ranges))
   
-  bm_for_repeatElements[ , this_rep_name] <- 0
-  bm_for_repeatElements[unique(ovlps$queryHits), this_rep_name] <- 1
+  peaks[ , this_rep_name] <- 0
+  peaks[unique(ovlps$queryHits), this_rep_name] <- 1
 }
 
 print(3)
 
-saveRDS(bm_for_repeatElements, 'bm_for_repeatElements.rds')
+saveRDS(peaks, 'bm_for_repeatElements.rds')
