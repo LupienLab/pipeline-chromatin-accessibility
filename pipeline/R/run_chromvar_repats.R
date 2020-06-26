@@ -9,11 +9,12 @@ library(SummarizedExperiment)
 library(BiocParallel)
 #register(SerialParam())
 library(BSgenome.Hsapiens.UCSC.hg38)
+
 library(data.table)
 library(tidyverse)
 
 
-run_chromvar=function(peakrds,
+run_chromvar=function(narrowPeak,
                       repeatrds,
                       out_dir){
   
@@ -23,7 +24,7 @@ run_chromvar=function(peakrds,
   set.seed(2019)
   
   print("read in count data")
-  my_counts_matrix <- as.data.frame(readRDS(peakrds))
+  my_counts_matrix <- as.data.frame(readNarrowpeaks(narrowPeak))
   
   rownames(my_counts_matrix) <- paste(my_counts_matrix$seqname, my_counts_matrix$start, my_counts_matrix$end, sep="_")
   
@@ -104,7 +105,7 @@ run_chromvar=function(peakrds,
 
 out_dir <- 'out_dir_repats'
 dir.create(out_dir)
-run_chromvar(peakrds="/mnt/work1/users/lupiengroup/People/ankita/pipeline-chromatin-accessibility/data/Peaks/test-FNA-Notch-06-PM-pos-12-Bulk_L002_peaks.filtered.narrowPeak",
+run_chromvar(narrowPeak="/mnt/work1/users/lupiengroup/People/ankita/pipeline-chromatin-accessibility/data/Peaks/test-FNA-Notch-06-PM-pos-12-Bulk_L002_peaks.filtered.narrowPeak",
              repeatrds="TEonly_repeats_hg38_AllPeaks_Granges.RDS",
              out_dir = out_dir)
 
