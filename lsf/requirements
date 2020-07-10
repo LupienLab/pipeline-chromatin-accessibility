@@ -1,0 +1,14 @@
+dst
+module load trim_galore/0.4.2
+module load cutadapt/2.9
+module load bowtie2/2.3.5.1
+module load fastqc/0.11.5
+
+snakemake --profile ~/lib/snakemake/lsf
+
+bsub -q long -W 200:00 -n 2 -R "rusage[mem=9000]" -R "span[hosts=1]" -oo log.out -eo log.err -J"snake_job" "snakemake --profile ~/lib/snakemake/lsf"
+
+
+#sambamba 0.7.1
+#macs2 2.2.7.1
+#module load gcc/8.1.0

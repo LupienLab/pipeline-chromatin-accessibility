@@ -1,0 +1,15 @@
+__default__:
+    - "-W 15:00"
+
+align:
+    - "-W 24:00"
+
+#callpeaks:
+
+#sort:
+
+dedup:
+   - "-W 24:00"
+
+keep_quality_alignments:
+    - "-W 24:00"

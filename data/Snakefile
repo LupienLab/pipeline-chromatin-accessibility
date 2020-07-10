@@ -116,9 +116,10 @@ rule trim_galore:
         path.join(TRIM_DIR, "{sample}_R1.fastq.gz_trimming_report.txt"),
         path.join(TRIM_DIR, "{sample}_R2.fastq.gz_trimming_report.txt")
     params:
-        "--gzip --paired -q 30"
+        trim="--gzip --paired -q 30"
+        sif="" 
     shell:
-        "trim_galore {params} -o {TRIM_DIR} {input}"
+        "{params.sif} trim_galore {params.trim} -o {TRIM_DIR} {input}"
 
 rule rename_trim_galore:
     input:
@@ -294,6 +295,11 @@ rule JaccardSim_QueryBed_To_TCGAPeaks:
         "-t "+str(config["JaccardSim"]["top_SamNum"])+" -s "+config["JaccardSim"]["sample_name"]+" -c "+config["JaccardSim"]["tissue_name"]
     shell:
         "Rscript {input.script} -f {input.user_bed_file} {params} -d {R_DIR}"
+
+rule repeat_score_cal:
+    input:
+        TE_bed_files = path.join(STATIC_DIR,"TEonly_repeats_hg38")
+        script = "../pipeline/R/Bed_To_GRange.R",
 
  
 # ==============================================================================
