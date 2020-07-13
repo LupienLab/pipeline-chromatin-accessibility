@@ -5,5 +5,5 @@
 #SBATCH -o log.out
 #SBATCH -e log.err
 #SBATCH --IMAGE=../run/rb-atac_pipeline_latest.sif
- 
-/mnt/work1/software/centos7/singularity/3.5.2/bin/singularity exec ../slurm_config/rb-atac_pipeline_latest.sif snakemake -j 10 -c "sbatch {cluster.params}" -u ../slurm_config/slurm.yaml --latency-wait 30  --nolock
+
+snakemake -j 10 -c "sbatch {cluster.params}" -u ../slurm_config/slurm.yaml --latency-wait 30  --nolock --use-singularity

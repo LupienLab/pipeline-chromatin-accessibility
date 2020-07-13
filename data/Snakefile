@@ -1,4 +1,4 @@
-##snakemake --use-conda --use-singularity --profile ~/config/slurm --jobs 10
+SIF_EXEC = "/mnt/work1/software/centos7/singularity/3.5.2/bin/singularity exec ../slurm_config/rb-atac_pipeline_latest.sif"
 
 import pandas as pd
 from snakemake.utils import validate, min_version
@@ -117,9 +117,8 @@ rule trim_galore:
         path.join(TRIM_DIR, "{sample}_R2.fastq.gz_trimming_report.txt")
     params:
         trim="--gzip --paired -q 30"
-        sif="" 
     shell:
-        "{params.sif} trim_galore {params.trim} -o {TRIM_DIR} {input}"
+        "{SIF_EXEC} trim_galore {params.trim} -o {TRIM_DIR} {input}"
 
 rule rename_trim_galore:
     input:
@@ -152,7 +151,7 @@ rule align:
         "-x {}".format(BWT2_IDX)
     threads: 5
     shell:
-        "bowtie2 {params} -p {threads} -1 {input[0]} -2 {input[1]} 2> {output.report_txt} | samtools view -bS - > {output.bam}"
+        "{SIF_EXEC} bowtie2 {params} -p {threads} -1 {input[0]} -2 {input[1]} 2> {output.report_txt} | samtools view -bS - > {output.bam}"
 
 rule callpeaks:
     input:
@@ -180,7 +179,7 @@ rule callpeaks:
                 "-q 0.01",                          # q-value filter
             ])
     shell:
-        "macs2 callpeak -t {input} {params}"
+        "{SIF_EXEC} macs2 callpeak -t {input} {params}"
 
 rule filter_blacklist:
     input:
@@ -190,7 +189,7 @@ rule filter_blacklist:
         path.join(PEAK_DIR, "{sample}_peaks.filtered.narrowPeak")
     shell:
         # remove blacklist regions and only keep canonical chromosomes
-        "bedtools intersect -v -a {input.peaks} -b {input.blacklist} | awk '/{CHR_REGEX}/ {{print}}' | LC_COLLATE=C sort -k1,1 -k2,2n > {output}"
+        "{SIF_EXEC} bedtools intersect -v -a {input.peaks} -b {input.blacklist} | awk '/{CHR_REGEX}/ {{print}}' | LC_COLLATE=C sort -k1,1 -k2,2n > {output}"
 
 rule no_of_reads_per_region:
     input:
@@ -202,7 +201,7 @@ rule no_of_reads_per_region:
     output:
         path.join(REPORT_DIR, "reads-in-control-regions.tsv")
     shell:
-        "python {input.script} -a {input.user_bed_file} -b {input.bams} -o {output}"
+        "{SIF_EXEC} python {input.script} -a {input.user_bed_file} -b {input.bams} -o {output}"
 
 ##fraction of reads in peaks
 rule frip:
@@ -211,7 +210,7 @@ rule frip:
     output:
         path.join(REPORT_DIR, "quality_scores_frip.tsv")
     shell:
-        "bash {input.script} {ALIGN_DIR} {PEAK_DIR} {output} {SAMPLES}"
+        "{SIF_EXEC} bash {input.script} {ALIGN_DIR} {PEAK_DIR} {output} {SAMPLES}"
 
         
 ##genes        
@@ -223,7 +222,7 @@ rule all_genes:
     shell:
         # use either tab or ";" as field separators
         # only keep genes (protein-coding + others)
-        "awk '{{FS=\"(\\t|;)\"; OFS=\"\\t\"}}{{if (NR > 5 && $3 == \"gene\"){{gsub(/gene_id=/, \"\", $10); gsub(/gene_name=/, \"\", $12); gsub(/\"/, \"\", $11); print $1, $4, $5, $10, \".\", $7, $12}} }}' {input} | sort -k1,1 -V -k2,2n > {output}"
+        "{SIF_EXEC} awk '{{FS=\"(\\t|;)\"; OFS=\"\\t\"}}{{if (NR > 5 && $3 == \"gene\"){{gsub(/gene_id=/, \"\", $10); gsub(/gene_name=/, \"\", $12); gsub(/\"/, \"\", $11); print $1, $4, $5, $10, \".\", $7, $12}} }}' {input} | sort -k1,1 -V -k2,2n > {output}"
 
 ##promoters
 rule promoters:
@@ -235,7 +234,7 @@ rule promoters:
         dnstream = 500,
         upstream = 1500
     shell:
-        "awk '{{FS=OFS=\"\\t\"}}{{if ($6 == \"+\") {{ print $1, $2 - {params.upstream}, $2 + {params.dnstream}, $4, $5, $6, $7 }} else {{ print $1, $3 - {params.dnstream}, $3 + {params.upstream}, $4, $5, $6, $7 }} }}' {input} > {output}"
+        "{SIF_EXEC} awk '{{FS=OFS=\"\\t\"}}{{if ($6 == \"+\") {{ print $1, $2 - {params.upstream}, $2 + {params.dnstream}, $4, $5, $6, $7 }} else {{ print $1, $3 - {params.dnstream}, $3 + {params.upstream}, $4, $5, $6, $7 }} }}' {input} > {output}"
 
 
 ##Promoter peaks 
@@ -246,7 +245,7 @@ rule promoter_peaks:
     output:
         path.join(PEAK_DIR, "promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed")
     shell:
-        "bedtools intersect -a {input.peaks} -b {input.promoters} -wa -sorted > {output}"
+        "{SIF_EXEC} bedtools intersect -a {input.peaks} -b {input.promoters} -wa -sorted > {output}"
 
 ## non promoter peaks
 rule nonpromoter_peaks:
@@ -256,7 +255,7 @@ rule nonpromoter_peaks:
     output:
         path.join(PEAK_DIR, "{sample}_non_promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed")
     shell:
-        "bedtools intersect -a {input.peaks} -b {input.promoters} -wa -v -sorted > {output}"
+        "{SIF_EXEC} bedtools intersect -a {input.peaks} -b {input.promoters} -wa -v -sorted > {output}"
 
 
 ###bedfile statistics
@@ -267,7 +266,7 @@ rule bed_stats:
     output:
         path.join(R_DIR, "bedfile_statistics.pdf")
     shell:
-        "Rscript {input.script} -f {input.user_bed_file} -o {output}"   
+        "{SIF_EXEC} Rscript {input.script} -f {input.user_bed_file} -o {output}"   
 
 ###GeneMatching_All_OncoSuppressor
 rule GeneMatching_All_OncoSuppressor:
@@ -280,7 +279,7 @@ rule GeneMatching_All_OncoSuppressor:
     params:
         "-t "+str(config["GeneMatching"]["TSSDist"])
     shell:
-        "Rscript {input.script} -f {input.user_bed_file} {params} -d {R_DIR}"
+        "{SIF_EXEC} Rscript {input.script} -f {input.user_bed_file} {params} -d {R_DIR}"
 
 ##JaccardSim_QueryBed_To_TCGAPeaks
 rule JaccardSim_QueryBed_To_TCGAPeaks:
@@ -294,12 +293,12 @@ rule JaccardSim_QueryBed_To_TCGAPeaks:
     params:
         "-t "+str(config["JaccardSim"]["top_SamNum"])+" -s "+config["JaccardSim"]["sample_name"]+" -c "+config["JaccardSim"]["tissue_name"]
     shell:
-        "Rscript {input.script} -f {input.user_bed_file} {params} -d {R_DIR}"
+        "{SIF_EXEC} Rscript {input.script} -f {input.user_bed_file} {params} -d {R_DIR}"
 
-rule repeat_score_cal:
-    input:
-        TE_bed_files = path.join(STATIC_DIR,"TEonly_repeats_hg38")
-        script = "../pipeline/R/Bed_To_GRange.R",
+#rule repeat_score_cal:
+#    input:
+#        TE_bed_files = path.join(STATIC_DIR,"TEonly_repeats_hg38")
+#        script = "../pipeline/R/Bed_To_GRange.R",
 
  
 # ==============================================================================
@@ -314,7 +313,7 @@ rule sort:
     params:
         "--tmpdir . -p"
     shell:
-        "sambamba sort {params} {input} -o {output}"
+        "{SIF_EXEC} sambamba sort {params} {input} -o {output}"
 
 rule dedup:
     input:
@@ -324,7 +323,7 @@ rule dedup:
     params:
         "-r -p --tmpdir ."
     shell:
-        "sambamba markdup {params} {input} {output}"  
+        "{SIF_EXEC} sambamba markdup {params} {input} {output}"  
 
 rule keep_quality_alignments:
     input:
@@ -343,7 +342,7 @@ rule keep_quality_alignments:
             ])
     threads: 3
     shell:
-        "sambamba view -t {threads} -F {params.filter} {params.other} -o {output} {input}"
+        "{SIF_EXEC} sambamba view -t {threads} -F {params.filter} {params.other} -o {output} {input}"
         
 rule gunzip:
     input:
@@ -351,6 +350,6 @@ rule gunzip:
     output:
         "gencode.v"+str(config["vGENCODE"])+".annotation.gff3"
     shell:
-        "gunzip {input}"
+        "{SIF_EXEC} gunzip {input}"
 
         
