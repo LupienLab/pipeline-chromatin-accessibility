@@ -1,4 +1,6 @@
-SIF_EXEC = "/mnt/work1/software/centos7/singularity/3.5.2/bin/singularity exec ../slurm_config/rb-atac_pipeline_latest.sif"
+#SIF_EXEC = "/mnt/work1/software/centos7/singularity/3.5.2/bin/singularity exec ../slurm_config/rb-atac_pipeline_latest.sif"
+
+SIF_EXEC = "/cluster/tools/software/centos7/singularity/3.5.2/bin/singularity exec ../slurm_config/ml_atac_pipeline_v1.0.sif"
 
 import pandas as pd
 from snakemake.utils import validate, min_version
@@ -104,7 +106,7 @@ rule fastqc:
         path.join(REPORT_DIR, "{fastq}_fastqc.html"),
         path.join(REPORT_DIR, "{fastq}_fastqc.zip")
     shell:
-        "fastqc {input} -o {REPORT_DIR}"
+        "{SIF_EXEC} fastqc {input} -o {REPORT_DIR}"
 
 rule trim_galore:
     input:

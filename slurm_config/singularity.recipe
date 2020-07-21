@@ -27,13 +27,18 @@ conda install --yes samtools=1.6
 conda install --yes trim-galore=0.6.5
 conda install --yes fastqc=0.11.9
 conda install --yes bowtie2=2.3.5.1
-conda install --yes pandas scipy
+#conda install --yes pandas scipy
+conda install --yes pandas=1.0.1
+conda install --yes scipy=1.4.1
 conda install --yes pysam
 conda install --yes bedtools=2.29.2
-conda install --yes pybedtools
-conda install --yes r-dunn.test
+conda install --yes pybedtools=0.8.1
+conda install --yes samtools=1.6
 conda install --yes macs2=2.2.6
 conda install --yes -c r r
+conda install --yes r-dunn.test
+
+#conda install -c conda-forge readline=6.2
 
 # bioconductor
 conda install --yes bioconductor-edger bioconductor-diffbind bioconductor-deseq2
@@ -48,6 +53,10 @@ R -e "BiocManager::install('org.Hs.eg.db')"
 R -e "BiocManager::install('ChIPseeker')"
 R -e "BiocManager::install('ChIPpeakAnno')"
 R -e "BiocManager::install('survcomp')"
+R -e "BiocManager::install('chromVAR')"
+R -e "BiocManager::install('BSgenome.Hsapiens.UCSC.hg38')"
+#R -e "BiocManager::install('Matrix')"
+#R -e "BiocManager::install('SummarizedExperiment')"
 
 
 conda clean --index-cache --tarballs --packages --yes
