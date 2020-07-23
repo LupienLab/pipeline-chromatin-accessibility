@@ -1,0 +1,355 @@
+SIF_EXEC = "/mnt/work1/software/centos7/singularity/3.5.2/bin/singularity exec ../slurm_config/ml_atac_pipeline_v1.0.sif"
+
+#SIF_EXEC = "/cluster/tools/software/centos7/singularity/3.5.2/bin/singularity exec ../slurm_config/ml_atac_pipeline_v1.0.sif"
+
+import pandas as pd
+from snakemake.utils import validate, min_version
+import os.path as path
+
+##### set minimum snakemake version #####
+min_version("5.5.4")
+
+# ==============================================================================
+# Configuration
+# ==============================================================================
+configfile: "config.yaml"
+validate(config, schema="../schemas/config.schema.yaml")
+
+SAMPLES = pd.read_table(config["samples"])["Sample"].tolist()
+
+user_bed_file = pd.read_table(config["user_bed_file"], dtype=str,header=None)
+
+REPORT_DIR = "Reports"
+FASTQ_DIR = "FASTQs"
+TRIM_DIR = "Trimmed"
+ALIGN_DIR = "Aligned"
+PEAK_DIR = "Peaks"
+ANNO_DIR = "Annotation"
+R_DIR = "R_analysis"
+STATIC_DIR = "../pipeline/static"
+
+
+BWT2_IDX = config["BWT2_IDX"]
+
+READS = [1, 2]
+CHR_REGEX = "^chr[0-9]{0,3}[XY]?\\t"
+
+# ==============================================================================
+# Meta Rules
+# ==============================================================================
+rule all:
+    input:
+        # GENCODE annotations
+#        path.join(ANNO_DIR, "gencode.v{GENCODE_VERSION}.annotation.gff3.gz"),
+        # FastQC reports
+        expand(
+            path.join(REPORT_DIR, "{sample}_R{read}_fastqc.{ext}"),
+            sample=SAMPLES, read=READS, ext=["html", "zip"]),
+        # Trimming reports
+        expand(
+            path.join(REPORT_DIR, "{sample}_R{read}.trimming_report.txt"),
+            sample=SAMPLES, read=READS),
+        expand(
+            path.join(TRIM_DIR, "{sample}_R{read}.trimmed.fastq.gz"),
+            sample=SAMPLES, read=READS),
+        # Bowtie2 alignment output files
+        expand(
+            path.join(ALIGN_DIR, "{sample}.filtered.dedup.sorted.bam"), sample=SAMPLES),
+        expand(
+            path.join(ALIGN_DIR, "{sample}.filtered.dedup.sorted.bam.bai"), sample=SAMPLES),
+        # Peaks called by MACS2
+        expand(
+            path.join(PEAK_DIR, "{sample}_peaks.filtered.narrowPeak"),
+            sample=SAMPLES)
+    
+    
+    
+rule qc_check:
+    input:
+        # FRiP calculations
+        path.join(REPORT_DIR, "quality_scores_frip.tsv"),
+        ##genes
+        path.join(REPORT_DIR, "gencode.v"+str(config["vGENCODE"])+".genes.all.bed"),
+        ##promoters
+        path.join(PEAK_DIR, "gencode.v"+str(config["vGENCODE"])+".promoters.all.bed"),
+        ##Promoter peaks
+        path.join(PEAK_DIR, "promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed"),
+        ## non promoter peaks
+        expand(
+        path.join(PEAK_DIR, "{sample}_non_promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed"),
+        sample=SAMPLES)
+    
+
+rule R_analysis:
+    input:
+        # Number of reads per region
+        path.join(REPORT_DIR, "reads-in-control-regions.tsv"),
+        # bedfile statistics
+        path.join(R_DIR, "bedfile_statistics.pdf"),
+        # GeneMatching_All_OncoSuppressor
+        path.join(R_DIR, "Matching_genes_proximity_oncogene.txt"),
+        path.join(R_DIR, "Matching_genes_proximity_tumor_suppressor.txt"),
+        #JaccardSim_QueryBed_To_TCGAPeaks
+        path.join(R_DIR, config["JaccardSim"]["sample_name"]+".pdf"),
+        path.join(R_DIR, "Mostsimilar_tissue_Top"+str(config["JaccardSim"]["top_SamNum"])+"samples.csv"),
+        path.join(R_DIR, "Phenotypic_info_Top"+str(config["JaccardSim"]["top_SamNum"])+"samples.csv")
+    
+
+
+# ==============================================================================
+# Rules
+# ==============================================================================
+rule fastqc:
+    input:
+        path.join(FASTQ_DIR, "{fastq}.fastq.gz")
+    output:
+        path.join(REPORT_DIR, "{fastq}_fastqc.html"),
+        path.join(REPORT_DIR, "{fastq}_fastqc.zip")
+    shell:
+        "{SIF_EXEC} fastqc {input} -o {REPORT_DIR}"
+
+rule trim_galore:
+    input:
+        path.join(FASTQ_DIR, "{sample}_R1.fastq.gz"),
+        path.join(FASTQ_DIR, "{sample}_R2.fastq.gz")
+    output:
+        path.join(TRIM_DIR, "{sample}_R1_val_1.fq.gz"),
+        path.join(TRIM_DIR, "{sample}_R2_val_2.fq.gz"),
+        path.join(TRIM_DIR, "{sample}_R1.fastq.gz_trimming_report.txt"),
+        path.join(TRIM_DIR, "{sample}_R2.fastq.gz_trimming_report.txt")
+    params:
+        trim="--gzip --paired -q 30"
+    shell:
+        "{SIF_EXEC} trim_galore {params.trim} -o {TRIM_DIR} {input}"
+
+rule rename_trim_galore:
+    input:
+        fq1 = path.join(TRIM_DIR, "{sample}_R1_val_1.fq.gz"),
+        fq2 = path.join(TRIM_DIR, "{sample}_R2_val_2.fq.gz"),
+        rp1 = path.join(TRIM_DIR, "{sample}_R1.fastq.gz_trimming_report.txt"),
+        rp2 = path.join(TRIM_DIR, "{sample}_R2.fastq.gz_trimming_report.txt")
+    output:
+        fq1 = path.join(TRIM_DIR, "{sample}_R1.trimmed.fastq.gz"),
+        fq2 = path.join(TRIM_DIR, "{sample}_R2.trimmed.fastq.gz"),
+        rp1 = path.join(REPORT_DIR, "{sample}_R1.trimming_report.txt"),
+        rp2 = path.join(REPORT_DIR, "{sample}_R2.trimming_report.txt")
+    run:
+        commands = [
+            "mv {input.fq1} {output.fq1}",
+            "mv {input.fq2} {output.fq2}",
+            "mv {input.rp1} {output.rp1}",
+            "mv {input.rp2} {output.rp2}"]
+        command_string = "; ".join(commands)
+        shell(command_string)
+
+rule align:
+    input:
+        path.join(TRIM_DIR, "{sample}_R1.trimmed.fastq.gz"),
+        path.join(TRIM_DIR, "{sample}_R2.trimmed.fastq.gz")
+    output:
+        bam = protected(path.join(ALIGN_DIR, "{sample}.bam")),
+        report_txt = path.join(REPORT_DIR, "{sample}.alignment_report.txt")
+    params:
+        "-x {}".format(BWT2_IDX)
+    threads: 5
+    shell:
+        "{SIF_EXEC} bowtie2 {params} -p {threads} -1 {input[0]} -2 {input[1]} 2> {output.report_txt} | {SIF_EXEC} samtools view -bS - > {output.bam}"
+
+rule callpeaks:
+    input:
+        path.join(ALIGN_DIR, "{sample}.filtered.dedup.sorted.bam")
+    output:
+        path.join(PEAK_DIR, "{sample}_control_lambda.bdg"),
+        temp(path.join(PEAK_DIR, "{sample}_peaks.narrowPeak")),
+        path.join(PEAK_DIR, "{sample}_peaks.xls"),
+        path.join(PEAK_DIR, "{sample}_summits.bed"),
+        path.join(PEAK_DIR, "{sample}_treat_pileup.bdg")
+    params:
+        lambda wildcards:
+            " ".join([
+                "--outdir {}".format(PEAK_DIR),
+                "-n {}".format(wildcards.sample),
+                "-B",                               # store fragment pileup in bedGraph
+                "-f BAM",                           # input format
+                "-g 2.7e9",                         # genome size
+                "--keep-dup all",                   # keep duplicates
+                "--nomodel",                        # bypass building shifting model
+                "--nolambda",
+                "--shift -75",                      # enriching for cutting sites, see example on GitHub MACS
+                "--extsize 150",
+                "--call-summits",                   # identify the summit of each peak
+                "-q 0.01",                          # q-value filter
+            ])
+    shell:
+        "{SIF_EXEC} macs2 callpeak -t {input} {params}"
+
+rule filter_blacklist:
+    input:
+        blacklist = path.join(STATIC_DIR, "hg38.blacklist.bed"),
+        peaks = path.join(PEAK_DIR, "{sample}_peaks.narrowPeak")
+    output:
+        path.join(PEAK_DIR, "{sample}_peaks.filtered.narrowPeak")
+    shell:
+        # remove blacklist regions and only keep canonical chromosomes
+        "{SIF_EXEC} bedtools intersect -v -a {input.peaks} -b {input.blacklist} | {SIF_EXEC} awk '/{CHR_REGEX}/ {{print}}' | {SIF_EXEC} $LC_COLLATE=C sort -k1,1 -k2,2n > {output}"
+
+rule no_of_reads_per_region:
+    input:
+        script = "../pipeline/python/noOfRegionReads.py",
+        user_bed_file = config["user_bed_file"],
+        bams = expand(
+            path.join(ALIGN_DIR, "{sample}.filtered.dedup.sorted.bam"),
+            sample=SAMPLES)
+    output:
+        path.join(REPORT_DIR, "reads-in-control-regions.tsv")
+    shell:
+        "{SIF_EXEC} python {input.script} -a {input.user_bed_file} -b {input.bams} -o {output}"
+
+##fraction of reads in peaks
+rule frip:
+    input:
+        script = "../pipeline/bash/calculateFrip.sh"
+    output:
+        path.join(REPORT_DIR, "quality_scores_frip.tsv")
+    shell:
+        "{SIF_EXEC} bash {input.script} {ALIGN_DIR} {PEAK_DIR} {output} {SAMPLES}"
+
+        
+##genes        
+rule all_genes:
+    input:
+        path.join(STATIC_DIR, "gencode.v"+str(config["vGENCODE"])+".annotation.gff3.gz")
+    output:
+        path.join(REPORT_DIR, "gencode.v"+str(config["vGENCODE"])+".genes.all.bed")
+    shell:
+        # use either tab or ";" as field separators
+        # only keep genes (protein-coding + others)
+        "{SIF_EXEC} awk '{{FS=\"(\\t|;)\"; OFS=\"\\t\"}}{{if (NR > 5 && $3 == \"gene\"){{gsub(/gene_id=/, \"\", $10); gsub(/gene_name=/, \"\", $12); gsub(/\"/, \"\", $11); print $1, $4, $5, $10, \".\", $7, $12}} }}' {input} | {SIF_EXEC} sort -k1,1 -V -k2,2n > {output}"
+
+##promoters
+rule promoters:
+    input:
+        path.join(REPORT_DIR, "gencode.v"+str(config["vGENCODE"])+".genes.all.bed")
+    output:
+        path.join(PEAK_DIR, "gencode.v"+str(config["vGENCODE"])+".promoters.all.bed")
+    params:
+        dnstream = 500,
+        upstream = 1500
+    shell:
+        "{SIF_EXEC} awk '{{FS=OFS=\"\\t\"}}{{if ($6 == \"+\") {{ print $1, $2 - {params.upstream}, $2 + {params.dnstream}, $4, $5, $6, $7 }} else {{ print $1, $3 - {params.dnstream}, $3 + {params.upstream}, $4, $5, $6, $7 }} }}' {input} > {output}"
+
+
+##Promoter peaks 
+rule promoter_peaks:
+    input:
+        peaks = path.join(PEAK_DIR, "{}_peaks.narrowPeak".format(SAMPLES)),
+        promoters = path.join(PEAK_DIR, "gencode.v"+str(config["vGENCODE"])+".promoters.all.bed")
+    output:
+        path.join(PEAK_DIR, "promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed")
+    shell:
+        "{SIF_EXEC} bedtools intersect -a {input.peaks} -b {input.promoters} -wa -sorted > {output}"
+
+## non promoter peaks
+rule nonpromoter_peaks:
+    input:
+        peaks = path.join(PEAK_DIR, "{sample}_peaks.narrowPeak"),
+        promoters = path.join(PEAK_DIR, "gencode.v"+str(config["vGENCODE"])+".promoters.all.bed")
+    output:
+        path.join(PEAK_DIR, "{sample}_non_promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed")
+    shell:
+        "{SIF_EXEC} bedtools intersect -a {input.peaks} -b {input.promoters} -wa -v -sorted > {output}"
+
+
+###bedfile statistics
+rule bed_stats:
+    input:
+        script = "../pipeline/R/bedfile_statistics.R",
+        user_bed_file = config["user_bed_file"]
+    output:
+        path.join(R_DIR, "bedfile_statistics.pdf")
+    shell:
+        "{SIF_EXEC} Rscript {input.script} -f {input.user_bed_file} -o {output}"   
+
+###GeneMatching_All_OncoSuppressor
+rule GeneMatching_All_OncoSuppressor:
+    input:
+        script = "../pipeline/R/GeneMatching_All_OncoSuppressor.R",
+        user_bed_file = config["user_bed_file"]
+    output:
+        path.join(R_DIR, "Matching_genes_proximity_oncogene.txt"),
+        path.join(R_DIR, "Matching_genes_proximity_tumor_suppressor.txt")
+    params:
+        "-t "+str(config["GeneMatching"]["TSSDist"])
+    shell:
+        "{SIF_EXEC} Rscript {input.script} -f {input.user_bed_file} {params} -d {R_DIR}"
+
+##JaccardSim_QueryBed_To_TCGAPeaks
+rule JaccardSim_QueryBed_To_TCGAPeaks:
+    input:
+        script = "../pipeline/R/JaccardSim_QueryBed_To_TCGAPeaks.R",
+        user_bed_file = config["user_bed_file"]
+    output:
+        path.join(R_DIR, config["JaccardSim"]["sample_name"]+".pdf"),
+        path.join(R_DIR, "Mostsimilar_tissue_Top"+str(config["JaccardSim"]["top_SamNum"])+"samples.csv"),
+        path.join(R_DIR, "Phenotypic_info_Top"+str(config["JaccardSim"]["top_SamNum"])+"samples.csv")
+    params:
+        "-t "+str(config["JaccardSim"]["top_SamNum"])+" -s "+config["JaccardSim"]["sample_name"]+" -c "+config["JaccardSim"]["tissue_name"]
+    shell:
+        "{SIF_EXEC} Rscript {input.script} -f {input.user_bed_file} {params} -d {R_DIR}"
+
+#rule repeat_score_cal:
+#    input:
+#        TE_bed_files = path.join(STATIC_DIR,"TEonly_repeats_hg38")
+#        script = "../pipeline/R/Bed_To_GRange.R",
+
+ 
+# ==============================================================================
+# Tools
+# ==============================================================================
+rule sort:
+    input:
+        "{file}.bam"
+    output:
+        "{file}.sorted.bam",
+        "{file}.sorted.bam.bai"
+    params:
+        "--tmpdir . -p"
+    shell:
+        "{SIF_EXEC} sambamba sort {params} {input} -o {output}"
+
+rule dedup:
+    input:
+        "{file}.bam"
+    output:
+        "{file}.dedup.bam"
+    params:
+        "-r -p --tmpdir ."
+    shell:
+        "{SIF_EXEC} sambamba markdup {params} {input} {output}"  
+
+rule keep_quality_alignments:
+    input:
+        "{file}.bam"
+    output:
+        "{file}.filtered.bam"
+    params:
+        filter = " and ".join([
+            "\"not (unmapped or mate_is_unmapped)",    # remove: pairs where either mate is unmapped
+            "proper_pair",                          # keep:   properly paired
+            "mapping_quality >= 10",                # keep:   good mapping quality
+            "ref_name != 'chrM'\""                    # remove: mitochondrial reads
+        ]),
+        other = " ".join([
+            "-f bam"
+            ])
+    threads: 3
+    shell:
+        "{SIF_EXEC} sambamba view -t {threads} -F {params.filter} {params.other} -o {output} {input}"
+        
+rule gunzip:
+    input:
+        "gencode.v"+str(config["vGENCODE"])+".annotation.gff3.gz",
+    output:
+        "gencode.v"+str(config["vGENCODE"])+".annotation.gff3"
+    shell:
+        "{SIF_EXEC} gunzip {input}"
