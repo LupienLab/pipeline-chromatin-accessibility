@@ -10,6 +10,7 @@ AUTHOR ankita.nand@uhnresearch.ca
 export PATH="/opt/conda/bin:/usr/local/bin:/usr/bin:/bin:"
 unset CONDA_DEFAULT_ENV
 export ANACONDA_HOME=/opt/conda
+export LC_COLLATE=C
 
 %post
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
