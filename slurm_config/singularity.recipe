@@ -62,5 +62,6 @@ R -e "BiocManager::install('BSgenome.Hsapiens.UCSC.hg38')"
 
 conda clean --index-cache --tarballs --packages --yes
 
+## /cluster/tools/software/centos7/singularity/3.5.2/bin/singularity build --remote ml_atac_pipeline_v1.0.sif singularity.recipe
+## /mnt/work1/software/centos7/singularity/3.5.2/bin/singularity build --remote ml_atac_pipeline_v1.0.sif singularity.recipe
 
-##/mnt/work1/software/centos7/singularity/3.5.2/bin/singularity build atac_pipeline.simg singularity --fakeroot
