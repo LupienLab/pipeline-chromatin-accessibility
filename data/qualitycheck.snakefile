@@ -36,7 +36,10 @@ rule qc:
         ##promoters
         path.join(PEAK_DIR, "gencode.v"+str(config["vGENCODE"])+".promoters.all.bed"),
         ##Promoter peaks
-        path.join(PEAK_DIR, "promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed"),
+        expand(
+             path.join(PEAK_DIR, "{sample}_promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed"),
+             sample=SAMPLES
+        ),
         ## non promoter peaks
         expand(
             path.join(PEAK_DIR, "{sample}_non_promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed"),
@@ -89,10 +92,10 @@ rule promoters:
 ##Promoter peaks 
 rule promoter_peaks:
     input:
-        peaks = expand(path.join(PEAK_DIR, "{sample}_peaks.narrowPeak"),sample=SAMPLES),
+        peaks = path.join(PEAK_DIR, "{sample}_peaks.narrowPeak"),
         promoters = path.join(PEAK_DIR, "gencode.v"+str(config["vGENCODE"])+".promoters.all.bed")
     output:
-        path.join(PEAK_DIR, "promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed")
+        path.join(PEAK_DIR, "{sample}_promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed")
     shell:
         "{SIF_EXEC} bedtools intersect -a {input.peaks} -b {input.promoters} -wa -sorted > {output}"
 
