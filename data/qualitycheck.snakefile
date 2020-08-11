@@ -22,6 +22,7 @@ user_bed_file = pd.read_table(config["user_bed_file"], dtype=str,header=None)
 
 REPORT_DIR = "Reports"
 PEAK_DIR = "Peaks"
+STATIC_DIR = "../pipeline/static"
 
 # ==============================================================================
 # Meta Rules
