@@ -62,7 +62,7 @@ rule all:
             path.join(ALIGN_DIR, "{sample}.filtered.dedup.sorted.bam.bai"), sample=SAMPLES),
         # Peaks called by MACS2
         expand(
-            path.join(PEAK_DIR, "{sample}_peaks.filtered.narrowPeak"),
+            path.join(PEAK_DIR, "{sample}_peaks.filtered.merged.narrowPeak"),
             sample=SAMPLES)
 
 
@@ -163,6 +163,15 @@ rule filter_blacklist:
         # remove blacklist regions and only keep canonical chromosomes
         "{SIF_EXEC} bedtools intersect -v -a {input.peaks} -b {input.blacklist} | {SIF_EXEC} awk '/{CHR_REGEX}/ {{print}}' | LC_COLLATE=C sort -k1,1 -k2,2n > {output}"
 
+rule merge_peaks:
+    input:
+        path.join(PEAK_DIR, "{sample}_peaks.filtered.narrowPeak"),
+    output:
+        path.join(PEAK_DIR, "{sample}_peaks.filtered.merged.narrowPeak"),
+    params:
+        "-c 5,7,8,9 -o max,max,max,max"
+    shell:
+        "bedtools merge {params} -i {input} > {output}"
 
 # ==============================================================================
 # Tools
