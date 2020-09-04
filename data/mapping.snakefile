@@ -62,8 +62,9 @@ rule all:
             path.join(ALIGN_DIR, "{sample}.filtered.dedup.sorted.bam.bai"), sample=SAMPLES),
         # Peaks called by MACS2
         expand(
-            path.join(PEAK_DIR, "{sample}_peaks.filtered.narrowPeak"),
-            sample=SAMPLES)
+            path.join(PEAK_DIR, "{sample}_peaks.filtered.merged.narrowPeak"),
+            sample=SAMPLES
+        ),
 
 
 # ==============================================================================
@@ -130,7 +131,7 @@ rule callpeaks:
         path.join(ALIGN_DIR, "{sample}.filtered.dedup.sorted.bam")
     output:
         path.join(PEAK_DIR, "{sample}_control_lambda.bdg"),
-        temp(path.join(PEAK_DIR, "{sample}_peaks.narrowPeak")),
+        path.join(PEAK_DIR, "{sample}_peaks.narrowPeak"),
         path.join(PEAK_DIR, "{sample}_peaks.xls"),
         path.join(PEAK_DIR, "{sample}_summits.bed"),
         path.join(PEAK_DIR, "{sample}_treat_pileup.bdg")
@@ -161,18 +162,27 @@ rule filter_blacklist:
         path.join(PEAK_DIR, "{sample}_peaks.filtered.narrowPeak")
     shell:
         # remove blacklist regions and only keep canonical chromosomes
-        "{SIF_EXEC} bedtools intersect -v -a {input.peaks} -b {input.blacklist} | {SIF_EXEC} awk '/{CHR_REGEX}/ {{print}}' | LC_COLLATE=C sort -k1,1 -k2,2n > {output}"
+        "{SIF_EXEC} bedtools intersect -v -a {input.peaks} -b {input.blacklist} | awk '/{CHR_REGEX}/ {{print}}' | LC_COLLATE=C sort -k1,1 -k2,2n > {output}"
 
+rule merge_peaks:
+    input:
+        path.join(PEAK_DIR, "{sample}_peaks.filtered.narrowPeak"),
+    output:
+        path.join(PEAK_DIR, "{sample}_peaks.filtered.merged.narrowPeak"),
+    params:
+        "-c 5,7,8,9 -o max,max,max,max"
+    shell:
+        "bedtools merge {params} -i {input} > {output}"
 
 # ==============================================================================
 # Tools
 # ==============================================================================
 rule sort:
     input:
-        "{file}.bam"
+        path.join(ALIGN_DIR, "{file}.bam"),
     output:
-        "{file}.sorted.bam",
-        "{file}.sorted.bam.bai"
+        path.join(ALIGN_DIR, "{file}.sorted.bam"),
+        path.join(ALIGN_DIR, "{file}.sorted.bam.bai"),
     params:
         "--tmpdir . -p"
     shell:
@@ -180,9 +190,9 @@ rule sort:
 
 rule dedup:
     input:
-        "{file}.bam"
+        path.join(ALIGN_DIR, "{file}.bam"),
     output:
-        "{file}.dedup.bam"
+        path.join(ALIGN_DIR, "{file}.dedup.bam"),
     params:
         "-r -p --tmpdir ."
     shell:
@@ -190,9 +200,9 @@ rule dedup:
 
 rule keep_quality_alignments:
     input:
-        "{file}.bam"
+        path.join(ALIGN_DIR, "{file}.bam"),
     output:
-        "{file}.filtered.bam"
+        path.join(ALIGN_DIR, "{file}.filtered.bam"),
     params:
         filter = " and ".join([
             "\"not (unmapped or mate_is_unmapped)",    # remove: pairs where either mate is unmapped
