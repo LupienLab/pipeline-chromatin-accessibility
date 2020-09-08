@@ -19,8 +19,8 @@ SAMPLES = pd.read_table(config["samples"])["Sample"].tolist()
 
 user_bed_file = pd.read_table(config["user_bed_file"], dtype=str,header=None)
 
-
 REPORT_DIR = "Reports"
+ALIGN_DIR = "Aligned"
 R_DIR = "R_analysis"
 STATIC_DIR = "../pipeline/static"
 
