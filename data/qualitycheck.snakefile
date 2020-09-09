@@ -1,6 +1,6 @@
-SIF_EXEC = "/mnt/work1/software/centos7/singularity/3.5.2/bin/singularity exec ../slurm_config/ml_atac_pipeline_v1.0.sif"
+SIF_EXEC = "/mnt/work1/software/centos7/singularity/3.5.2/bin/singularity exec ../slurm_config/ml_atac_pipeline_v1.1.sif"
 
-#SIF_EXEC = "/cluster/tools/software/centos7/singularity/3.5.2/bin/singularity exec ../slurm_config/ml_atac_pipeline_v1.0.sif"
+#SIF_EXEC = "/cluster/tools/software/centos7/singularity/3.5.2/bin/singularity exec ../slurm_config/ml_atac_pipeline_v1.1.sif"
 
 import pandas as pd
 from snakemake.utils import validate, min_version
@@ -22,6 +22,7 @@ user_bed_file = pd.read_table(config["user_bed_file"], dtype=str,header=None)
 ALIGN_DIR = "Aligned"
 REPORT_DIR = "Reports"
 PEAK_DIR = "Peaks"
+QC_DIR = "QC_reports"
 STATIC_DIR = "../pipeline/static"
 
 # ==============================================================================
@@ -30,24 +31,24 @@ STATIC_DIR = "../pipeline/static"
 rule qc:
     input:
         # FRiP calculations
-        path.join(REPORT_DIR, "quality_scores_frip.tsv"),
+        path.join(QC_DIR, "quality_scores_frip.tsv"),
         ##genes
-        path.join(REPORT_DIR, "gencode.v"+str(config["vGENCODE"])+".genes.all.bed"),
+        path.join(QC_DIR, "gencode.v"+str(config["vGENCODE"])+".genes.all.bed"),
         ##promoters
-        path.join(PEAK_DIR, "gencode.v"+str(config["vGENCODE"])+".promoters.all.bed"),
+        path.join(QC_DIR, "gencode.v"+str(config["vGENCODE"])+".promoters.all.bed"),
         ##Promoter peaks
         expand(
-             path.join(PEAK_DIR, "{sample}_promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed"),
+             path.join(QC_DIR, "{sample}_promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed"),
              sample=SAMPLES
         ),
         ## non promoter peaks
         expand(
-            path.join(PEAK_DIR, "{sample}_non_promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed"),
+            path.join(QC_DIR, "{sample}_non_promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed"),
             sample=SAMPLES
         ),
         ## total and unique read pairs per sample
         expand(
-            path.join(REPORT_DIR, "{sample}.duplication_report.txt"),
+            path.join(QC_DIR, "{sample}.duplication_report.txt"),
             sample=SAMPLES
         )
 
@@ -60,7 +61,7 @@ rule frip:
     input:
         script = "../pipeline/bash/calculateFrip.sh"
     output:
-        path.join(REPORT_DIR, "quality_scores_frip.tsv")
+        path.join(QC_DIR, "quality_scores_frip.tsv")
     shell:
         "{SIF_EXEC} bash {input.script} {ALIGN_DIR} {PEAK_DIR} {output} {SAMPLES}"
 
@@ -70,7 +71,7 @@ rule all_genes:
     input:
         path.join(STATIC_DIR, "gencode.v"+str(config["vGENCODE"])+".annotation.gff3.gz")
     output:
-        path.join(REPORT_DIR, "gencode.v"+str(config["vGENCODE"])+".genes.all.bed")
+        path.join(QC_DIR, "gencode.v"+str(config["vGENCODE"])+".genes.all.bed")
     shell:
         # use either tab or ";" as field separators
         # only keep genes (protein-coding + others)
@@ -81,7 +82,7 @@ rule promoters:
     input:
         path.join(REPORT_DIR, "gencode.v"+str(config["vGENCODE"])+".genes.all.bed")
     output:
-        path.join(PEAK_DIR, "gencode.v"+str(config["vGENCODE"])+".promoters.all.bed")
+        path.join(QC_DIR, "gencode.v"+str(config["vGENCODE"])+".promoters.all.bed")
     params:
         dnstream = 500,
         upstream = 1500
@@ -95,7 +96,7 @@ rule promoter_peaks:
         peaks = path.join(PEAK_DIR, "{sample}_peaks.filtered.narrowPeak"),
         promoters = path.join(PEAK_DIR, "gencode.v"+str(config["vGENCODE"])+".promoters.all.bed")
     output:
-        path.join(PEAK_DIR, "{sample}_promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed")
+        path.join(QC_DIR, "{sample}_promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed")
     shell:
         "{SIF_EXEC} bedtools intersect -a {input.peaks} -b {input.promoters} -wa -sorted > {output}"
 
@@ -105,7 +106,7 @@ rule nonpromoter_peaks:
         peaks = path.join(PEAK_DIR, "{sample}_peaks.filtered.narrowPeak"),
         promoters = path.join(PEAK_DIR, "gencode.v"+str(config["vGENCODE"])+".promoters.all.bed")
     output:
-        path.join(PEAK_DIR, "{sample}_non_promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed")
+        path.join(QC_DIR, "{sample}_non_promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed")
     shell:
         "{SIF_EXEC} bedtools intersect -a {input.peaks} -b {input.promoters} -wa -v -sorted > {output}"
 
@@ -118,7 +119,7 @@ rule count_dups:
         raw = path.join(ALIGN_DIR, "{sample}.filtered.bam"),
         dedup = path.join(ALIGN_DIR, "{sample}.filtered.dedup.sorted.bam"),
     output:
-        path.join(REPORT_DIR, "{sample}.duplication_report.txt"),
+        path.join(QC_DIR, "{sample}.duplication_report.txt"),
     run:
         commands = [
             "Ntot=$({SIF_EXEC} sambamba flagstat {input.raw} 2>/dev/null | head -n 1 | cut -f 1 -d ' ')",
