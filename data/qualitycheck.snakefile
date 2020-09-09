@@ -80,7 +80,7 @@ rule all_genes:
 ##promoters
 rule promoters:
     input:
-        path.join(REPORT_DIR, "gencode.v"+str(config["vGENCODE"])+".genes.all.bed")
+        path.join(QC_DIR, "gencode.v"+str(config["vGENCODE"])+".genes.all.bed")
     output:
         path.join(QC_DIR, "gencode.v"+str(config["vGENCODE"])+".promoters.all.bed")
     params:
@@ -94,7 +94,7 @@ rule promoters:
 rule promoter_peaks:
     input:
         peaks = path.join(PEAK_DIR, "{sample}_peaks.filtered.narrowPeak"),
-        promoters = path.join(PEAK_DIR, "gencode.v"+str(config["vGENCODE"])+".promoters.all.bed")
+        promoters = path.join(QC_DIR, "gencode.v"+str(config["vGENCODE"])+".promoters.all.bed")
     output:
         path.join(QC_DIR, "{sample}_promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed")
     shell:
@@ -104,7 +104,7 @@ rule promoter_peaks:
 rule nonpromoter_peaks:
     input:
         peaks = path.join(PEAK_DIR, "{sample}_peaks.filtered.narrowPeak"),
-        promoters = path.join(PEAK_DIR, "gencode.v"+str(config["vGENCODE"])+".promoters.all.bed")
+        promoters = path.join(QC_DIR, "gencode.v"+str(config["vGENCODE"])+".promoters.all.bed")
     output:
         path.join(QC_DIR, "{sample}_non_promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed")
     shell:
