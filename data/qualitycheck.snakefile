@@ -92,7 +92,7 @@ rule promoters:
 ##Promoter peaks 
 rule promoter_peaks:
     input:
-        peaks = path.join(PEAK_DIR, "{sample}_peaks.narrowPeak"),
+        peaks = path.join(PEAK_DIR, "{sample}_peaks.filtered.narrowPeak"),
         promoters = path.join(PEAK_DIR, "gencode.v"+str(config["vGENCODE"])+".promoters.all.bed")
     output:
         path.join(PEAK_DIR, "{sample}_promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed")
@@ -102,7 +102,7 @@ rule promoter_peaks:
 ## non promoter peaks
 rule nonpromoter_peaks:
     input:
-        peaks = path.join(PEAK_DIR, "{sample}_peaks.narrowPeak"),
+        peaks = path.join(PEAK_DIR, "{sample}_peaks.filtered.narrowPeak"),
         promoters = path.join(PEAK_DIR, "gencode.v"+str(config["vGENCODE"])+".promoters.all.bed")
     output:
         path.join(PEAK_DIR, "{sample}_non_promoter.gencode.v"+str(config["vGENCODE"])+".peaks.bed")

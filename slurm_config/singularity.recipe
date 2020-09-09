@@ -40,7 +40,12 @@ conda install --yes -c r r-data.table
 
 
 # bioconductor
-conda install --yes bioconductor-edger bioconductor-diffbind bioconductor-deseq2
+conda install --yes bioconductor-edger bioconductor-diffbind bioconductor-deseq2 bioconductor-org.hs.eg.db bioconductor-ChIPseeker bioconductor-ChIPpeakAnno  
+conda install --yes bioconductor-survcomp bioconductor-chromVAR bioconductor-BSgenome.Hsapiens.UCSC.hg38 bioconductor-BSgenome.Hsapiens.UCSC.hg19
+conda install --yes bioconductor-TxDb.Hsapiens.UCSC.hg19.knownGene bioconductor-TxDb.Hsapiens.UCSC.hg38.knownGene bioconductor-GenomicRanges bioconductor-motifmatchr
+conda install --yes bioconductor-SummarizedExperiment bioconductor-BiocParallel
+conda install -c anaconda gawk
+conda install -c bioconda coreutils
 
 # R libraries
 R -e "install.packages('Matrix', repos='http://R-Forge.R-project.org')"
@@ -55,24 +60,9 @@ R -e "install.packages('survival', repos='http://cran.rstudio.com')"
 R -e "install.packages('tidyverse', repos='http://cran.rstudio.com')"
 R -e "install.packages('CREAM', repos='http://cran.rstudio.com')"
 R -e "install.packages('attempt', repos='http://cran.rstudio.com')"
-R -e "BiocManager::install('org.Hs.eg.db')"
-R -e "BiocManager::install('ChIPseeker')"
-R -e "BiocManager::install('ChIPpeakAnno')"
-R -e "BiocManager::install('survcomp')"
-R -e "BiocManager::install('chromVAR')"
-R -e "BiocManager::install('BSgenome.Hsapiens.UCSC.hg38')"
-R -e "BiocManager::install('BSgenome.Hsapiens.UCSC.hg19')"
-R -e "BiocManager::install('TxDb.Hsapiens.UCSC.hg19.knownGene')"
-R -e "BiocManager::install('TxDb.Hsapiens.UCSC.hg38.knownGene')"
-R -e "BiocManager::install('GenomicRanges')"
-R -e "BiocManager::install('motifmatchr')"
-R -e "BiocManager::install('SummarizedExperiment')"
-R -e "BiocManager::install("org.Hs.eg.db")"
-R -e "BiocManager::install("BiocParallel")"
-R -e "BiocManager::install("survcomp")"
-R -e "BiocManager::install("edgeR")"
-R -e "BiocManager::install("DESeq2")"
-R -e "BiocManager::install("DiffBind")"
+#R -e "BiocManager::install('org.Hs.eg.db')"
+
+
 
 
 conda clean --index-cache --tarballs --packages --yes
