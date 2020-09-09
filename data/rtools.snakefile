@@ -30,7 +30,7 @@ STATIC_DIR = "../pipeline/static"
 rule R_analysis:
     input:
         # Number of reads per region
-        path.join(REPORT_DIR, "reads-in-control-regions.tsv"),
+        path.join(R_DIR, "reads-in-control-regions.tsv"),
         # bedfile statistics
         path.join(R_DIR, "bedfile_statistics.pdf"),
         # GeneMatching_All_OncoSuppressor
