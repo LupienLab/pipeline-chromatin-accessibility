@@ -5,4 +5,4 @@
 #SBATCH -o log.out
 #SBATCH -e log.err
 
-snakemake -j 10 -c "sbatch {cluster.params}" -u ../slurm_config/slurm.yaml --latency-wait 30  --nolock --use-singularity
+snakemake -j 10 -s mapping.snakefile -c "sbatch {cluster.params}" -u ../slurm_config/slurm.yaml --latency-wait 30  --nolock --use-singularity
