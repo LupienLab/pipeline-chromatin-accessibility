@@ -162,7 +162,7 @@ rule filter_blacklist:
         path.join(PEAK_DIR, "{sample}_peaks.filtered.narrowPeak")
     shell:
         # remove blacklist regions and only keep canonical chromosomes
-        "{SIF_EXEC} bedtools intersect -v -a {input.peaks} -b {input.blacklist} | awk '/{CHR_REGEX}/ {{print}}' | LC_COLLATE=C sort -k1,1 -k2,2n > {output}"
+        "{SIF_EXEC} bedtools intersect -v -a {input.peaks} -b {input.blacklist} | awk '/{CHR_REGEX}/ {{print}}' | LC_COLLATE=C sort -k1,1 -k2,2n -V > {output}"
 
 rule merge_peaks:
     input:

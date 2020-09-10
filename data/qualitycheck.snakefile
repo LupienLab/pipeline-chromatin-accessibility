@@ -75,7 +75,7 @@ rule all_genes:
     shell:
         # use either tab or ";" as field separators
         # only keep genes (protein-coding + others)
-        "{SIF_EXEC} awk '{{FS=\"(\\t|;)\"; OFS=\"\\t\"}}{{if (NR > 5 && $3 == \"gene\"){{gsub(/gene_id=/, \"\", $10); gsub(/gene_name=/, \"\", $12); gsub(/\"/, \"\", $11); print $1, $4, $5, $10, \".\", $7, $12}} }}' {input} | {SIF_EXEC} sort -k1,1 -k2,2 -V > {output}"
+        "{SIF_EXEC} awk '{{FS=\"(\\t|;)\"; OFS=\"\\t\"}}{{if (NR > 5 && $3 == \"gene\"){{gsub(/gene_id=/, \"\", $10); gsub(/gene_name=/, \"\", $12); gsub(/\"/, \"\", $11); print $1, $4, $5, $10, \".\", $7, $12}} }}' {input} | {SIF_EXEC} sort -k1,1 -k2,2n -V > {output}"
 
 ##promoters
 rule promoters:
@@ -87,7 +87,7 @@ rule promoters:
         dnstream = 500,
         upstream = 1500
     shell:
-        "{SIF_EXEC} awk '{{FS=OFS=\"\\t\"}}{{if ($6 == \"+\") {{ print $1, $2 - {params.upstream}, $2 + {params.dnstream}, $4, $5, $6, $7 }} else {{ print $1, $3 - {params.dnstream}, $3 + {params.upstream}, $4, $5, $6, $7 }} }}' {input} | {SIF_EXEC} sort -k1,1 -k2,2 -V > {output}"
+        "{SIF_EXEC} awk '{{FS=OFS=\"\\t\"}}{{if ($6 == \"+\") {{ print $1, $2 - {params.upstream}, $2 + {params.dnstream}, $4, $5, $6, $7 }} else {{ print $1, $3 - {params.dnstream}, $3 + {params.upstream}, $4, $5, $6, $7 }} }}' {input} | {SIF_EXEC} sort -k1,1 -k2,2n -V > {output}"
 
 
 ##Promoter peaks 
