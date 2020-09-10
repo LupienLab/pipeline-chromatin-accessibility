@@ -218,10 +218,3 @@ rule keep_quality_alignments:
         "{SIF_EXEC} sambamba view -t {threads} -F {params.filter} {params.other} -o {output} {input}"
 
 
-rule gunzip:
-    input:
-        "gencode.v"+str(config["vGENCODE"])+".annotation.gff3.gz",
-    output:
-        "gencode.v"+str(config["vGENCODE"])+".annotation.gff3"
-    shell:
-        "{SIF_EXEC} gunzip {input}"

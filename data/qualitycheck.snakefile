@@ -69,7 +69,7 @@ rule frip:
 ##genes        
 rule all_genes:
     input:
-        path.join(STATIC_DIR, "gencode.v"+str(config["vGENCODE"])+".annotation.gff3.gz")
+        path.join(STATIC_DIR, "gencode.v"+str(config["vGENCODE"])+".annotation.gff3")
     output:
         path.join(QC_DIR, "gencode.v"+str(config["vGENCODE"])+".genes.all.bed")
     shell:
@@ -131,5 +131,11 @@ rule count_dups:
         shell(command_str)
 
 
-
+rule gunzip:
+    input:
+        path.join(STATIC_DIR, "gencode.v"+str(config["vGENCODE"])+".annotation.gff3.gz"),
+    output:
+        path.join(STATIC_DIR, "gencode.v"+str(config["vGENCODE"])+".annotation.gff3")
+    shell:
+        "{SIF_EXEC} gunzip {input}"
     
