@@ -87,7 +87,7 @@ rule promoters:
         dnstream = 500,
         upstream = 1500
     shell:
-        "{SIF_EXEC} awk '{{FS=OFS=\"\\t\"}}{{if ($6 == \"+\") {{ print $1, $2 - {params.upstream}, $2 + {params.dnstream}, $4, $5, $6, $7 }} else {{ print $1, $3 - {params.dnstream}, $3 + {params.upstream}, $4, $5, $6, $7 }} }}' {input} | {SIF_EXEC} sort -k1,1 -k2,2n -V > {output}"
+        "{SIF_EXEC} awk '{{FS=OFS=\"\\t\"}}{{if ($6 == \"+\") {{ print $1, $2 - {params.upstream}, $2 + {params.dnstream}, $4, $5, $6, $7 }} else {{ print $1, $3 - {params.dnstream}, $3 + {params.upstream}, $4, $5, $6, $7 }} }}' {input} | {SIF_EXEC} awk '{if($1 != \"chrM\"){print$0}}' |{SIF_EXEC} sort -k1,1 -k2,2n -V > {output}"
 
 
 ##Promoter peaks 
