@@ -75,7 +75,7 @@ rule all_genes:
     shell:
         # use either tab or ";" as field separators
         # only keep genes (protein-coding + others)
-        "{SIF_EXEC} awk '{{FS=\"(\\t|;)\"; OFS=\"\\t\"}}{{if (NR > 5 && $3 == \"gene\"){{gsub(/gene_id=/, \"\", $10); gsub(/gene_name=/, \"\", $12); gsub(/\"/, \"\", $11); print $1, $4, $5, $10, \".\", $7, $12}} }}' {input} | {SIF_EXEC} sort -k1,1 -V -k2,2n > {output}"
+        "{SIF_EXEC} awk '{{FS=\"(\\t|;)\"; OFS=\"\\t\"}}{{if (NR > 5 && $3 == \"gene\"){{gsub(/gene_id=/, \"\", $10); gsub(/gene_name=/, \"\", $12); gsub(/\"/, \"\", $11); print $1, $4, $5, $10, \".\", $7, $12}} }}' {input} | {SIF_EXEC} sort -k1,1 -k2,2 -V > {output}"
 
 ##promoters
 rule promoters:
