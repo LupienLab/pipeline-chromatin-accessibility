@@ -148,7 +148,7 @@ rule callpeaks:
                 "--nolambda",
                 "--shift -75",                      # enriching for cutting sites, see example on GitHub MACS
                 "--extsize 150",
-                "--call-summits",                   # identify the summit of each peak
+             #   "--call-summits",                   # identify the summit of each peak
                 "-q 0.01",                          # q-value filter
             ])
     shell:
@@ -207,7 +207,7 @@ rule keep_quality_alignments:
         filter = " and ".join([
             "\"not (unmapped or mate_is_unmapped)",    # remove: pairs where either mate is unmapped
             "proper_pair",                          # keep:   properly paired
-            "mapping_quality >= 10",                # keep:   good mapping quality
+            "mapping_quality >= 30",                # keep:   good mapping quality
             "ref_name != 'chrM'\""                    # remove: mitochondrial reads
         ]),
         other = " ".join([
