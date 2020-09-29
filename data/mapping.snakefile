@@ -20,6 +20,7 @@ validate(config, schema="../schemas/config.schema.yaml")
 
 SAMPLES = pd.read_table(config["samples"])["Sample"].tolist()
 
+
 user_bed_file = pd.read_table(config["user_bed_file"], dtype=str,header=None)
 
 REPORT_DIR = "Reports"
@@ -172,7 +173,7 @@ rule merge_peaks:
     params:
         "-c 5,7,8,9 -o max,max,max,max"
     shell:
-        "bedtools merge {params} -i {input} > {output}"
+        "{SIF_EXEC} bedtools merge {params} -i {input} > {output}"
 
 # ==============================================================================
 # Tools
