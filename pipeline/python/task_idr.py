@@ -23,7 +23,7 @@ def parse_arguments():
                         help='Pooled peak file.')
     parser.add_argument('--prefix', default='idr', type=str,
                         help='Prefix basename for output IDR peak.')
-    parser.add_argument('--peak-type', default='narrowPeak', type=str, required=True,
+    parser.add_argument('--peak-type', default='narrowPeak', type=str,
                         choices=['narrowPeak', 'regionPeak',
                                  'broadPeak', 'gappedPeak'],
                         help='Peak file type.')
