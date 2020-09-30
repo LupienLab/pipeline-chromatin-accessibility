@@ -60,9 +60,10 @@ R -e "install.packages('survival', repos='http://cran.rstudio.com')"
 R -e "install.packages('tidyverse', repos='http://cran.rstudio.com')"
 R -e "install.packages('CREAM', repos='http://cran.rstudio.com')"
 R -e "install.packages('attempt', repos='http://cran.rstudio.com')"
-#R -e "BiocManager::install('org.Hs.eg.db')"
 
 
+git clone --branch 2.0.4.2 --single-branch https://github.com/kundajelab/idr
+cd idr && python3 setup.py install && cd ../ && rm -rf idr*
 
 
 conda clean --index-cache --tarballs --packages --yes

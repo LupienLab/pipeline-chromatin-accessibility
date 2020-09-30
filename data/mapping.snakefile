@@ -43,8 +43,6 @@ CHR_REGEX = "^chr[0-9]{0,3}[XY]?\\t"
 # ==============================================================================
 rule all:
     input:
-        # GENCODE annotations
-#        path.join(ANNO_DIR, "gencode.v{GENCODE_VERSION}.annotation.gff3.gz"),
         # FastQC reports
         expand(
             path.join(REPORT_DIR, "{sample}_R{read}_fastqc.{ext}"),
