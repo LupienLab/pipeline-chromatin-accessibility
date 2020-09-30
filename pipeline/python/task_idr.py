@@ -15,6 +15,8 @@ def parse_arguments():
     parser = argparse.ArgumentParser(
         prog='ENCODE DCC IDR.',
         description='NarrowPeak or RegionPeak only.')
+    parser.add_argument('sif_exec', type=str,
+                        help='singularity exec path')
     parser.add_argument('peak1', type=str,
                         help='Peak file 1.')
     parser.add_argument('peak2', type=str,
@@ -55,8 +57,7 @@ def parse_arguments():
     if args.blacklist is None or args.blacklist.endswith('null'):
         args.blacklist = ''
 
-    log.setLevel(args.log_level)
-    log.info(sys.argv)
+
     return args
 
 
@@ -73,7 +74,7 @@ def get_npeak_col_by_rank(rank):
 # only for narrowPeak (or regionPeak) type
 
 
-def idr(basename_prefix, peak1, peak2, peak_pooled, peak_type, chrsz,
+def idr(sif_exec, basename_prefix, peak1, peak2, peak_pooled, peak_type, chrsz,
         thresh, rank, out_dir):
     prefix = os.path.join(out_dir, basename_prefix)
     prefix += '.idr{}'.format(thresh)
@@ -86,7 +87,7 @@ def idr(basename_prefix, peak1, peak2, peak_pooled, peak_type, chrsz,
     idr_tmp = '{}.unthresholded-peaks.txt.tmp'.format(prefix)
     idr_out_gz = '{}.unthresholded-peaks.txt.gz'.format(prefix)
 
-    cmd1 = 'idr --samples {} {} --peak-list {} --input-file-type narrowPeak '
+    cmd1 = 'sif_exec idr --samples {} {} --peak-list {} --input-file-type narrowPeak '
     cmd1 += '--output-file {} --rank {} --soft-idr-threshold {} '
     cmd1 += '--plot --use-best-multisummit-IDR --log-output-file {}'
     cmd1 = cmd1.format(
@@ -105,10 +106,10 @@ def idr(basename_prefix, peak1, peak2, peak_pooled, peak_type, chrsz,
     col = get_npeak_col_by_rank(rank)
     neg_log10_thresh = -math.log10(thresh)
     # LC_COLLATE=C
-    cmd2 = 'awk \'BEGIN{{OFS="\\t"}} $12>={} '
+    cmd2 = 'sif_exec awk \'BEGIN{{OFS="\\t"}} $12>={} '
     cmd2 += '{{if ($2<0) $2=0; '
     cmd2 += 'print $1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12}}\' {} '
-    cmd2 += '| sort | uniq | sort -grk{},{} | gzip -nc > {}'
+    cmd2 += '| sif_exec sort | sif_exec uniq | sif_exec sort -grk{},{} | sif_exec gzip -nc > {}'
     cmd2 = cmd2.format(
         neg_log10_thresh,
         idr_tmp,
@@ -117,16 +118,16 @@ def idr(basename_prefix, peak1, peak2, peak_pooled, peak_type, chrsz,
         idr_12col_bed)
     run_shell_cmd(cmd2)
 
-    cmd3 = 'zcat {} | '
-    cmd3 += 'awk \'BEGIN{{OFS="\\t"}} '
+    cmd3 = 'sif_exec zcat {} | '
+    cmd3 += 'sif_exec awk \'BEGIN{{OFS="\\t"}} '
     cmd3 += '{{print $1,$2,$3,$4,$5,$6,$7,$8,$9,$10}}\' | '
-    cmd3 += 'gzip -nc > {}'
+    cmd3 += 'sif_exec gzip -nc > {}'
     cmd3 = cmd3.format(
         idr_12col_bed,
         idr_peak)
     run_shell_cmd(cmd3)
 
-    cmd4 = 'cat {} | gzip -nc > {}'.format(idr_tmp, idr_out_gz)
+    cmd4 = 'sif_exec cat {} | sif_exec gzip -nc > {}'.format(idr_tmp, idr_out_gz)
     run_shell_cmd(cmd4)
 
     rm_f([idr_out, idr_tmp, idr_12col_bed])
@@ -142,7 +143,7 @@ def main():
     mkdir_p(args.out_dir)
 
     print('Do IDR...')
-    idr_peak, idr_plot, idr_out_gz, idr_stdout = idr(
+    idr_peak, idr_plot, idr_out_gz, idr_stdout = idr(args.sif_exec, 
         args.prefix,
         args.peak1, args.peak2, args.peak_pooled, args.peak_type,
         args.chrsz,
@@ -156,7 +157,7 @@ def main():
     print('List all files in output directory...')
     ls_l(args.out_dir)
 
-    log.info('All done.')
+    print('All done.')
 
 
 if __name__ == '__main__':
