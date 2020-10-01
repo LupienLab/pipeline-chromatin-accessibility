@@ -76,6 +76,7 @@ def get_npeak_col_by_rank(rank):
 
 def idr(sif_exec, basename_prefix, peak1, peak2, peak_pooled, peak_type, chrsz,
         thresh, rank, out_dir):
+    print(sif_exec)
     prefix = os.path.join(out_dir, basename_prefix)
     prefix += '.idr{}'.format(thresh)
     idr_peak = '{}.{}.gz'.format(prefix, peak_type)
