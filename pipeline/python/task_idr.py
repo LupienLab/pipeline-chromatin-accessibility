@@ -76,7 +76,6 @@ def get_npeak_col_by_rank(rank):
 
 def idr(sif_exec, basename_prefix, peak1, peak2, peak_pooled, peak_type, chrsz,
         thresh, rank, out_dir):
-    print(sif_exec)
     prefix = os.path.join(out_dir, basename_prefix)
     prefix += '.idr{}'.format(thresh)
     idr_peak = '{}.{}.gz'.format(prefix, peak_type)
@@ -88,7 +87,7 @@ def idr(sif_exec, basename_prefix, peak1, peak2, peak_pooled, peak_type, chrsz,
     idr_tmp = '{}.unthresholded-peaks.txt.tmp'.format(prefix)
     idr_out_gz = '{}.unthresholded-peaks.txt.gz'.format(prefix)
 
-    cmd1 = 'sif_exec idr --samples {} {} --peak-list {} --input-file-type narrowPeak '
+    cmd1 = sif_exec +'idr --samples {} {} --peak-list {} --input-file-type narrowPeak '
     cmd1 += '--output-file {} --rank {} --soft-idr-threshold {} '
     cmd1 += '--plot --use-best-multisummit-IDR --log-output-file {}'
     cmd1 = cmd1.format(
@@ -107,10 +106,10 @@ def idr(sif_exec, basename_prefix, peak1, peak2, peak_pooled, peak_type, chrsz,
     col = get_npeak_col_by_rank(rank)
     neg_log10_thresh = -math.log10(thresh)
     # LC_COLLATE=C
-    cmd2 = 'sif_exec awk \'BEGIN{{OFS="\\t"}} $12>={} '
+    cmd2 = sif_exec +' awk \'BEGIN{{OFS="\\t"}} $12>={} '
     cmd2 += '{{if ($2<0) $2=0; '
     cmd2 += 'print $1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12}}\' {} '
-    cmd2 += '| sif_exec sort | sif_exec uniq | sif_exec sort -grk{},{} | sif_exec gzip -nc > {}'
+    cmd2 += '| '+sif_exec +' sort | '+sif_exec +' uniq | '+sif_exec +' sort -grk{},{} | '+sif_exec +' gzip -nc > {}'
     cmd2 = cmd2.format(
         neg_log10_thresh,
         idr_tmp,
@@ -119,16 +118,16 @@ def idr(sif_exec, basename_prefix, peak1, peak2, peak_pooled, peak_type, chrsz,
         idr_12col_bed)
     run_shell_cmd(cmd2)
 
-    cmd3 = 'sif_exec zcat {} | '
-    cmd3 += 'sif_exec awk \'BEGIN{{OFS="\\t"}} '
+    cmd3 = sif_exec +' zcat {} | '
+    cmd3 += sif_exec +' awk \'BEGIN{{OFS="\\t"}} '
     cmd3 += '{{print $1,$2,$3,$4,$5,$6,$7,$8,$9,$10}}\' | '
-    cmd3 += 'sif_exec gzip -nc > {}'
+    cmd3 += sif_exec +' gzip -nc > {}'
     cmd3 = cmd3.format(
         idr_12col_bed,
         idr_peak)
     run_shell_cmd(cmd3)
 
-    cmd4 = 'sif_exec cat {} | sif_exec gzip -nc > {}'.format(idr_tmp, idr_out_gz)
+    cmd4 = sif_exec +' cat {} | '+sif_exec +' gzip -nc > {}'.format(idr_tmp, idr_out_gz)
     run_shell_cmd(cmd4)
 
     rm_f([idr_out, idr_tmp, idr_12col_bed])
