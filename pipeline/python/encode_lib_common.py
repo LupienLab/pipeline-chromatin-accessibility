@@ -309,10 +309,15 @@ def run_shell_cmd(cmd):
         universal_newlines=True,
         preexec_fn=os.setsid)  # to make a new process with a new PGID
     pid = p.pid
+    print("h1")
     pgid = os.getpgid(pid)
+    print("h2")
     log.info('run_shell_cmd: PID={}, PGID={}, CMD={}'.format(pid, pgid, cmd))
+    print("h3")
     t0 = get_ticks()
+    print("h4")
     stdout, stderr = p.communicate(cmd)
+    print("h5")
     rc = p.returncode
     t1 = get_ticks()
     err_str = (
