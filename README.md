@@ -3,43 +3,33 @@
 Instructions on how to perform chromatin accessibility data pre-processing and analyses (focusing on bulk ATAC-seq).
 
 # Installation
+git clone https://github.com/LupienLab/pipeline-chromatin-accessibility.git
 
-## Using conda environments
+go to pipeline-chromatin-accessibility/slurm_config
 
-```shell
-conda create --file environment.yaml
-```
+singularity pull --arch amd64 library://nandankita/default/lupien-lab:ml_atac_pipeline_v1.1 
 
-The core packages are found in `environment.sh`, if you want to install packages one-by-one, or troubleshoot installation.
 
 # Usage
 
-## Activate the conda environment
+## Load snakemake module
 
-This will let you access all of the software you'll likely need.
+module load snakemake/5.20.1 
 
-```shell
-conda activate ATACseq
-```
+If Snakemake is not present please install (conda install -c bioconda snakemake)
 
-## List your metadata in `config.tsv`
 
-`config.tsv` should contain all relevant metadata to your samples.
+## List your samples in `pipeline-chromatin-accessibility/data/samples.tsv`
+
+`data/samples.tsv` should contain all relevant metadata to your samples.
 Each row of `config.tsv` is a sample and each column is a particular feature you want to consider for pre-processing or analysis.
 See [detailed notes](docs/directory-structure/README.md) for more information.
 
-## Copy `Snakefile` to your data directory
-
-```shell
-cp pipeline/Snakefile pipeline/hg38.blacklist.bed pipeline/noOfRegionReads.py your/data/directory/
-cd your/data/directory/
-```
-
-This will allow you to run `snakemake` in the `your/data/directory/` folder, read the rules written in `Snakefile`, and pre-process your data.
 
 ## Run the pre-processing pipeline with Snakemake
 
-Run
+Run from pipeline-chromatin-accessibility/data
+
 
 ```shell
 snakemake -n
@@ -48,9 +38,18 @@ snakemake -n
 to preview what jobs you're about to run.
 If this lists all the steps your expect for each sample, you can tell Snakemake to execute the jobs with
 
+Actual run
+
 ```shell
-snakemake
+snakemake -j 1 -s mapping.snakefile
 ```
+
+or submit as job
+
+```shell
+sbatch ../slurm_config/run-pipeline.sh
+```
+
 
 Next, we'll cover what the bioinformatic pipeline for pre-processing your data entails.
 
