@@ -9,6 +9,12 @@ go to pipeline-chromatin-accessibility/slurm_config
 
 singularity pull --arch amd64 library://nandankita/default/lupien-lab:ml_atac_pipeline_v1.1 
 
+Singlarity is installed here on cluster:
+h4h:
+/cluster/tools/software/centos7/singularity/3.5.2/bin/singularity
+
+mordor:
+/mnt/work1/software/centos7/singularity/3.5.2/bin/singularity
 
 # Usage
 
