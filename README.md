@@ -3,27 +3,30 @@
 Instructions on how to perform chromatin accessibility data pre-processing and analyses (focusing on bulk ATAC-seq).
 
 # Installation
+
+```shell
+# clone the repo
 git clone https://github.com/LupienLab/pipeline-chromatin-accessibility.git
 
-go to pipeline-chromatin-accessibility/slurm_config
+# navigate to this directory
+cd pipeline-chromatin-accessibility/slurm_config
 
-singularity pull --arch amd64 library://nandankita/default/lupien-lab:ml_atac_pipeline_v1.1 
+# load the singularity modules
+module load singularity
 
-Singlarity is installed here on cluster:
-h4h:
-/cluster/tools/software/centos7/singularity/3.5.2/bin/singularity
-
-mordor:
-/mnt/work1/software/centos7/singularity/3.5.2/bin/singularity
+# download the singularity image
+singularity pull --arch amd64 library://nandankita/default/lupien-lab:ml_atac_pipeline_v1.1
+```
 
 # Usage
 
 ## Load snakemake module
 
-module load snakemake/5.20.1 
+```shell
+module load snakemake/5.20.1
+```
 
-If Snakemake is not present please install (conda install -c bioconda snakemake)
-
+If Snakemake is not present please install (`conda install -c bioconda snakemake`)
 
 ## List your samples in `pipeline-chromatin-accessibility/data/samples.tsv`
 
