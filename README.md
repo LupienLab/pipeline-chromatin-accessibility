@@ -66,7 +66,7 @@ Next, we'll cover what the bioinformatic pipeline for pre-processing your data e
 
 The overall pipeline comes from the ENCODE Project's [chromatin accessibility pipeline](https://www.encodeproject.org/pipelines/ENCPL792NWO/) and looks like this:
 
-![Pre-processing pipeline](pipeline/pipeling.png)
+![Pre-processing pipeline](https://github.com/LupienLab/pipeline-chromatin-accessibility/blob/master/pipeline/pipeline.png)
 
 A brief description of each step is below.
 
