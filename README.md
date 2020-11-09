@@ -102,7 +102,7 @@ To find where these regions of accessible chromatin are ("peaks"), we use a peak
 Originally designed for ChIP-seq experiments, MACS2 contains a variety of subcommands.
 The most important one for this application is `callpeak`.
 
-A more detailed description of what to look out for can be found in [the detailed docs](docs/macs2/README.md).
+A more detailed description of what to look out for can be found in [the detailed docs](https://github.com/macs3-project/MACS).
 
 ## IDR
 
