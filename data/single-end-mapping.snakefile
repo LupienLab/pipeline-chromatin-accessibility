@@ -79,7 +79,6 @@ rule fastqc:
         "{SIF_EXEC} fastqc {input} -o {REPORT_DIR}"
 
 rule trim_galore:
-    rule trim_galore:
     input:
         path.join(FASTQ_DIR, "{sample}_R1.fastq.gz"),
     output:
