@@ -4,42 +4,41 @@ Instructions on how to perform chromatin accessibility data pre-processing and a
 
 # Installation
 
-## Using conda environments
-
 ```shell
-conda create --file environment.yaml
-```
+# clone the repo
+git clone https://github.com/LupienLab/pipeline-chromatin-accessibility.git
 
-The core packages are found in `environment.sh`, if you want to install packages one-by-one, or troubleshoot installation.
+# navigate to this directory
+cd pipeline-chromatin-accessibility/slurm_config
+
+# load the singularity modules
+module load singularity
+
+# download the singularity image
+singularity pull --arch amd64 library://nandankita/default/lupien-lab:ml_atac_pipeline_v1.1
+```
 
 # Usage
 
-## Activate the conda environment
-
-This will let you access all of the software you'll likely need.
+## Load snakemake module
 
 ```shell
-conda activate ATACseq
+module load snakemake/5.20.1
 ```
 
-## List your metadata in `config.tsv`
+If Snakemake is not present please install (`conda install -c bioconda snakemake`)
 
-`config.tsv` should contain all relevant metadata to your samples.
+## List your samples in `pipeline-chromatin-accessibility/data/samples.tsv`
+
+`data/samples.tsv` should contain all relevant metadata to your samples.
 Each row of `config.tsv` is a sample and each column is a particular feature you want to consider for pre-processing or analysis.
 See [detailed notes](docs/directory-structure/README.md) for more information.
 
-## Copy `Snakefile` to your data directory
-
-```shell
-cp pipeline/Snakefile pipeline/hg38.blacklist.bed pipeline/noOfRegionReads.py your/data/directory/
-cd your/data/directory/
-```
-
-This will allow you to run `snakemake` in the `your/data/directory/` folder, read the rules written in `Snakefile`, and pre-process your data.
 
 ## Run the pre-processing pipeline with Snakemake
 
-Run
+Run from pipeline-chromatin-accessibility/data
+
 
 ```shell
 snakemake -n
@@ -48,9 +47,18 @@ snakemake -n
 to preview what jobs you're about to run.
 If this lists all the steps your expect for each sample, you can tell Snakemake to execute the jobs with
 
+Actual run
+
 ```shell
-snakemake
+snakemake -j 1 -s mapping.snakefile
 ```
+
+or submit as job
+
+```shell
+sbatch ../slurm_config/run-pipeline.sh
+```
+
 
 Next, we'll cover what the bioinformatic pipeline for pre-processing your data entails.
 
@@ -58,7 +66,7 @@ Next, we'll cover what the bioinformatic pipeline for pre-processing your data e
 
 The overall pipeline comes from the ENCODE Project's [chromatin accessibility pipeline](https://www.encodeproject.org/pipelines/ENCPL792NWO/) and looks like this:
 
-![Pre-processing pipeline](pipeline/pipeling.png)
+![Pre-processing pipeline](https://github.com/LupienLab/pipeline-chromatin-accessibility/blob/master/pipeline/pipeline.png)
 
 A brief description of each step is below.
 
@@ -94,7 +102,7 @@ To find where these regions of accessible chromatin are ("peaks"), we use a peak
 Originally designed for ChIP-seq experiments, MACS2 contains a variety of subcommands.
 The most important one for this application is `callpeak`.
 
-A more detailed description of what to look out for can be found in [the detailed docs](docs/macs2/README.md).
+A more detailed description of what to look out for can be found in [the detailed docs](https://github.com/macs3-project/MACS).
 
 ## IDR
 
