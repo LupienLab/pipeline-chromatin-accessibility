@@ -82,7 +82,7 @@ rule trim_galore:
     input:
         path.join(FASTQ_DIR, "{sample}_R1.fastq.gz"),
     output:
-        path.join(TRIM_DIR, "{sample}_R1_val_1.fq.gz"),
+        path.join(TRIM_DIR, "{sample}_R1_trimmed.fq.gz"),
         path.join(TRIM_DIR, "{sample}_R1.fastq.gz_trimming_report.txt"),
     params:
         "--gzip -q 30"
@@ -91,7 +91,7 @@ rule trim_galore:
 
 rule rename_trim_galore:
     input:
-        fq1 = path.join(TRIM_DIR, "{sample}_R1_val_1.fq.gz"),
+        fq1 = path.join(TRIM_DIR, "{sample}_R1_trimmed.fq.gz"),
         rp1 = path.join(TRIM_DIR, "{sample}_R1.fastq.gz_trimming_report.txt"),
         
     output:
