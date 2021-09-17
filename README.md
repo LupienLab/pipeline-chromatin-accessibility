@@ -11,8 +11,12 @@ git clone https://github.com/LupienLab/pipeline-chromatin-accessibility.git
 # navigate to this directory
 cd pipeline-chromatin-accessibility/slurm_config
 
-# load the singularity modules
+# load the singularity modules if applicable or refer path
 module load singularity
+
+Mordor:  /mnt/work1/software/centos7/singularity/3.5.2/bin/singularity
+H4H: /cluster/tools/software/centos7/singularity/3.5.2/bin/singularity
+
 
 # download the singularity image
 singularity pull --arch amd64 library://nandankita/default/lupien-lab:ml_atac_pipeline_v1.1
