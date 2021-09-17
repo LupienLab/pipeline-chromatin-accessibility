@@ -1,6 +1,6 @@
-SIF_EXEC = "/mnt/work1/software/centos7/singularity/3.5.2/bin/singularity exec ../slurm_config/ml_atac_pipeline_v1.1.sif"
+SIF_EXEC = "/mnt/work1/software/centos7/singularity/3.5.2/bin/singularity exec ../slurm_config/lupien-lab_ml_atac_pipeline_v1.1.sif"
 
-#SIF_EXEC = "/cluster/tools/software/centos7/singularity/3.5.2/bin/singularity exec ../slurm_config/ml_atac_pipeline_v1.1.sif"
+#SIF_EXEC = "/cluster/tools/software/centos7/singularity/3.5.2/bin/singularity exec ../slurm_config/lupien-lab_ml_atac_pipeline_v1.1.sif"
 
 
 import pandas as pd
