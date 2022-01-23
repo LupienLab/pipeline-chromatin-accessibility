@@ -1,6 +1,6 @@
 samples: samples.tsv
-BWT2_IDX: /mnt/work1/data/genomes/human/hg38/iGenomes/Sequence/Bowtie2Index/genome
-#BWT2_IDX: /cluster/tools/data/genomes/human/hg38/iGenomes/Sequence/Bowtie2Index/genome
+#BWT2_IDX: /mnt/work1/data/genomes/human/hg38/iGenomes/Sequence/Bowtie2Index/genome
+BWT2_IDX: /cluster/tools/data/genomes/human/hg38/iGenomes/Sequence/Bowtie2Index/genome
 ### Post processing parameters
 ###Bed file for no_of_reads_per_region and R_analysis
 ###
