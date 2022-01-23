@@ -6,6 +6,8 @@ Instructions on how to perform chromatin accessibility data pre-processing and a
 
 ```shell
 # clone the repo
+salloc -c 1 -t 2:00:00 --mem=6G -p build
+
 git clone https://github.com/LupienLab/pipeline-chromatin-accessibility.git
 
 # navigate to this directory
