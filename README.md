@@ -21,6 +21,8 @@ H4H: /cluster/tools/software/centos7/singularity/3.5.2/bin/singularity
 
 
 # download the singularity image
+module load singularity
+
 singularity pull --arch amd64 library://nandankita/default/lupien-lab:ml_atac_pipeline_v1.1
 ```
 
