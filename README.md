@@ -58,7 +58,7 @@ If this lists all the steps your expect for each sample, you can tell Snakemake 
 Actual run
 
 ```shell
-snakemake -j 1 -s mapping.snakefile
+snakemake -j 1 -s mapping.snakefile --nolock
 ```
 
 or submit as job
