@@ -33,6 +33,8 @@ rule R_analysis:
         path.join(R_DIR, "reads-in-control-regions.tsv"),
         # bedfile statistics
         path.join(R_DIR, "bedfile_statistics.pdf"),
+        # bedfile statistics with genomic distance
+        path.join(R_DIR, "bedfile_statistics_genomic_dist.pdf"),
         # GeneMatching_All_OncoSuppressor
         path.join(R_DIR, "Matching_genes_proximity_oncogene.txt"),
         path.join(R_DIR, "Matching_genes_proximity_tumor_suppressor.txt"),
@@ -53,7 +55,7 @@ rule no_of_reads_per_region:
             path.join(ALIGN_DIR, "{sample}.filtered.dedup.sorted.bam"),
             sample=SAMPLES)
     output:
-        path.join(REPORT_DIR, "reads-in-control-regions.tsv")
+        path.join(R_DIR, "reads-in-control-regions.tsv")
     shell:
         "{SIF_EXEC} python {input.script} -a {input.user_bed_file} -b {input.bams} -o {output}"
 
@@ -66,6 +68,16 @@ rule bed_stats:
         path.join(R_DIR, "bedfile_statistics.pdf")
     shell:
         "{SIF_EXEC} Rscript {input.script} -f {input.user_bed_file} -o {output}"   
+
+###bedfile statistics with genomic distance
+rule bed_stats_genomicdist:
+    input:
+        script = "../pipeline/R/bedfile_statistics_with_genomicdist.R",
+        user_bed_file = config["user_bed_file"]
+    output:
+        path.join(R_DIR, "bedfile_statistics_genomic_dist.pdf")
+    shell:
+        "{SIF_EXEC} Rscript {input.script} -f {input.user_bed_file} -o {output}"
 
 ###GeneMatching_All_OncoSuppressor
 rule GeneMatching_All_OncoSuppressor:
