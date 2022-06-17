@@ -3,6 +3,30 @@ library(ChIPpeakAnno)
 library(TxDb.Hsapiens.UCSC.hg19.knownGene)
 library(TxDb.Hsapiens.UCSC.hg38.knownGene)
 library(RColorBrewer)
+####User Input######################################
+library(optparse)
+library(reticulate)
+
+option_list = list(
+  make_option(c("-f", "--file"), type="character", default=NULL,
+              help="dataset bed file", metavar="character"),
+  make_option(c("-o", "--out"), type="character", default="bedfile_statistics.pdf",
+              help="output file name [default= %default]", metavar="character"),
+  make_option(c("-d", "--dir"), type="character", default=".",
+              help="output directory", metavar="character")
+);
+
+opt_parser = OptionParser(option_list=option_list);
+opt = parse_args(opt_parser);
+
+if (is.null(opt$file)){
+  print_help(opt_parser)
+  stop("At least one argument must be supplied (input file).n", call.=FALSE)
+}
+
+#####################################################
+
+
 #####################################################
 ############ Human chromosome information ###########
 #####################################################
@@ -154,8 +178,12 @@ bed_stat_plot <- function(bed_frame, bed_stat_frame, chrsize_vec,
 
 
 ######################################################
-source('~/Documents/GitHub/ChAI/code/R/genomic_dist.R')
-input_file <- '~/OneDrive - University of Toronto/CREAM/TCGA_ATAC/COREs/TCGA-2G-AAKG-05A_SigCut1.65_.bed'
+
+source('../pipeline/R/genomic_dist.R')
+source_python("../pipeline/python/checkBedfileQuality.py")
+checkBedFile(opt$file)
+
+input_file <- opt$file
 bedfile <- read.table(input_file,stringsAsFactors = F, check.names = F)
 bedfile <- bedfile[,c(1:3)]
 colnames(bedfile) <- c('chr', 'start', 'end')
@@ -181,4 +209,4 @@ bed_stat_plot(bed_frame = bedfile[1:10,],
               loci_type = loci_typevec,
               promoter_proximity = promoter_proximity,
               downstream_dist = downstream_dist,
-              output_path='sample.pdf')
+              output_path=paste(opt$dir,"/",opt$out,sep=""))
