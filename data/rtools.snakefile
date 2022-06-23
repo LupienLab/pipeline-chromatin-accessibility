@@ -17,7 +17,9 @@ validate(config, schema="../schemas/config.schema.yaml")
 
 SAMPLES = pd.read_table(config["samples"])["Sample"].tolist()
 
-user_bed_file = pd.read_table(config["user_bed_file"], dtype=str,header=None)
+#user_bed_file = pd.read_table(config["user_bed_file"], dtype=str,header=None)
+
+BED_DIR = config["user_bed_dir"]
 
 REPORT_DIR = "Reports"
 ALIGN_DIR = "Aligned"
@@ -30,18 +32,18 @@ STATIC_DIR = "../pipeline/static"
 rule R_analysis:
     input:
         # Number of reads per region
-        path.join(R_DIR, "reads-in-control-regions.tsv"),
+        expand(path.join(R_DIR, "{sample}.reads-in-control-regions.tsv"),sample=SAMPLES),
         # bedfile statistics
-        path.join(R_DIR, "bedfile_statistics.pdf"),
+        expand(path.join(R_DIR, "{sample}.bedfile_statistics.pdf"),sample=SAMPLES),
         # bedfile statistics with genomic distance
-        path.join(R_DIR, "bedfile_statistics_genomic_dist.pdf"),
+        expand(path.join(R_DIR, "{sample}.bedfile_statistics_genomic_dist.pdf"),sample=SAMPLES),
         # GeneMatching_All_OncoSuppressor
-        path.join(R_DIR, "Matching_genes_proximity_oncogene.txt"),
-        path.join(R_DIR, "Matching_genes_proximity_tumor_suppressor.txt"),
+        expand(path.join(R_DIR, "{sample}.Matching_genes_proximity_oncogene.txt"),sample=SAMPLES),
+        expand(path.join(R_DIR, "{sample}.Matching_genes_proximity_tumor_suppressor.txt"),sample=SAMPLES),
         #JaccardSim_QueryBed_To_TCGAPeaks
-        path.join(R_DIR, config["JaccardSim"]["sample_name"]+".pdf"),
-        path.join(R_DIR, "Mostsimilar_tissue_Top"+str(config["JaccardSim"]["top_SamNum"])+"samples.csv"),
-        path.join(R_DIR, "Phenotypic_info_Top"+str(config["JaccardSim"]["top_SamNum"])+"samples.csv")
+        expand(path.join(R_DIR, "{sample}."+config["JaccardSim"]["sample_name"]+".pdf"),sample=SAMPLES),
+        expand(path.join(R_DIR, "{sample}.Mostsimilar_tissue_Top"+str(config["JaccardSim"]["top_SamNum"])+"samples.csv"),sample=SAMPLES),
+        expand(path.join(R_DIR, "{sample}.Phenotypic_info_Top"+str(config["JaccardSim"]["top_SamNum"])+"samples.csv"),sample=SAMPLES)
     
 # ==============================================================================
 # Rules
@@ -50,63 +52,64 @@ rule R_analysis:
 rule no_of_reads_per_region:
     input:
         script = "../pipeline/python/noOfRegionReads.py",
-        user_bed_file = config["user_bed_file"],
+        user_bed_files = path.join(BED_DIR,"{sample}.bed"),
         bams = expand(
             path.join(ALIGN_DIR, "{sample}.filtered.dedup.sorted.bam"),
             sample=SAMPLES)
     output:
-        path.join(R_DIR, "reads-in-control-regions.tsv")
+        path.join(R_DIR, "{sample}.reads-in-control-regions.tsv")
     shell:
-        "{SIF_EXEC} python {input.script} -a {input.user_bed_file} -b {input.bams} -o {output}"
+        "{SIF_EXEC} python {input.script} -a {input.user_bed_files} -b {input.bams} -o {output}"
 
 ###bedfile statistics
 rule bed_stats:
     input:
         script = "../pipeline/R/bedfile_statistics.R",
-        user_bed_file = config["user_bed_file"]
+        user_bed_files = path.join(BED_DIR,"{sample}.bed")
     output:
-        path.join(R_DIR, "bedfile_statistics.pdf")
+        path.join(R_DIR, "{sample}.bedfile_statistics.pdf")
     shell:
-        "{SIF_EXEC} Rscript {input.script} -f {input.user_bed_file} -o {output}"   
+        "{SIF_EXEC} Rscript {input.script} -f {input.user_bed_files} -o {output}"   
 
 ###bedfile statistics with genomic distance
 rule bed_stats_genomicdist:
     input:
         script = "../pipeline/R/bedfile_statistics_with_genomicdist.R",
-        user_bed_file = config["user_bed_file"]
+        user_bed_files = path.join(BED_DIR,"{sample}.bed")
     output:
-        path.join(R_DIR, "bedfile_statistics_genomic_dist.pdf")
+        path.join(R_DIR, "{sample}.bedfile_statistics_genomic_dist.pdf")
     shell:
-        "{SIF_EXEC} Rscript {input.script} -f {input.user_bed_file} -o {output}"
+        "{SIF_EXEC} Rscript {input.script} -f {input.user_bed_files} -o {output}"
 
 ###GeneMatching_All_OncoSuppressor
 rule GeneMatching_All_OncoSuppressor:
     input:
         script = "../pipeline/R/GeneMatching_All_OncoSuppressor.R",
-        user_bed_file = config["user_bed_file"]
+        user_bed_files = path.join(BED_DIR,"{sample}.bed")
     output:
-        path.join(R_DIR, "Matching_genes_proximity_oncogene.txt"),
-        path.join(R_DIR, "Matching_genes_proximity_tumor_suppressor.txt")
+        path.join(R_DIR, "{sample}.Matching_genes_proximity_oncogene.txt"),
+        path.join(R_DIR, "{sample}.Matching_genes_proximity_tumor_suppressor.txt")
     params:
-        "-t "+str(config["GeneMatching"]["TSSDist"])
+        "-t "+str(config["GeneMatching"]["TSSDist"])+" -n {sample}"
     shell:
-        "{SIF_EXEC} Rscript {input.script} -f {input.user_bed_file} {params} -d {R_DIR}"
+        "{SIF_EXEC} Rscript {input.script} -f {input.user_bed_files} {params} -d {R_DIR}"
 
 ##JaccardSim_QueryBed_To_TCGAPeaks
 rule JaccardSim_QueryBed_To_TCGAPeaks:
     input:
         script = "../pipeline/R/JaccardSim_QueryBed_To_TCGAPeaks.R",
-        user_bed_file = config["user_bed_file"]
+        user_bed_files = path.join(BED_DIR,"{sample}.bed")
     output:
-        path.join(R_DIR, config["JaccardSim"]["sample_name"]+".pdf"),
-        path.join(R_DIR, "Mostsimilar_tissue_Top"+str(config["JaccardSim"]["top_SamNum"])+"samples.csv"),
-        path.join(R_DIR, "Phenotypic_info_Top"+str(config["JaccardSim"]["top_SamNum"])+"samples.csv")
+        path.join(R_DIR, "{sample}."+config["JaccardSim"]["sample_name"]+".pdf"),
+        path.join(R_DIR, "{sample}.Mostsimilar_tissue_Top"+str(config["JaccardSim"]["top_SamNum"])+"samples.csv"),
+        path.join(R_DIR, "{sample}.Phenotypic_info_Top"+str(config["JaccardSim"]["top_SamNum"])+"samples.csv")
     params:
-        "-t "+str(config["JaccardSim"]["top_SamNum"])+" -s "+config["JaccardSim"]["sample_name"]+" -c "+config["JaccardSim"]["tissue_name"]
+        "-t "+str(config["JaccardSim"]["top_SamNum"])+" -s "+config["JaccardSim"]["sample_name"]+" -c "+config["JaccardSim"]["tissue_name"]+" -n {sample}"
     shell:
-        "{SIF_EXEC} Rscript {input.script} -f {input.user_bed_file} {params} -d {R_DIR}"
+        "{SIF_EXEC} Rscript {input.script} -f {input.user_bed_files} {params}  -d {R_DIR}"
 
 #rule repeat_score_cal:
 #    input:
 #        TE_bed_files = path.join(STATIC_DIR,"TEonly_repeats_hg38")
 #        script = "../pipeline/R/Bed_To_GRange.R",
+

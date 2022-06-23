@@ -17,7 +17,7 @@ validate(config, schema="../schemas/config.schema.yaml")
 
 SAMPLES = pd.read_table(config["samples"])["Sample"].tolist()
 
-user_bed_file = pd.read_table(config["user_bed_file"], dtype=str,header=None)
+#user_bed_file = pd.read_table(config["user_bed_file"], dtype=str,header=None)
 
 ALIGN_DIR = "Aligned"
 REPORT_DIR = "Reports"
