@@ -5,7 +5,7 @@ BWT2_IDX: /cluster/tools/data/genomes/human/hg38/iGenomes/Sequence/Bowtie2Index/
 ###Bed file for no_of_reads_per_region and R_analysis
 ###
 
-user_bed_file: TCGA-2G-AAFM-01A_SigCut1.65_.bed
+user_bed_dir: input_bed
 
 ##GeneMatching_All_OncoSuppressor specific
 GeneMatching:
