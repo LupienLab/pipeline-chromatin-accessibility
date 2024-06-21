@@ -39,7 +39,7 @@ If Snakemake is not present please install (`conda install -c bioconda snakemake
 ## List your samples in `pipeline-chromatin-accessibility/data/samples.tsv`
 
 `data/samples.tsv` should contain all relevant metadata to your samples.
-Each row of `config.tsv` is a sample and each column is a particular feature you want to consider for pre-processing or analysis.
+Each row of `samples.tsv` is a sample and each column is a particular feature you want to consider for pre-processing or analysis.
 See [detailed notes](docs/directory-structure/README.md) for more information.
 
 
