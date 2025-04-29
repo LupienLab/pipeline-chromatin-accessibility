@@ -24,7 +24,7 @@ SAMPLES = pd.read_table(config["samples"])["Sample"].tolist()
 #user_bed_file = pd.read_table(config["user_bed_file"], dtype=str,header=None)
 
 REPORT_DIR = "Reports"
-FASTQ_DIR = "/cluster/projects/lupiengroup/data/ATAC-seq/2024/240327_A00827_0932_AHYCNHDRX3_fastq_Angers/Lupien_Angers/"
+FASTQ_DIR = "/cluster/projects/PATH/"
 TRIM_DIR = "Trimmed"
 ALIGN_DIR = "Aligned"
 PEAK_DIR = "Peaks"
